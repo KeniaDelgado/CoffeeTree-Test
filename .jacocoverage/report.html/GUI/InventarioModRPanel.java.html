@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>InventarioModRPanel.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;CoffeeTree&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">GUI</a> &gt; <span class="el_source">InventarioModRPanel.java</span></div><h1>InventarioModRPanel.java</h1><pre class="source lang-java linenums">
+package GUI;
+
+import java.awt.EventQueue;
+import java.beans.Beans;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+//
+import controladores.Ingredientes;
+import controladores.Productos;
+import controladores.Recetas;
+import datos.Ingrediente;
+import datos.Producto;
+import datos.Receta;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import oraclegeneral.Conexion;
+
+/**
+ *
+ * @author Hector
+ */
+public class InventarioModRPanel extends JPanel {
+    
+    
+<span class="nc" id="L33">    private List&lt;Productos&gt; prod = new ArrayList&lt;Productos&gt;();</span>
+<span class="nc" id="L34">    private List&lt;Producto&gt; prodd = new ArrayList&lt;Producto&gt;();</span>
+<span class="nc" id="L35">    private List&lt;Ingrediente&gt; ingrediente = new ArrayList&lt;Ingrediente&gt;();</span>
+<span class="nc" id="L36">    private List&lt;Ingrediente&gt; ing = new ArrayList&lt;Ingrediente&gt;();</span>
+<span class="nc" id="L37">    private List&lt;Receta&gt; cant = new ArrayList&lt;Receta&gt;();</span>
+    
+<span class="nc" id="L39">     private List&lt;Ingrediente&gt; med = new ArrayList&lt;Ingrediente&gt;();</span>
+    DefaultTableModel mod;
+    DefaultTableModel cantidades_reg;
+    
+    
+<span class="nc" id="L44">    public InventarioModRPanel() {</span>
+<span class="nc" id="L45">        initComponents();</span>
+<span class="nc" id="L46">        cargarProductos();</span>
+<span class="nc" id="L47">        cargarIngredientes();</span>
+<span class="nc" id="L48">        Medidas();</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (!Beans.isDesignTime()) {</span>
+<span class="nc" id="L50">            entityManager.getTransaction().begin();</span>
+        }
+<span class="nc" id="L52">        int[] anchos = {300,50,50};</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        for(int i = 0;i&lt;tblRecetas.getColumnCount(); i++) {</span>
+<span class="nc" id="L54">        tblRecetas.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);</span>
+        }
+<span class="nc" id="L56">        newButton.setEnabled(false);</span>
+<span class="nc" id="L57">        deleteButton.setEnabled(false);</span>
+<span class="nc" id="L58">        btnCancelar.setEnabled(false);</span>
+<span class="nc" id="L59">        refreshButton.setEnabled(false);</span>
+<span class="nc" id="L60">        saveButton.setEnabled(false); </span>
+        //txtCant.setEnabled(false);
+        
+        
+
+<span class="nc" id="L65">txtCant.addKeyListener(new KeyAdapter() {</span>
+
+@Override
+public void keyTyped(KeyEvent e) {
+<span class="nc" id="L69">char c = e.getKeyChar();</span>
+<span class="nc bnc" id="L70" title="All 8 branches missed.">if (((c &lt; '0') || (c &gt; '9')) &amp;&amp; (c != KeyEvent.VK_DELETE)&amp;&amp; (c != '.')) {</span>
+<span class="nc" id="L71">e.consume();</span>
+}
+<span class="nc bnc" id="L73" title="All 4 branches missed.">if (c == '.' &amp;&amp; txtCant.getText().contains(&quot;.&quot;)) {</span>
+<span class="nc" id="L74">e.consume();</span>
+}
+<span class="nc" id="L76">}</span>
+});
+<span class="nc" id="L78">tblRecetas.setDefaultEditor(Object.class, null);</span>
+<span class="nc" id="L79">cantidades_reg = (DefaultTableModel)this.tblRecetas.getModel();</span>
+<span class="nc" id="L80">tblRecetas.addMouseListener(new MouseAdapter() {</span>
+
+    
+public void mouseClicked(MouseEvent evento) { 
+<span class="nc" id="L84">int fil = tblRecetas.getSelectedRow();</span>
+<span class="nc" id="L85">String in = tblRecetas.getValueAt(fil, 0).toString();</span>
+<span class="nc" id="L86">String m = tblRecetas.getValueAt(fil, 2).toString();</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">if(btnCancelar.isEnabled()){</span>
+
+}else{
+<span class="nc bnc" id="L90" title="All 2 branches missed.">for(int i=0;i&lt;lstIngredientes.getItemCount();i++){</span>
+<span class="nc" id="L91">        lstIngredientes.setSelectedIndex(i);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        if(in.equals(lstIngredientes.getSelectedItem().toString())){</span>
+<span class="nc" id="L93">        lstIngredientes.setSelectedIndex(i);</span>
+<span class="nc" id="L94">        i=lstIngredientes.getItemCount();</span>
+        }
+    
+    }
+<span class="nc bnc" id="L98" title="All 2 branches missed.">for(int i=0;i&lt;ltsMedidas.getItemCount();i++){</span>
+<span class="nc" id="L99">        ltsMedidas.setSelectedIndex(i);</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">        if(m.equals(ltsMedidas.getSelectedItem().toString())){</span>
+<span class="nc" id="L101">        ltsMedidas.setSelectedIndex(i);</span>
+<span class="nc" id="L102">        i=ltsMedidas.getItemCount();</span>
+        }
+    
+    }
+<span class="nc" id="L106">    lstIngredientes.setEnabled(false);</span>
+<span class="nc" id="L107">    deleteButton.setEnabled(true);</span>
+<span class="nc" id="L108">    txtCant.setEnabled(true);</span>
+<span class="nc" id="L109">    newButton.setEnabled(true);</span>
+<span class="nc" id="L110">    txtCant.setText(tblRecetas.getValueAt(tblRecetas.getSelectedRow(),1).toString());</span>
+}
+<span class="nc" id="L112">}</span>
+
+});
+                
+<span class="nc" id="L116">    }</span>
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc bnc" id="L127" title="All 2 branches missed.">        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory(&quot;jdbc:oracle:thin:@localhost:1521:XEPU&quot;).createEntityManager();</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">        query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery(&quot;SELECT i FROM Ingredientes i&quot;);</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">        list = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(query.getResultList());</span>
+<span class="nc" id="L130">        saveButton = new javax.swing.JButton();</span>
+<span class="nc" id="L131">        refreshButton = new javax.swing.JButton();</span>
+<span class="nc" id="L132">        newButton = new javax.swing.JButton();</span>
+<span class="nc" id="L133">        deleteButton = new javax.swing.JButton();</span>
+<span class="nc" id="L134">        nombreLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L135">        cantDispLabel = new javax.swing.JLabel();</span>
+<span class="nc" id="L136">        txtCant = new javax.swing.JTextField();</span>
+<span class="nc" id="L137">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L138">        lstProductos = new javax.swing.JComboBox&lt;&gt;();</span>
+<span class="nc" id="L139">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L140">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L141">        tblRecetas = new javax.swing.JTable();</span>
+<span class="nc" id="L142">        btnAceptar = new javax.swing.JButton();</span>
+<span class="nc" id="L143">        lstIngredientes = new javax.swing.JComboBox&lt;&gt;();</span>
+<span class="nc" id="L144">        ltsMedidas = new javax.swing.JComboBox&lt;&gt;();</span>
+<span class="nc" id="L145">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="nc" id="L146">        btnCancelar = new javax.swing.JButton();</span>
+<span class="nc" id="L147">        btnCambios = new javax.swing.JButton();</span>
+
+<span class="nc" id="L149">        FormListener formListener = new FormListener();</span>
+
+<span class="nc" id="L151">        setLayout(null);</span>
+
+<span class="nc" id="L153">        saveButton.setText(&quot;Guardar nuevo&quot;);</span>
+<span class="nc" id="L154">        saveButton.addActionListener(formListener);</span>
+<span class="nc" id="L155">        add(saveButton);</span>
+<span class="nc" id="L156">        saveButton.setBounds(400, 280, 120, 20);</span>
+
+<span class="nc" id="L158">        refreshButton.setText(&quot;Update&quot;);</span>
+<span class="nc" id="L159">        refreshButton.addActionListener(formListener);</span>
+<span class="nc" id="L160">        add(refreshButton);</span>
+<span class="nc" id="L161">        refreshButton.setBounds(320, 290, 71, 23);</span>
+
+<span class="nc" id="L163">        newButton.setText(&quot;Nuevo&quot;);</span>
+<span class="nc" id="L164">        newButton.addActionListener(formListener);</span>
+<span class="nc" id="L165">        add(newButton);</span>
+<span class="nc" id="L166">        newButton.setBounds(60, 290, 71, 23);</span>
+
+<span class="nc" id="L168">        deleteButton.setText(&quot;Borrar&quot;);</span>
+<span class="nc" id="L169">        deleteButton.addActionListener(formListener);</span>
+<span class="nc" id="L170">        add(deleteButton);</span>
+<span class="nc" id="L171">        deleteButton.setBounds(140, 290, 71, 23);</span>
+
+<span class="nc" id="L173">        nombreLabel.setText(&quot;Ingrediente:&quot;);</span>
+<span class="nc" id="L174">        add(nombreLabel);</span>
+<span class="nc" id="L175">        nombreLabel.setBounds(50, 250, 60, 14);</span>
+
+<span class="nc" id="L177">        cantDispLabel.setText(&quot;Cantidad:&quot;);</span>
+<span class="nc" id="L178">        add(cantDispLabel);</span>
+<span class="nc" id="L179">        cantDispLabel.setBounds(340, 230, 47, 14);</span>
+
+<span class="nc" id="L181">        txtCant.addActionListener(formListener);</span>
+<span class="nc" id="L182">        txtCant.addKeyListener(formListener);</span>
+<span class="nc" id="L183">        add(txtCant);</span>
+<span class="nc" id="L184">        txtCant.setBounds(340, 250, 60, 20);</span>
+
+<span class="nc" id="L186">        jLabel1.setText(&quot;Producto&quot;);</span>
+<span class="nc" id="L187">        add(jLabel1);</span>
+<span class="nc" id="L188">        jLabel1.setBounds(80, 10, 60, 14);</span>
+
+<span class="nc" id="L190">        lstProductos.addActionListener(formListener);</span>
+<span class="nc" id="L191">        add(lstProductos);</span>
+<span class="nc" id="L192">        lstProductos.setBounds(150, 10, 210, 20);</span>
+
+<span class="nc" id="L194">        jLabel2.setText(&quot;Receta&quot;);</span>
+<span class="nc" id="L195">        add(jLabel2);</span>
+<span class="nc" id="L196">        jLabel2.setBounds(50, 50, 60, 14);</span>
+
+<span class="nc" id="L198">        tblRecetas.setModel(new javax.swing.table.DefaultTableModel(</span>
+            new Object [][] {
+
+            },
+            new String [] {
+                &quot;Ingrediente&quot;, &quot;Cantidad&quot;, &quot;Medida&quot;
+            }
+        ));
+<span class="nc" id="L206">        jScrollPane1.setViewportView(tblRecetas);</span>
+
+<span class="nc" id="L208">        add(jScrollPane1);</span>
+<span class="nc" id="L209">        jScrollPane1.setBounds(50, 70, 460, 150);</span>
+
+<span class="nc" id="L211">        btnAceptar.setText(&quot;Aceptar&quot;);</span>
+<span class="nc" id="L212">        btnAceptar.addActionListener(formListener);</span>
+<span class="nc" id="L213">        add(btnAceptar);</span>
+<span class="nc" id="L214">        btnAceptar.setBounds(390, 10, 71, 23);</span>
+
+<span class="nc" id="L216">        lstIngredientes.addActionListener(formListener);</span>
+<span class="nc" id="L217">        add(lstIngredientes);</span>
+<span class="nc" id="L218">        lstIngredientes.setBounds(120, 250, 210, 20);</span>
+
+<span class="nc" id="L220">        ltsMedidas.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot; }));</span>
+<span class="nc" id="L221">        add(ltsMedidas);</span>
+<span class="nc" id="L222">        ltsMedidas.setBounds(410, 250, 56, 20);</span>
+
+<span class="nc" id="L224">        jLabel3.setText(&quot;Medida:&quot;);</span>
+<span class="nc" id="L225">        add(jLabel3);</span>
+<span class="nc" id="L226">        jLabel3.setBounds(410, 230, 40, 14);</span>
+
+<span class="nc" id="L228">        btnCancelar.setText(&quot;Cancelar&quot;);</span>
+<span class="nc" id="L229">        btnCancelar.addActionListener(formListener);</span>
+<span class="nc" id="L230">        add(btnCancelar);</span>
+<span class="nc" id="L231">        btnCancelar.setBounds(220, 290, 90, 23);</span>
+
+<span class="nc" id="L233">        btnCambios.setText(&quot;Guardar Cambios&quot;);</span>
+<span class="nc" id="L234">        btnCambios.addActionListener(formListener);</span>
+<span class="nc" id="L235">        add(btnCambios);</span>
+<span class="nc" id="L236">        btnCambios.setBounds(400, 310, 120, 20);</span>
+<span class="nc" id="L237">    }</span>
+
+    // Code for dispatching events from components to event handlers.
+
+    private class FormListener implements java.awt.event.ActionListener, java.awt.event.KeyListener {
+<span class="nc" id="L242">        FormListener() {}</span>
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc bnc" id="L244" title="All 2 branches missed.">            if (evt.getSource() == saveButton) {</span>
+<span class="nc" id="L245">                InventarioModRPanel.this.saveButtonActionPerformed(evt);</span>
+            }
+<span class="nc bnc" id="L247" title="All 2 branches missed.">            else if (evt.getSource() == refreshButton) {</span>
+<span class="nc" id="L248">                InventarioModRPanel.this.refreshButtonActionPerformed(evt);</span>
+            }
+<span class="nc bnc" id="L250" title="All 2 branches missed.">            else if (evt.getSource() == newButton) {</span>
+<span class="nc" id="L251">                InventarioModRPanel.this.newButtonActionPerformed(evt);</span>
+            }
+<span class="nc bnc" id="L253" title="All 2 branches missed.">            else if (evt.getSource() == deleteButton) {</span>
+<span class="nc" id="L254">                InventarioModRPanel.this.deleteButtonActionPerformed(evt);</span>
+            }
+<span class="nc bnc" id="L256" title="All 2 branches missed.">            else if (evt.getSource() == txtCant) {</span>
+<span class="nc" id="L257">                InventarioModRPanel.this.txtCantActionPerformed(evt);</span>
+            }
+<span class="nc bnc" id="L259" title="All 2 branches missed.">            else if (evt.getSource() == lstProductos) {</span>
+<span class="nc" id="L260">                InventarioModRPanel.this.lstProductosActionPerformed(evt);</span>
+            }
+<span class="nc bnc" id="L262" title="All 2 branches missed.">            else if (evt.getSource() == btnAceptar) {</span>
+<span class="nc" id="L263">                InventarioModRPanel.this.btnAceptarActionPerformed(evt);</span>
+            }
+<span class="nc bnc" id="L265" title="All 2 branches missed.">            else if (evt.getSource() == lstIngredientes) {</span>
+<span class="nc" id="L266">                InventarioModRPanel.this.lstIngredientesActionPerformed(evt);</span>
+            }
+<span class="nc bnc" id="L268" title="All 2 branches missed.">            else if (evt.getSource() == btnCancelar) {</span>
+<span class="nc" id="L269">                InventarioModRPanel.this.btnCancelarActionPerformed(evt);</span>
+            }
+<span class="nc bnc" id="L271" title="All 2 branches missed.">            else if (evt.getSource() == btnCambios) {</span>
+<span class="nc" id="L272">                InventarioModRPanel.this.btnCambiosActionPerformed(evt);</span>
+            }
+<span class="nc" id="L274">        }</span>
+
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+<span class="nc bnc" id="L277" title="All 2 branches missed.">            if (evt.getSource() == txtCant) {</span>
+<span class="nc" id="L278">                InventarioModRPanel.this.txtCantKeyPressed(evt);</span>
+            }
+<span class="nc" id="L280">        }</span>
+
+        public void keyReleased(java.awt.event.KeyEvent evt) {
+<span class="nc" id="L283">        }</span>
+
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+<span class="nc bnc" id="L286" title="All 2 branches missed.">            if (evt.getSource() == txtCant) {</span>
+<span class="nc" id="L287">                InventarioModRPanel.this.txtCantKeyTyped(evt);</span>
+            }
+<span class="nc" id="L289">        }</span>
+    }// &lt;/editor-fold&gt;//GEN-END:initComponents
+
+    
+    @SuppressWarnings(&quot;unchecked&quot;)
+    private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
+<span class="nc" id="L295">        lstProductos.setEnabled(true);</span>
+<span class="nc" id="L296">        newButton.setEnabled(true);</span>
+<span class="nc" id="L297">        deleteButton.setEnabled(true);</span>
+<span class="nc" id="L298">        btnCancelar.setEnabled(false);</span>
+<span class="nc" id="L299">        refreshButton.setEnabled(false);</span>
+<span class="nc" id="L300">        saveButton.setEnabled(true); </span>
+<span class="nc" id="L301">        tblRecetas.setDefaultEditor(Object.class, null);</span>
+<span class="nc" id="L302">        cantidades_reg = (DefaultTableModel)this.tblRecetas.getModel();       </span>
+                    
+        
+              
+<span class="nc" id="L306">                String selected = lstProductos.getSelectedItem().toString();</span>
+<span class="nc" id="L307">                System.out.println(&quot;Lols&quot;);</span>
+
+<span class="nc" id="L309">                prodd = (List&lt;Producto&gt;) Productos.select(Conexion.getDBConexion(), &quot;select producto_id from productos where nombre like '&quot; + selected + &quot;'&quot;, Producto.class);</span>
+<span class="nc" id="L310">                System.out.println(&quot;Producto seleccionado: &quot; + prodd.get(0).getProducto_id());</span>
+<span class="nc" id="L311">                Producto por = (Producto) prodd.get(0);</span>
+<span class="nc" id="L312">                System.out.println(&quot;Antes del delete&quot;);</span>
+                // DELETE
+<span class="nc" id="L314">                Recetas.executeQuery(Conexion.getDBConexion(), String.format(&quot;delete from recetas where producto_id = %s&quot;,prodd.get(0).getProducto_id()));            </span>
+<span class="nc" id="L315">                cantidades_reg = (DefaultTableModel)this.tblRecetas.getModel();</span>
+                // Eliminar todo lo del producto
+                //Ingredientes del producto
+               
+<span class="nc bnc" id="L319" title="All 2 branches missed.">                   for(int i=0;i&lt;cantidades_reg.getRowCount();i++){</span>
+<span class="nc" id="L320">                System.out.println(&quot;Row count: &quot; + cantidades_reg.getRowCount()); </span>
+<span class="nc" id="L321">                String ingT = cantidades_reg.getValueAt(i, 0).toString();</span>
+<span class="nc" id="L322">                String cantT = cantidades_reg.getValueAt(i, 1).toString();</span>
+<span class="nc" id="L323">                ing = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select ingrediente_id from ingredientes where nombre like '&quot; + ingT + &quot;'&quot;, Ingrediente.class);</span>
+<span class="nc" id="L324">                Ingrediente in = (Ingrediente) ing.get(0);</span>
+                //inserts de tablasy
+<span class="nc" id="L326">                    System.out.println(&quot;producto_id:&quot; + por.getProducto_id());</span>
+<span class="nc" id="L327">                    System.out.println(&quot;ingrediente_id:&quot; + in.getIngrediente_id());</span>
+<span class="nc" id="L328">                    System.out.println(&quot;cantidad&quot; + cantT);</span>
+<span class="nc" id="L329">                Recetas.executeQuery(Conexion.getDBConexion(), String.format(&quot;insert into recetas(producto_id, ingrediente_id, cant) values(%s,%s,%s)&quot;,prodd.get(0).getProducto_id(),in.getIngrediente_id(),cantT));</span>
+                   
+                   }
+<span class="nc" id="L332">                   JOptionPane.showConfirmDialog(null,&quot;listo&quot;,&quot;Alerta&quot;,JOptionPane.YES_NO_OPTION);</span>
+<span class="nc" id="L333">    }//GEN-LAST:event_refreshButtonActionPerformed</span>
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+<span class="nc" id="L336">        refreshButton.setEnabled(true);</span>
+<span class="nc" id="L337">        tblRecetas.setDefaultEditor(Object.class, null);</span>
+<span class="nc" id="L338">        cantidades_reg = (DefaultTableModel)this.tblRecetas.getModel();</span>
+        
+<span class="nc" id="L340">        int opc = JOptionPane.showConfirmDialog(null,&quot;¿Seguro?&quot;,&quot;Alerta&quot;,JOptionPane.YES_NO_OPTION);</span>
+<span class="nc bnc" id="L341" title="All 2 branches missed.">        if(opc == JOptionPane.YES_OPTION){</span>
+<span class="nc bnc" id="L342" title="All 4 branches missed.">        if((this.cantidades_reg.getRowCount()!=0)&amp;&amp;(this.tblRecetas.getSelectedRowCount() &gt; 0)){</span>
+<span class="nc" id="L343">        cantidades_reg.removeRow(this.tblRecetas.getSelectedRow());</span>
+<span class="nc" id="L344">        txtCant.setText(&quot;&quot;);</span>
+<span class="nc" id="L345">        txtCant.setEnabled(false);</span>
+       }else{
+<span class="nc" id="L347">       JOptionPane.showMessageDialog(null,&quot;¡¡No hay nada seleccionado!!&quot;);</span>
+       }
+<span class="nc" id="L349">        cantidades_reg.fireTableDataChanged();</span>
+        }
+<span class="nc" id="L351">    }//GEN-LAST:event_deleteButtonActionPerformed</span>
+
+    private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
+<span class="nc" id="L354">        lstIngredientes.setEnabled(true);</span>
+<span class="nc" id="L355">        newButton.setEnabled(false);</span>
+<span class="nc" id="L356">        deleteButton.setEnabled(false);</span>
+<span class="nc" id="L357">        btnCancelar.setEnabled(true);</span>
+<span class="nc" id="L358">        refreshButton.setEnabled(false);</span>
+<span class="nc" id="L359">        saveButton.setEnabled(true);</span>
+<span class="nc" id="L360">        tblRecetas.setDefaultEditor(Object.class, null);</span>
+<span class="nc" id="L361">        cantidades_reg = (DefaultTableModel)this.tblRecetas.getModel();</span>
+<span class="nc" id="L362">        int filas = tblRecetas.getRowCount();</span>
+<span class="nc" id="L363">        cantidades_reg.addRow(new Object[filas]);</span>
+        
+<span class="nc" id="L365">    }//GEN-LAST:event_newButtonActionPerformed</span>
+    
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        //Aqui nomas debo validar que este habilitado el boton de cancelar y no haya vacios o ceros
+        
+        
+<span class="nc bnc" id="L371" title="All 2 branches missed.">        if(btnCancelar.isEnabled())</span>
+        {
+<span class="nc bnc" id="L373" title="All 2 branches missed.">            if(txtCant.getText().isEmpty()!=true)</span>
+            {
+<span class="nc bnc" id="L375" title="All 2 branches missed.">                if(Float.parseFloat(txtCant.getText())&gt;0)</span>
+                {
+                    
+<span class="nc" id="L378">                    int fila = cantidades_reg.getRowCount()-1;</span>
+<span class="nc" id="L379">                    int bandera = 0;</span>
+<span class="nc" id="L380">                    tblRecetas.setDefaultEditor(Object.class, null);</span>
+<span class="nc" id="L381">                    cantidades_reg = (DefaultTableModel)this.tblRecetas.getModel();       </span>
+<span class="nc" id="L382">                    String in = lstIngredientes.getSelectedItem().toString();</span>
+
+                     //Ciclo para revisar que no se repitan cosillas
+<span class="nc bnc" id="L385" title="All 2 branches missed.">                    for(int i=0;i&lt;cantidades_reg.getRowCount()-1;i++){</span>
+<span class="nc" id="L386">                    cantidades_reg = (DefaultTableModel)this.tblRecetas.getModel();</span>
+
+<span class="nc bnc" id="L388" title="All 4 branches missed.">                    if((cantidades_reg.getValueAt(i, 0).toString().equals(in) &amp;&amp; btnCancelar.isEnabled())){</span>
+<span class="nc" id="L389">                        JOptionPane.showMessageDialog(null,&quot;¡¡El ingrediente ya esta!!\n Cancela y selecciona para modificar&quot;);</span>
+<span class="nc" id="L390">                        i=cantidades_reg.getRowCount();</span>
+<span class="nc" id="L391">                        bandera = 1;</span>
+<span class="nc" id="L392">                        System.out.println(&quot;bandera a:&quot; + bandera);</span>
+                    }
+                    }
+<span class="nc bnc" id="L395" title="All 2 branches missed.">                    if(bandera!=1){</span>
+<span class="nc" id="L396">                    String selIng = lstIngredientes.getSelectedItem().toString();</span>
+<span class="nc" id="L397">                    cantidades_reg.setValueAt(selIng, fila, 0);</span>
+<span class="nc" id="L398">                    String[] medidas = {&quot;lb&quot;,&quot;fl.oz.&quot;,&quot;oz&quot;,&quot;gal&quot;,&quot;ml&quot;,&quot;gr&quot;,&quot;kg&quot;,&quot;lt&quot;};</span>
+                    //Por unidad de medida a la tabla
+<span class="nc" id="L400">                    double conv=0;</span>
+<span class="nc" id="L401">                    conversion(conv,ltsMedidas.getSelectedItem().toString(),cantidades_reg.getRowCount()-1);</span>
+<span class="nc" id="L402">                    refreshButton.setEnabled(true);</span>
+<span class="nc" id="L403">                    newButton.setEnabled(true);</span>
+<span class="nc" id="L404">                    btnCancelar.setEnabled(false);</span>
+<span class="nc" id="L405">                    txtCant.setEnabled(true);</span>
+                    }
+                   
+<span class="nc" id="L408">                }else</span>
+                {
+<span class="nc" id="L410">                JOptionPane.showMessageDialog(null,&quot;La cantidad debe ser mayor a 0&quot;);</span>
+                }
+            }else
+            {
+<span class="nc" id="L414">            JOptionPane.showMessageDialog(null,&quot;Cantidad esta vacío&quot;);</span>
+            }
+                         
+            
+        }else{
+        
+<span class="nc" id="L420">            JOptionPane.showMessageDialog(null,&quot;Agregue un nuevo ingrediente&quot;);</span>
+                
+        }
+        
+        
+        
+        
+<span class="nc" id="L427">    }//GEN-LAST:event_saveButtonActionPerformed</span>
+
+    private void lstProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lstProductosActionPerformed
+
+<span class="nc" id="L431">    }//GEN-LAST:event_lstProductosActionPerformed</span>
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        //Habilitar botones de nuevo y guardar nadamas
+<span class="nc" id="L435">        tblRecetas.setDefaultEditor(Object.class, null);</span>
+<span class="nc" id="L436">        cantidades_reg = (DefaultTableModel)this.tblRecetas.getModel();</span>
+<span class="nc" id="L437">        newButton.setEnabled(true);</span>
+<span class="nc" id="L438">        deleteButton.setEnabled(false);</span>
+<span class="nc" id="L439">        btnCancelar.setEnabled(false);</span>
+<span class="nc" id="L440">        refreshButton.setEnabled(false);</span>
+<span class="nc" id="L441">        saveButton.setEnabled(true);</span>
+<span class="nc" id="L442">        ingrediente = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select i.nombre from ingredientes i inner join recetas r&quot;</span>
+                                                                         + &quot; on r.ingrediente_id = i.ingrediente_id inner join productos p &quot;
+<span class="nc" id="L444">                                                                         + &quot;on p.producto_id = r.producto_id where p.nombre like '&quot;+ lstProductos.getSelectedItem().toString() +&quot;'&quot;, Ingrediente.class);</span>
+<span class="nc" id="L445">        cant = (List&lt;Receta&gt;) Recetas.select(Conexion.getDBConexion(), &quot;select r.cant from ingredientes i inner join recetas r&quot;</span>
+                                                                         + &quot; on r.ingrediente_id = i.ingrediente_id inner join productos p &quot;
+<span class="nc" id="L447">                                                                         + &quot;on p.producto_id = r.producto_id where p.nombre like '&quot;+ lstProductos.getSelectedItem().toString() +&quot;'&quot;, Receta.class);</span>
+<span class="nc" id="L448">        med = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select i.medida from ingredientes i inner join recetas r&quot;</span>
+                                                                         + &quot; on r.ingrediente_id = i.ingrediente_id inner join productos p &quot;
+<span class="nc" id="L450">                                                                         + &quot;on p.producto_id = r.producto_id where p.nombre like '&quot;+ lstProductos.getSelectedItem().toString() +&quot;'&quot;, Ingrediente.class);</span>
+        
+        
+<span class="nc" id="L453">        int largoI = ingrediente.size();</span>
+<span class="nc" id="L454">        int largoC = cant.size();</span>
+<span class="nc" id="L455">        int largoM = med.size();</span>
+        //Lipia la tabla
+<span class="nc" id="L457">        int filas = tblRecetas.getRowCount();</span>
+<span class="nc bnc" id="L458" title="All 2 branches missed.">        for(int l=0;l&lt;filas;l++){</span>
+<span class="nc" id="L459">        cantidades_reg.removeRow(0);</span>
+        }
+<span class="nc bnc" id="L461" title="All 2 branches missed.">        for(int l=0;l&lt;largoI;l++){</span>
+<span class="nc" id="L462">             Ingrediente in = (Ingrediente) ingrediente.get(l);</span>
+<span class="nc" id="L463">             cantidades_reg.addRow(new Object[l]);</span>
+<span class="nc" id="L464">             cantidades_reg.setValueAt(in.getNombre(),l,0);</span>
+          }
+<span class="nc bnc" id="L466" title="All 2 branches missed.">        for(int l=0;l&lt;largoC;l++){</span>
+<span class="nc" id="L467">             Receta in = (Receta) cant.get(l);</span>
+<span class="nc" id="L468">             cantidades_reg.setValueAt(in.getCant(),l,1);</span>
+          }
+<span class="nc bnc" id="L470" title="All 2 branches missed.">        for(int l=0;l&lt;largoM;l++){</span>
+<span class="nc" id="L471">             Ingrediente in = (Ingrediente) med.get(l);</span>
+<span class="nc" id="L472">             cantidades_reg.setValueAt(in.getMedida(),l,2);</span>
+          }
+        
+
+<span class="nc" id="L476">    }//GEN-LAST:event_btnAceptarActionPerformed</span>
+
+    private void lstIngredientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lstIngredientesActionPerformed
+        // TODO add your handling code here:
+<span class="nc" id="L480">    }//GEN-LAST:event_lstIngredientesActionPerformed</span>
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+<span class="nc" id="L483">        newButton.setEnabled(true);</span>
+<span class="nc" id="L484">        deleteButton.setEnabled(true);</span>
+<span class="nc" id="L485">        btnCancelar.setEnabled(false);</span>
+<span class="nc" id="L486">        refreshButton.setEnabled(false);</span>
+<span class="nc" id="L487">        saveButton.setEnabled(true);</span>
+<span class="nc" id="L488">        tblRecetas.setDefaultEditor(Object.class, null);</span>
+<span class="nc" id="L489">        cantidades_reg = (DefaultTableModel)this.tblRecetas.getModel();</span>
+<span class="nc" id="L490">        int filas = cantidades_reg.getRowCount();</span>
+<span class="nc" id="L491">        cantidades_reg.removeRow(filas-1);</span>
+<span class="nc" id="L492">        btnCancelar.setEnabled(false);</span>
+<span class="nc" id="L493">    }//GEN-LAST:event_btnCancelarActionPerformed</span>
+
+    private void txtCantKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantKeyPressed
+<span class="nc" id="L496">        char caracter = evt.getKeyChar();</span>
+<span class="nc bnc" id="L497" title="All 8 branches missed.">        if(((caracter &lt; '0') || (caracter &gt; '9')) &amp;&amp; (caracter != KeyEvent.VK_BACK_SPACE)&amp;&amp; (caracter !='.')){</span>
+         /* lo que deseo colocar aqui es si ya se pulso el caracter (.) el mismo no se pueda repetir*/
+    }
+<span class="nc" id="L500">        evt.consume();</span>
+
+<span class="nc" id="L502">    }//GEN-LAST:event_txtCantKeyPressed</span>
+
+    private void txtCantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantActionPerformed
+        
+<span class="nc" id="L506">    }//GEN-LAST:event_txtCantActionPerformed</span>
+
+    private void txtCantKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantKeyTyped
+            
+<span class="nc" id="L510">    char c = evt.getKeyChar();</span>
+<span class="nc bnc" id="L511" title="All 8 branches missed.">if (((c &lt; '0') || (c &gt; '9')) &amp;&amp; (c != KeyEvent.VK_BACK_SPACE)</span>
+&amp;&amp; (c != '.')) {
+<span class="nc" id="L513">evt.consume();</span>
+}
+<span class="nc bnc" id="L515" title="All 4 branches missed.">if (c == '.' &amp;&amp; txtCant.getText().contains(&quot;.&quot;)) {</span>
+<span class="nc" id="L516">evt.consume();</span>
+   }
+
+<span class="nc" id="L519">    }//GEN-LAST:event_txtCantKeyTyped</span>
+
+    private void btnCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiosActionPerformed
+<span class="nc bnc" id="L522" title="All 2 branches missed.">        if(btnCancelar.isEnabled()!=true){ </span>
+<span class="nc bnc" id="L523" title="All 2 branches missed.">        if(txtCant.getText().isEmpty()!=true)</span>
+            {
+<span class="nc bnc" id="L525" title="All 2 branches missed.">                if(Float.parseFloat(txtCant.getText())&gt;0)</span>
+                {
+                    
+<span class="nc" id="L528">                    refreshButton.setEnabled(true);</span>
+<span class="nc" id="L529">                    tblRecetas.setDefaultEditor(Object.class, null);</span>
+<span class="nc" id="L530">                    cantidades_reg = (DefaultTableModel)this.tblRecetas.getModel();       </span>
+<span class="nc" id="L531">                    String in = lstIngredientes.getSelectedItem().toString();</span>
+
+<span class="nc" id="L533">                    String selIng = lstIngredientes.getSelectedItem().toString();</span>
+<span class="nc" id="L534">                    cantidades_reg.setValueAt(selIng, tblRecetas.getSelectedRow(), 0);</span>
+<span class="nc" id="L535">                    String[] medidas = {&quot;lb&quot;,&quot;fl.oz.&quot;,&quot;oz&quot;,&quot;gal&quot;,&quot;ml&quot;,&quot;g&quot;,&quot;kg&quot;,&quot;lt&quot;};</span>
+                    //Por unidad de medida a la tabla
+<span class="nc" id="L537">                    double conv=0;</span>
+<span class="nc" id="L538">                    int filas = 0;</span>
+<span class="nc bnc" id="L539" title="All 2 branches missed.">                    for(int i=0;i&lt;cantidades_reg.getRowCount();i++){</span>
+<span class="nc bnc" id="L540" title="All 2 branches missed.">                        if(in.equals(cantidades_reg.getValueAt(i, 0))){</span>
+<span class="nc" id="L541">                            filas = tblRecetas.getSelectedRow();</span>
+<span class="nc" id="L542">                            System.out.println(&quot;fila seleccionmada : &quot; + filas);</span>
+                        }
+                    }
+<span class="nc" id="L545">                    conversion(conv,ltsMedidas.getSelectedItem().toString(),filas);</span>
+                    
+                
+<span class="nc" id="L548">                }else</span>
+                {
+<span class="nc" id="L550">                JOptionPane.showMessageDialog(null,&quot;La cantidad debe ser mayor a 0&quot;);</span>
+                }
+            }else
+            {
+<span class="nc" id="L554">            JOptionPane.showMessageDialog(null,&quot;Cantidad esta vacío&quot;);</span>
+            }
+        
+        }else{
+<span class="nc" id="L558">        JOptionPane.showMessageDialog(null,&quot;Nada seleccionado&quot;);</span>
+        } 
+<span class="nc" id="L560">    }//GEN-LAST:event_btnCambiosActionPerformed</span>
+
+    public void cargarIngredientes(){
+<span class="nc" id="L563">        DefaultComboBoxModel mdlCombo= new DefaultComboBoxModel();</span>
+<span class="nc" id="L564">        lstIngredientes.setModel(mdlCombo);</span>
+<span class="nc" id="L565">        ing = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select nombre from ingredientes&quot;, Ingrediente.class);</span>
+        
+<span class="nc bnc" id="L567" title="All 2 branches missed.">        for(int i=0;i&lt;ing.size();i++){</span>
+            
+<span class="nc" id="L569">            Ingrediente in = (Ingrediente) ing.get(i);</span>
+<span class="nc" id="L570">            mdlCombo.addElement(in.getNombre());</span>
+        }
+<span class="nc" id="L572">    }</span>
+    public void cargarProductos(){
+<span class="nc" id="L574">        DefaultComboBoxModel mdlCombo= new DefaultComboBoxModel();</span>
+<span class="nc" id="L575">        lstProductos.setModel(mdlCombo);</span>
+<span class="nc" id="L576">        prod = Productos.productosRecetas();</span>
+<span class="nc bnc" id="L577" title="All 2 branches missed.">        for(int i=0;i&lt;prod.size();i++){</span>
+<span class="nc" id="L578">            mdlCombo.addElement(prod.get(i));</span>
+        }
+<span class="nc" id="L580">    }</span>
+    public void Medidas(){
+<span class="nc" id="L582">        DefaultComboBoxModel mdlCombo= new DefaultComboBoxModel();</span>
+<span class="nc" id="L583">        ltsMedidas.setModel(mdlCombo);</span>
+<span class="nc" id="L584">        String[] medidas = {&quot;lb&quot;,&quot;fl.oz.&quot;,&quot;oz&quot;,&quot;gal&quot;,&quot;ml&quot;,&quot;g&quot;,&quot;kg&quot;,&quot;lt&quot;};</span>
+<span class="nc bnc" id="L585" title="All 2 branches missed.">        for(int i = 0;i&lt;medidas.length; i++) {</span>
+<span class="nc" id="L586">        mdlCombo.addElement(medidas[i]);</span>
+        }
+<span class="nc" id="L588">    }</span>
+    public void sel(){
+        
+<span class="nc" id="L591">    }</span>
+    
+    public void conversion(double conv,String st,int filas){
+<span class="nc bnc" id="L594" title="All 34 branches missed.">    switch(st) {</span>
+            case &quot;lb&quot;:
+<span class="nc" id="L596">            conv = Float.parseFloat(txtCant.getText())*453.592;</span>
+<span class="nc" id="L597">            cantidades_reg.setValueAt(conv,filas,1);</span>
+<span class="nc" id="L598">            cantidades_reg.setValueAt(&quot;g&quot;,filas,2);</span>
+<span class="nc" id="L599">                break;</span>
+            case &quot;fl.oz.&quot;:
+<span class="nc" id="L601">            conv = Float.parseFloat(txtCant.getText())*29.5735;</span>
+<span class="nc" id="L602">            cantidades_reg.setValueAt(conv,filas,1);</span>
+<span class="nc" id="L603">            cantidades_reg.setValueAt(&quot;ml&quot;,filas,2);</span>
+<span class="nc" id="L604">                break;</span>
+            case &quot;oz&quot;:
+<span class="nc" id="L606">            conv = Float.parseFloat(txtCant.getText())*29.5735;</span>
+<span class="nc" id="L607">            cantidades_reg.setValueAt(conv,filas,1);</span>
+<span class="nc" id="L608">            cantidades_reg.setValueAt(&quot;ml&quot;,filas,2);</span>
+<span class="nc" id="L609">                break;</span>
+            case &quot;gal&quot;:
+<span class="nc" id="L611">            conv = Float.parseFloat(txtCant.getText())*3785.41;</span>
+<span class="nc" id="L612">            cantidades_reg.setValueAt(conv,filas,1);</span>
+<span class="nc" id="L613">            cantidades_reg.setValueAt(&quot;ml&quot;,filas,2);</span>
+<span class="nc" id="L614">                break;</span>
+            case &quot;ml&quot;:
+<span class="nc" id="L616">            cantidades_reg.setValueAt(Float.parseFloat(txtCant.getText()),filas,1);</span>
+<span class="nc" id="L617">            cantidades_reg.setValueAt(&quot;ml&quot;,filas,2);    </span>
+<span class="nc" id="L618">                break;</span>
+            case &quot;g&quot;:
+<span class="nc" id="L620">            cantidades_reg.setValueAt(Float.parseFloat(txtCant.getText()),filas,1);</span>
+<span class="nc" id="L621">            cantidades_reg.setValueAt(&quot;g&quot;,filas,2);</span>
+<span class="nc" id="L622">                break;</span>
+            case &quot;kg&quot;:
+<span class="nc" id="L624">            conv = Float.parseFloat(txtCant.getText())*1000;</span>
+<span class="nc" id="L625">            cantidades_reg.setValueAt(conv,filas,1);</span>
+<span class="nc" id="L626">            cantidades_reg.setValueAt(&quot;g&quot;,filas,2);</span>
+<span class="nc" id="L627">                break;</span>
+            case &quot;lt&quot;:
+<span class="nc" id="L629">            conv = Float.parseFloat(txtCant.getText())*1000;</span>
+<span class="nc" id="L630">            cantidades_reg.setValueAt(conv,filas,1);</span>
+<span class="nc" id="L631">            cantidades_reg.setValueAt(&quot;ml&quot;,filas,2);</span>
+                break;
+        }
+<span class="nc" id="L634">    }</span>
+    
+    
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnCambios;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JLabel cantDispLabel;
+    private javax.swing.JButton deleteButton;
+    private javax.persistence.EntityManager entityManager;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private java.util.List&lt;GUI.Ingredientes&gt; list;
+    private javax.swing.JComboBox&lt;String&gt; lstIngredientes;
+    private javax.swing.JComboBox&lt;String&gt; lstProductos;
+    private javax.swing.JComboBox&lt;String&gt; ltsMedidas;
+    private javax.swing.JButton newButton;
+    private javax.swing.JLabel nombreLabel;
+    private javax.persistence.Query query;
+    private javax.swing.JButton refreshButton;
+    private javax.swing.JButton saveButton;
+    private javax.swing.JTable tblRecetas;
+    private javax.swing.JTextField txtCant;
+    // End of variables declaration//GEN-END:variables
+    public static void main(String[] args) {
+        /* Set the Nimbus look and feel */
+        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+<span class="nc bnc" id="L668" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L669" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L670">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L671">                    break;</span>
+                }
+            }
+<span class="nc" id="L674">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L675">            java.util.logging.Logger.getLogger(InventarioModRPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L676">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L677">            java.util.logging.Logger.getLogger(InventarioModRPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L678">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L679">            java.util.logging.Logger.getLogger(InventarioModRPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L680">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L681">            java.util.logging.Logger.getLogger(InventarioModRPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L682">        }</span>
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+
+        /* Create and display the form */
+<span class="nc" id="L689">        EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+<span class="nc" id="L691">                JFrame frame = new JFrame();</span>
+<span class="nc" id="L692">                frame.setContentPane(new InventarioModRPanel());</span>
+<span class="nc" id="L693">                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L694">                frame.pack();</span>
+<span class="nc" id="L695">                frame.setVisible(true);</span>
+<span class="nc" id="L696">            }</span>
+        });
+<span class="nc" id="L698">    }</span>
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

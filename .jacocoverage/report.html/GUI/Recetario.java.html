@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Recetario.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;CoffeeTree&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">GUI</a> &gt; <span class="el_source">Recetario.java</span></div><h1>Recetario.java</h1><pre class="source lang-java linenums">
+package GUI;
+
+import controladores.Ingredientes;
+import controladores.Productos;
+import controladores.Recetas;
+import datos.Ingrediente;
+import datos.Producto;
+import datos.Receta;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import oraclegeneral.Conexion;
+
+
+public class Recetario extends javax.swing.JFrame {
+
+<span class="nc" id="L20">    private List&lt;Productos&gt; prod = new ArrayList&lt;Productos&gt;();</span>
+<span class="nc" id="L21">    private List&lt;Ingrediente&gt; ingrediente = new ArrayList&lt;Ingrediente&gt;();</span>
+<span class="nc" id="L22">    private List&lt;Receta&gt; cant = new ArrayList&lt;Receta&gt;();</span>
+<span class="nc" id="L23">    private List&lt;Ingrediente&gt; med = new ArrayList&lt;Ingrediente&gt;();</span>
+    DefaultTableModel mod;
+    DefaultTableModel cantidades_reg;
+
+<span class="nc" id="L27">    public Recetario() {</span>
+<span class="nc" id="L28">        setUndecorated(true);</span>
+<span class="nc" id="L29">        initComponents();</span>
+<span class="nc" id="L30">        this.setSize(514, 261);</span>
+<span class="nc" id="L31">        this.setLocationRelativeTo(null);</span>
+<span class="nc" id="L32">        cargarProductos();</span>
+
+<span class="nc" id="L34">        int[] anchos = {300,50,50};</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        for(int i = 0;i&lt;tblRecetas.getColumnCount(); i++) {</span>
+<span class="nc" id="L36">        tblRecetas.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);</span>
+        }
+
+<span class="nc" id="L39">    }</span>
+
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L46">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="nc" id="L47">        lstProductos = new javax.swing.JComboBox&lt;&gt;();</span>
+<span class="nc" id="L48">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="nc" id="L49">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L50">        tblRecetas = new javax.swing.JTable();</span>
+<span class="nc" id="L51">        btnAceptar = new javax.swing.JButton();</span>
+<span class="nc" id="L52">        btnAtras = new javax.swing.JButton();</span>
+
+<span class="nc" id="L54">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L55">        getContentPane().setLayout(null);</span>
+
+<span class="nc" id="L57">        jLabel1.setText(&quot;Producto&quot;);</span>
+<span class="nc" id="L58">        getContentPane().add(jLabel1);</span>
+<span class="nc" id="L59">        jLabel1.setBounds(40, 40, 60, 14);</span>
+
+<span class="nc" id="L61">        lstProductos.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L63">                lstProductosActionPerformed(evt);</span>
+<span class="nc" id="L64">            }</span>
+        });
+<span class="nc" id="L66">        getContentPane().add(lstProductos);</span>
+<span class="nc" id="L67">        lstProductos.setBounds(110, 40, 210, 20);</span>
+
+<span class="nc" id="L69">        jLabel2.setText(&quot;Receta&quot;);</span>
+<span class="nc" id="L70">        getContentPane().add(jLabel2);</span>
+<span class="nc" id="L71">        jLabel2.setBounds(20, 80, 60, 14);</span>
+
+<span class="nc" id="L73">        tblRecetas.setModel(new javax.swing.table.DefaultTableModel(</span>
+            new Object [][] {
+
+            },
+            new String [] {
+                &quot;Ingrediente&quot;, &quot;Cantidad&quot;, &quot;Medida&quot;
+            }
+        ));
+<span class="nc" id="L81">        jScrollPane1.setViewportView(tblRecetas);</span>
+
+<span class="nc" id="L83">        getContentPane().add(jScrollPane1);</span>
+<span class="nc" id="L84">        jScrollPane1.setBounds(20, 100, 480, 150);</span>
+
+<span class="nc" id="L86">        btnAceptar.setText(&quot;Aceptar&quot;);</span>
+<span class="nc" id="L87">        btnAceptar.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L89">                btnAceptarActionPerformed(evt);</span>
+<span class="nc" id="L90">            }</span>
+        });
+<span class="nc" id="L92">        getContentPane().add(btnAceptar);</span>
+<span class="nc" id="L93">        btnAceptar.setBounds(360, 40, 71, 23);</span>
+
+<span class="nc" id="L95">        btnAtras.setText(&quot;Atras&quot;);</span>
+<span class="nc" id="L96">        btnAtras.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L98">                btnAtrasActionPerformed(evt);</span>
+<span class="nc" id="L99">            }</span>
+        });
+<span class="nc" id="L101">        getContentPane().add(btnAtras);</span>
+<span class="nc" id="L102">        btnAtras.setBounds(0, 0, 59, 30);</span>
+
+<span class="nc" id="L104">        pack();</span>
+<span class="nc" id="L105">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void lstProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lstProductosActionPerformed
+
+
+
+<span class="nc" id="L111">    }//GEN-LAST:event_lstProductosActionPerformed</span>
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+
+<span class="nc" id="L115">        ingrediente = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select i.nombre from ingredientes i inner join recetas r&quot;</span>
+                                                                         + &quot; on r.ingrediente_id = i.ingrediente_id inner join productos p &quot;
+<span class="nc" id="L117">                                                                         + &quot;on p.producto_id = r.producto_id where p.nombre like '&quot;+ lstProductos.getSelectedItem().toString() +&quot;'&quot;, Ingrediente.class);</span>
+<span class="nc" id="L118">        cant = (List&lt;Receta&gt;) Recetas.select(Conexion.getDBConexion(), &quot;select r.cant from ingredientes i inner join recetas r&quot;</span>
+                                                                         + &quot; on r.ingrediente_id = i.ingrediente_id inner join productos p &quot;
+<span class="nc" id="L120">                                                                         + &quot;on p.producto_id = r.producto_id where p.nombre like '&quot;+ lstProductos.getSelectedItem().toString() +&quot;'&quot;, Receta.class);</span>
+<span class="nc" id="L121">        med = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select i.medida from ingredientes i inner join recetas r&quot;</span>
+                                                                         + &quot; on r.ingrediente_id = i.ingrediente_id inner join productos p &quot;
+<span class="nc" id="L123">                                                                         + &quot;on p.producto_id = r.producto_id where p.nombre like '&quot;+ lstProductos.getSelectedItem().toString() +&quot;'&quot;, Ingrediente.class);</span>
+        
+<span class="nc" id="L125">        tblRecetas.setDefaultEditor(Object.class, null);</span>
+<span class="nc" id="L126">        cantidades_reg = (DefaultTableModel)this.tblRecetas.getModel();</span>
+<span class="nc" id="L127">        int largoI = ingrediente.size();</span>
+<span class="nc" id="L128">        int largoC = cant.size();</span>
+<span class="nc" id="L129">        int largoM = med.size();</span>
+        //Lipia la tabla
+<span class="nc" id="L131">        int filas = tblRecetas.getRowCount();</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">        for(int l=0;l&lt;filas;l++){</span>
+<span class="nc" id="L133">        cantidades_reg.removeRow(0);</span>
+        }
+<span class="nc bnc" id="L135" title="All 2 branches missed.">        for(int l=0;l&lt;largoI;l++){</span>
+<span class="nc" id="L136">             Ingrediente in = (Ingrediente) ingrediente.get(l);</span>
+<span class="nc" id="L137">             cantidades_reg.addRow(new Object[l]);</span>
+<span class="nc" id="L138">             cantidades_reg.setValueAt(in.getNombre(),l,0);</span>
+          }
+<span class="nc bnc" id="L140" title="All 2 branches missed.">        for(int l=0;l&lt;largoC;l++){</span>
+<span class="nc" id="L141">             Receta in = (Receta) cant.get(l);</span>
+<span class="nc" id="L142">             cantidades_reg.setValueAt(in.getCant(),l,1);</span>
+          }
+<span class="nc bnc" id="L144" title="All 2 branches missed.">        for(int l=0;l&lt;largoM;l++){</span>
+<span class="nc" id="L145">             Ingrediente in = (Ingrediente) med.get(l);</span>
+<span class="nc" id="L146">             cantidades_reg.setValueAt(in.getMedida(),l,2);</span>
+          }
+        
+        
+        
+        
+<span class="nc" id="L152">    }//GEN-LAST:event_btnAceptarActionPerformed</span>
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+<span class="nc" id="L155">        this.setVisible(false);</span>
+<span class="nc" id="L156">    }//GEN-LAST:event_btnAtrasActionPerformed</span>
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+         */
+        try {
+<span class="nc bnc" id="L168" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L170">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L171">                    break;</span>
+                }
+            }
+<span class="nc" id="L174">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L175">            java.util.logging.Logger.getLogger(Recetario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L176">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L177">            java.util.logging.Logger.getLogger(Recetario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L178">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L179">            java.util.logging.Logger.getLogger(Recetario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L180">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L181">            java.util.logging.Logger.getLogger(Recetario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L182">        }</span>
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+
+        /* Create and display the form */
+<span class="nc" id="L187">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+<span class="nc" id="L189">                new Recetario().setVisible(true);</span>
+<span class="nc" id="L190">            }</span>
+        });
+<span class="nc" id="L192">    }</span>
+
+    public void cargarProductos(){
+<span class="nc" id="L195">        DefaultComboBoxModel mdlCombo= new DefaultComboBoxModel();</span>
+<span class="nc" id="L196">        lstProductos.setModel(mdlCombo);</span>
+<span class="nc" id="L197">        prod = Productos.productosRecetas();</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">        for(int i=0;i&lt;prod.size();i++){</span>
+<span class="nc" id="L199">            mdlCombo.addElement(prod.get(i));</span>
+        }
+<span class="nc" id="L201">    }</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnAtras;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox&lt;String&gt; lstProductos;
+    private javax.swing.JTable tblRecetas;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

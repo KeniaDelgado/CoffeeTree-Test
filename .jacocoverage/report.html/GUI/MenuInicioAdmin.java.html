@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MenuInicioAdmin.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;CoffeeTree&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">GUI</a> &gt; <span class="el_source">MenuInicioAdmin.java</span></div><h1>MenuInicioAdmin.java</h1><pre class="source lang-java linenums">package GUI;
+
+import controladores.Ingredientes;
+import controladores.Recetas;
+import datos.Ingrediente;
+import datos.Receta;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
+import javax.swing.table.DefaultTableModel;
+import oraclegeneral.Conexion;
+
+public class MenuInicioAdmin extends javax.swing.JFrame {
+<span class="pc" id="L16">    float total = 0;</span>
+<span class="pc" id="L17">    int z = 0;</span>
+<span class="pc" id="L18">    int largo=0;</span>
+<span class="pc" id="L19">    int[] anchos = {40, 175 ,50, 50,60};</span>
+    DefaultTableModel mod;
+    DefaultTableModel cantidades_reg;
+<span class="pc" id="L22">    int filas = 0;</span>
+<span class="pc" id="L23">    private List&lt;Ingrediente&gt; cant_disp = new ArrayList&lt;Ingrediente&gt;();</span>
+    //test
+   
+    
+    
+    
+<span class="nc" id="L29">    public MenuInicioAdmin() {</span>
+<span class="nc" id="L30">        setUndecorated(true);</span>
+<span class="nc" id="L31">        initComponents();</span>
+<span class="nc" id="L32">        this.setSize(1086, 726);</span>
+<span class="nc" id="L33">        this.setLocationRelativeTo(null);</span>
+<span class="nc" id="L34">        lblTotal.setText(String.valueOf(total));</span>
+<span class="nc" id="L35">        model.setDefaultEditor(Object.class, null);</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        for(int i = 0; i &lt; model.getColumnCount(); i++) {</span>
+<span class="nc" id="L37">                model.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);</span>
+            }
+<span class="nc" id="L39">        mod = (DefaultTableModel)this.model.getModel();</span>
+        //Cantidades disponibles de los ingredientes
+<span class="nc" id="L41">        cantidades_reg = (DefaultTableModel)this.tableCant_Disp.getModel();</span>
+<span class="nc" id="L42">        List&lt;Ingredientes&gt; ing= new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L43">        cant_disp = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select cant_Disp,nombre from Ingredientes&quot;, Ingrediente.class);;</span>
+<span class="nc" id="L44">        largo = cant_disp.size();</span>
+<span class="nc" id="L45">        int l=0;</span>
+<span class="nc" id="L46">        String[] array = new String[100]; </span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        for(int i=0;i&lt;largo;i++){</span>
+<span class="nc" id="L48">        Ingrediente in = (Ingrediente) cant_disp.get(i);</span>
+<span class="nc" id="L49">        System.out.println(&quot;cant_disp = &quot; + in.getCant_disp());</span>
+<span class="nc" id="L50">        int fila = cantidades_reg.getRowCount();</span>
+<span class="nc" id="L51">        cantidades_reg.addRow(new Object[fila]);</span>
+<span class="nc" id="L52">        cantidades_reg.setValueAt(in.getCant_disp(),fila,0);</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">            if(Float.parseFloat(in.getCant_disp().toString())&lt;=1000){</span>
+<span class="nc" id="L54">            array[i] = &quot;-&quot; + in.getNombre();</span>
+<span class="nc" id="L55">            l++;</span>
+            }
+        }
+        
+      
+<span class="nc" id="L60">    }</span>
+    
+<span class="fc" id="L62">    public MenuInicioAdmin(int bloq) {</span>
+<span class="fc" id="L63">        setUndecorated(true);</span>
+<span class="fc" id="L64">        initComponents();</span>
+<span class="fc" id="L65">        this.setSize(1086, 726);</span>
+<span class="fc" id="L66">        this.setLocationRelativeTo(null);</span>
+<span class="fc" id="L67">        lblTotal.setText(String.valueOf(total));</span>
+<span class="fc" id="L68">        model.setDefaultEditor(Object.class, null);</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        for(int i = 0; i &lt; model.getColumnCount(); i++) {</span>
+<span class="fc" id="L70">                model.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);</span>
+            }
+<span class="fc" id="L72">        mod = (DefaultTableModel)this.model.getModel();</span>
+        //Cantidades disponibles de los ingredientes
+<span class="fc" id="L74">        cantidades_reg = (DefaultTableModel)this.tableCant_Disp.getModel();</span>
+<span class="fc" id="L75">        List&lt;Ingredientes&gt; ing= new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L76">        cant_disp = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select cant_Disp,nombre from Ingredientes&quot;, Ingrediente.class);;</span>
+<span class="fc" id="L77">        largo = cant_disp.size();</span>
+<span class="fc" id="L78">        int l=0;</span>
+<span class="fc" id="L79">        String[] array = new String[100]; </span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        for(int i=0;i&lt;largo;i++){</span>
+<span class="fc" id="L81">        Ingrediente in = (Ingrediente) cant_disp.get(i);</span>
+<span class="fc" id="L82">        System.out.println(&quot;cant_disp = &quot; + in.getCant_disp());</span>
+<span class="fc" id="L83">        int fila = cantidades_reg.getRowCount();</span>
+<span class="fc" id="L84">        cantidades_reg.addRow(new Object[fila]);</span>
+<span class="fc" id="L85">        cantidades_reg.setValueAt(in.getCant_disp(),fila,0);</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">            if(Float.parseFloat(in.getCant_disp().toString())&lt;=1000){</span>
+<span class="fc" id="L87">            array[i] = &quot;-&quot; + in.getNombre();</span>
+<span class="fc" id="L88">            l++;</span>
+            }
+        }
+<span class="pc bpc" id="L91" title="1 of 2 branches missed.">        if(bloq == 1){</span>
+<span class="fc" id="L92">        btnCrepas.setEnabled(false);</span>
+<span class="fc" id="L93">        btnBebCal.setEnabled(false);</span>
+<span class="fc" id="L94">        btnBebFrias.setEnabled(false);</span>
+        }
+      
+<span class="fc" id="L97">    }</span>
+    
+<span class="nc" id="L99">    public MenuInicioAdmin(DefaultTableModel mod,DefaultTableModel cant){</span>
+<span class="nc" id="L100">         setUndecorated(true);</span>
+<span class="nc" id="L101">        initComponents();</span>
+<span class="nc" id="L102">        this.setSize(1086, 726);</span>
+<span class="nc" id="L103">        this.setLocationRelativeTo(null);</span>
+<span class="nc" id="L104">        this.model.setDefaultEditor(Object.class, null);</span>
+<span class="nc" id="L105">        this.filas = mod.getRowCount()+1;</span>
+<span class="nc" id="L106">        this.mod = mod;</span>
+<span class="nc" id="L107">        this.model.setModel(mod);</span>
+        
+<span class="nc bnc" id="L109" title="All 2 branches missed.">        for(int i = 0; i &lt; model.getColumnCount(); i++) {</span>
+
+<span class="nc" id="L111">                model.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);</span>
+
+            }
+        
+<span class="nc" id="L115">        total = 0;</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">        if(mod.getRowCount()!=0){</span>
+<span class="nc" id="L117">        System.out.println(String.valueOf(mod.getValueAt(z,2)));</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        for(z = 0;z&lt;=mod.getRowCount()-1;z++){</span>
+<span class="nc" id="L119">        mod.setValueAt((Float.parseFloat(String.valueOf(mod.getValueAt(z,2)))*(Float.parseFloat(String.valueOf(mod.getValueAt(z,3))))), z , 4);</span>
+<span class="nc" id="L120">        total = Float.parseFloat(String.valueOf(mod.getValueAt(z,4))) + total;</span>
+        }
+        }
+        
+<span class="nc" id="L124">        lblTotal.setText(String.valueOf(total));</span>
+        
+<span class="nc" id="L126">        this.cantidades_reg = cant;</span>
+<span class="nc" id="L127">        cantidades_reg = (DefaultTableModel)this.tableCant_Disp.getModel();</span>
+<span class="nc" id="L128">        List&lt;Ingredientes&gt; ing= new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L129">        cant_disp = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select cant_Disp from Ingredientes&quot;, Ingrediente.class);;</span>
+<span class="nc" id="L130">        largo = cant_disp.size();</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">        for(int i=0;i&lt;largo;i++){</span>
+<span class="nc" id="L132">        Ingrediente in = (Ingrediente) cant_disp.get(i);</span>
+<span class="nc" id="L133">        System.out.println(&quot;cant_disp = &quot; + in.getCant_disp());</span>
+<span class="nc" id="L134">        int fila = cantidades_reg.getRowCount();</span>
+<span class="nc" id="L135">        cantidades_reg.addRow(new Object[fila]);</span>
+<span class="nc" id="L136">        cantidades_reg.setValueAt(in.getCant_disp(),fila,0);</span>
+         
+        }
+        
+<span class="nc" id="L140">    }</span>
+    
+<span class="nc" id="L142">    public MenuInicioAdmin(DefaultTableModel mod){</span>
+<span class="nc" id="L143">         setUndecorated(true);</span>
+<span class="nc" id="L144">        initComponents();</span>
+<span class="nc" id="L145">        this.setSize(1086, 726);</span>
+<span class="nc" id="L146">        this.setLocationRelativeTo(null);</span>
+<span class="nc" id="L147">        this.model.setDefaultEditor(Object.class, null);</span>
+<span class="nc" id="L148">        this.filas = mod.getRowCount()+1;</span>
+<span class="nc" id="L149">        this.mod = mod;</span>
+<span class="nc" id="L150">        this.model.setModel(mod);</span>
+        
+<span class="nc bnc" id="L152" title="All 2 branches missed.">        for(int i = 0; i &lt; model.getColumnCount(); i++) {</span>
+
+<span class="nc" id="L154">                model.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);</span>
+
+            }
+        
+<span class="nc" id="L158">        total = 0;</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">        if(mod.getRowCount()!=0){</span>
+<span class="nc" id="L160">        System.out.println(String.valueOf(mod.getValueAt(z,2)));</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">        for(z = 0;z&lt;=mod.getRowCount()-1;z++){</span>
+<span class="nc" id="L162">        mod.setValueAt((Float.parseFloat(String.valueOf(mod.getValueAt(z,2)))*(Float.parseFloat(String.valueOf(mod.getValueAt(z,3))))), z , 4);</span>
+<span class="nc" id="L163">        total = Float.parseFloat(String.valueOf(mod.getValueAt(z,4))) + total;</span>
+        }
+        }
+        
+<span class="nc" id="L167">        lblTotal.setText(String.valueOf(total));</span>
+        
+<span class="nc" id="L169">        cantidades_reg = (DefaultTableModel)this.tableCant_Disp.getModel();</span>
+<span class="nc" id="L170">        List&lt;Ingredientes&gt; ing= new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L171">        cant_disp = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select cant_Disp from Ingredientes&quot;, Ingrediente.class);;</span>
+<span class="nc" id="L172">        largo = cant_disp.size();</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">        for(int i=0;i&lt;largo;i++){</span>
+<span class="nc" id="L174">        Ingrediente in = (Ingrediente) cant_disp.get(i);</span>
+<span class="nc" id="L175">        System.out.println(&quot;cant_disp = &quot; + in.getCant_disp());</span>
+<span class="nc" id="L176">        int fila = cantidades_reg.getRowCount();</span>
+<span class="nc" id="L177">        cantidades_reg.addRow(new Object[fila]);</span>
+<span class="nc" id="L178">        cantidades_reg.setValueAt(in.getCant_disp(),fila,0);</span>
+         
+        }
+        
+<span class="nc" id="L182">    }</span>
+    
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="fc" id="L188">        btnBuscar = new javax.swing.JButton();</span>
+<span class="fc" id="L189">        jScrollPane2 = new javax.swing.JScrollPane();</span>
+<span class="fc" id="L190">        tableCant_Disp = new javax.swing.JTable();</span>
+<span class="fc" id="L191">        btnSalir = new javax.swing.JButton();</span>
+<span class="fc" id="L192">        btnBloquear = new javax.swing.JButton();</span>
+<span class="fc" id="L193">        btnAdmin = new javax.swing.JButton();</span>
+<span class="fc" id="L194">        btnCrepas = new javax.swing.JButton();</span>
+<span class="fc" id="L195">        btnBebCal = new javax.swing.JButton();</span>
+<span class="fc" id="L196">        btnBebFrias = new javax.swing.JButton();</span>
+<span class="fc" id="L197">        btnPagar = new javax.swing.JButton();</span>
+<span class="fc" id="L198">        lblTotal = new javax.swing.JLabel();</span>
+<span class="fc" id="L199">        btnEliminarProducto = new javax.swing.JButton();</span>
+<span class="fc" id="L200">        jPanel1 = new javax.swing.JPanel();</span>
+<span class="fc" id="L201">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="fc" id="L202">        model = new javax.swing.JTable();</span>
+<span class="fc" id="L203">        lbl = new javax.swing.JLabel();</span>
+<span class="fc" id="L204">        jLabel1 = new javax.swing.JLabel();</span>
+
+<span class="fc" id="L206">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L207">        getContentPane().setLayout(null);</span>
+
+<span class="fc" id="L209">        btnBuscar.setBorderPainted(false);</span>
+<span class="fc" id="L210">        btnBuscar.setContentAreaFilled(false);</span>
+<span class="fc" id="L211">        btnBuscar.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L213">                btnBuscarActionPerformed(evt);</span>
+<span class="nc" id="L214">            }</span>
+        });
+<span class="fc" id="L216">        getContentPane().add(btnBuscar);</span>
+<span class="fc" id="L217">        btnBuscar.setBounds(10, 650, 200, 70);</span>
+
+<span class="fc" id="L219">        jScrollPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));</span>
+<span class="fc" id="L220">        jScrollPane2.setFocusable(false);</span>
+<span class="fc" id="L221">        jScrollPane2.setOpaque(false);</span>
+
+<span class="fc" id="L223">        tableCant_Disp.setModel(new javax.swing.table.DefaultTableModel(</span>
+            new Object [][] {
+
+            },
+            new String [] {
+                &quot;Cant_disp&quot;
+            }
+        ));
+<span class="fc" id="L231">        jScrollPane2.setViewportView(tableCant_Disp);</span>
+
+<span class="fc" id="L233">        getContentPane().add(jScrollPane2);</span>
+<span class="fc" id="L234">        jScrollPane2.setBounds(-110, 700, 140, 402);</span>
+
+<span class="fc" id="L236">        btnSalir.setBorderPainted(false);</span>
+<span class="fc" id="L237">        btnSalir.setContentAreaFilled(false);</span>
+<span class="fc" id="L238">        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="fc" id="L239">        btnSalir.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L241">                btnSalirActionPerformed(evt);</span>
+<span class="nc" id="L242">            }</span>
+        });
+<span class="fc" id="L244">        getContentPane().add(btnSalir);</span>
+<span class="fc" id="L245">        btnSalir.setBounds(490, 650, 210, 80);</span>
+
+<span class="fc" id="L247">        btnBloquear.setBorderPainted(false);</span>
+<span class="fc" id="L248">        btnBloquear.setContentAreaFilled(false);</span>
+<span class="fc" id="L249">        btnBloquear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="fc" id="L250">        btnBloquear.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L252">                btnBloquearActionPerformed(evt);</span>
+<span class="nc" id="L253">            }</span>
+        });
+<span class="fc" id="L255">        getContentPane().add(btnBloquear);</span>
+<span class="fc" id="L256">        btnBloquear.setBounds(250, 650, 210, 80);</span>
+
+<span class="fc" id="L258">        btnAdmin.setBorderPainted(false);</span>
+<span class="fc" id="L259">        btnAdmin.setContentAreaFilled(false);</span>
+<span class="fc" id="L260">        btnAdmin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="fc" id="L261">        btnAdmin.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L263">                btnAdminActionPerformed(evt);</span>
+<span class="nc" id="L264">            }</span>
+        });
+<span class="fc" id="L266">        getContentPane().add(btnAdmin);</span>
+<span class="fc" id="L267">        btnAdmin.setBounds(50, 350, 280, 220);</span>
+
+<span class="fc" id="L269">        btnCrepas.setBorderPainted(false);</span>
+<span class="fc" id="L270">        btnCrepas.setContentAreaFilled(false);</span>
+<span class="fc" id="L271">        btnCrepas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="fc" id="L272">        btnCrepas.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L274">                btnCrepasActionPerformed(evt);</span>
+<span class="nc" id="L275">            }</span>
+        });
+<span class="fc" id="L277">        getContentPane().add(btnCrepas);</span>
+<span class="fc" id="L278">        btnCrepas.setBounds(52, 76, 282, 220);</span>
+
+<span class="fc" id="L280">        btnBebCal.setBorderPainted(false);</span>
+<span class="fc" id="L281">        btnBebCal.setContentAreaFilled(false);</span>
+<span class="fc" id="L282">        btnBebCal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="fc" id="L283">        btnBebCal.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L285">                btnBebCalActionPerformed(evt);</span>
+<span class="nc" id="L286">            }</span>
+        });
+<span class="fc" id="L288">        getContentPane().add(btnBebCal);</span>
+<span class="fc" id="L289">        btnBebCal.setBounds(382, 76, 282, 220);</span>
+
+<span class="fc" id="L291">        btnBebFrias.setBorderPainted(false);</span>
+<span class="fc" id="L292">        btnBebFrias.setContentAreaFilled(false);</span>
+<span class="fc" id="L293">        btnBebFrias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="fc" id="L294">        btnBebFrias.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L296">                btnBebFriasActionPerformed(evt);</span>
+<span class="nc" id="L297">            }</span>
+        });
+<span class="fc" id="L299">        getContentPane().add(btnBebFrias);</span>
+<span class="fc" id="L300">        btnBebFrias.setBounds(380, 350, 282, 220);</span>
+
+<span class="fc" id="L302">        btnPagar.setBorderPainted(false);</span>
+<span class="fc" id="L303">        btnPagar.setContentAreaFilled(false);</span>
+<span class="fc" id="L304">        btnPagar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="fc" id="L305">        btnPagar.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L307">                btnPagarActionPerformed(evt);</span>
+<span class="nc" id="L308">            }</span>
+        });
+<span class="fc" id="L310">        getContentPane().add(btnPagar);</span>
+<span class="fc" id="L311">        btnPagar.setBounds(702, 568, 190, 160);</span>
+
+<span class="fc" id="L313">        lblTotal.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 36)); // NOI18N</span>
+<span class="fc" id="L314">        lblTotal.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="fc" id="L315">        lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);</span>
+<span class="fc" id="L316">        lblTotal.setText(&quot;0&quot;);</span>
+<span class="fc" id="L317">        getContentPane().add(lblTotal);</span>
+<span class="fc" id="L318">        lblTotal.setBounds(930, 635, 140, 50);</span>
+
+<span class="fc" id="L320">        btnEliminarProducto.setBackground(new java.awt.Color(153, 153, 0));</span>
+<span class="fc" id="L321">        btnEliminarProducto.setFont(new java.awt.Font(&quot;Arial&quot;, 1, 24)); // NOI18N</span>
+<span class="fc" id="L322">        btnEliminarProducto.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="fc" id="L323">        btnEliminarProducto.setText(&quot;X&quot;);</span>
+<span class="fc" id="L324">        btnEliminarProducto.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(153, 153, 0)));</span>
+<span class="fc" id="L325">        btnEliminarProducto.setContentAreaFilled(false);</span>
+<span class="fc" id="L326">        btnEliminarProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="fc" id="L327">        btnEliminarProducto.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);</span>
+<span class="fc" id="L328">        btnEliminarProducto.setOpaque(true);</span>
+<span class="fc" id="L329">        btnEliminarProducto.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L331">                btnEliminarProductoActionPerformed(evt);</span>
+<span class="nc" id="L332">            }</span>
+        });
+<span class="fc" id="L334">        getContentPane().add(btnEliminarProducto);</span>
+<span class="fc" id="L335">        btnEliminarProducto.setBounds(1020, 130, 50, 50);</span>
+
+<span class="fc" id="L337">        jPanel1.setOpaque(false);</span>
+
+<span class="fc" id="L339">        model.setFont(new java.awt.Font(&quot;Arial&quot;, 1, 12)); // NOI18N</span>
+<span class="fc" id="L340">        model.setModel(new javax.swing.table.DefaultTableModel(</span>
+            new Object [][] {
+
+            },
+            new String [] {
+                &quot;ID&quot;, &quot;Producto&quot;, &quot;Cant&quot;, &quot;S&quot;, &quot;Total&quot;
+            }
+<span class="fc" id="L347">        ) {</span>
+<span class="fc" id="L348">            Class[] types = new Class [] {</span>
+                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class, java.lang.Float.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+<span class="nc" id="L353">                return types [columnIndex];</span>
+            }
+        });
+<span class="fc" id="L356">        model.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);</span>
+<span class="fc" id="L357">        model.setRowHeight(25);</span>
+<span class="fc" id="L358">        model.setSelectionBackground(new java.awt.Color(161, 212, 212));</span>
+<span class="fc" id="L359">        model.setSelectionForeground(new java.awt.Color(102, 102, 102));</span>
+<span class="fc" id="L360">        model.setShowVerticalLines(false);</span>
+<span class="fc" id="L361">        model.getTableHeader().setResizingAllowed(false);</span>
+<span class="fc" id="L362">        model.getTableHeader().setReorderingAllowed(false);</span>
+<span class="fc" id="L363">        model.setUpdateSelectionOnSort(false);</span>
+<span class="fc" id="L364">        jScrollPane1.setViewportView(model);</span>
+
+<span class="fc" id="L366">        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);</span>
+<span class="fc" id="L367">        jPanel1.setLayout(jPanel1Layout);</span>
+<span class="fc" id="L368">        jPanel1Layout.setHorizontalGroup(</span>
+<span class="fc" id="L369">            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L370">            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)</span>
+        );
+<span class="fc" id="L372">        jPanel1Layout.setVerticalGroup(</span>
+<span class="fc" id="L373">            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L374">            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)</span>
+        );
+
+<span class="fc" id="L377">        getContentPane().add(jPanel1);</span>
+<span class="fc" id="L378">        jPanel1.setBounds(706, 208, 380, 356);</span>
+
+<span class="fc" id="L380">        lbl.setFont(new java.awt.Font(&quot;Arial&quot;, 0, 36)); // NOI18N</span>
+<span class="fc" id="L381">        lbl.setForeground(new java.awt.Color(255, 255, 255));</span>
+<span class="fc" id="L382">        lbl.setText(&quot;$&quot;);</span>
+<span class="fc" id="L383">        getContentPane().add(lbl);</span>
+<span class="fc" id="L384">        lbl.setBounds(900, 640, 30, 40);</span>
+
+<span class="fc" id="L386">        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Imagenes/menu_principal.jpg&quot;))); // NOI18N</span>
+<span class="fc" id="L387">        getContentPane().add(jLabel1);</span>
+<span class="fc" id="L388">        jLabel1.setBounds(0, 0, 1089, 726);</span>
+
+<span class="fc" id="L390">        pack();</span>
+<span class="fc" id="L391">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void btnEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarProductoActionPerformed
+       //mod = (DefaultTableModel)this.model.getModel();
+<span class="nc bnc" id="L395" title="All 4 branches missed.">       if((this.mod.getRowCount()!=0)&amp;&amp;(this.model.getSelectedRowCount() &gt; 0)){</span>
+<span class="nc" id="L396">           total = Float.parseFloat(lblTotal.getText());</span>
+<span class="nc" id="L397">       float totalcompra =  (float) mod.getValueAt(this.model.getSelectedRow(), 4);</span>
+<span class="nc" id="L398">        System.out.println(&quot;totalcompra = &quot; + totalcompra);</span>
+<span class="nc" id="L399">       total = total - totalcompra;</span>
+<span class="nc" id="L400">        System.out.println(&quot;totalcompra = &quot; + total);</span>
+<span class="nc" id="L401">       lblTotal.setText(String.valueOf(total));</span>
+<span class="nc" id="L402">        mod.removeRow(this.model.getSelectedRow());</span>
+<span class="nc" id="L403">       }else{</span>
+<span class="nc" id="L404">       JOptionPane.showMessageDialog(null,&quot;¡¡No hay nada seleccionado!!&quot;);</span>
+       }
+       
+  
+<span class="nc" id="L408">    }//GEN-LAST:event_btnEliminarProductoActionPerformed</span>
+
+    private void btnBebCalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBebCalActionPerformed
+<span class="nc" id="L411">        this.setVisible(false);</span>
+<span class="nc" id="L412">        BebidasCalientesAdmin bc = new BebidasCalientesAdmin(this.mod);</span>
+<span class="nc" id="L413">        bc.setVisible(true);</span>
+<span class="nc" id="L414">    }//GEN-LAST:event_btnBebCalActionPerformed</span>
+
+    private void btnBebFriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBebFriasActionPerformed
+<span class="nc" id="L417">        this.setVisible(false);</span>
+<span class="nc" id="L418">        BebidasFriasAdmin bf = new BebidasFriasAdmin(this.mod);</span>
+<span class="nc" id="L419">        bf.setVisible(true);</span>
+<span class="nc" id="L420">    }//GEN-LAST:event_btnBebFriasActionPerformed</span>
+
+    private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
+<span class="nc" id="L423">        this.setVisible(false);</span>
+<span class="nc" id="L424">        Administrar bf = new Administrar();</span>
+<span class="nc" id="L425">        bf.setVisible(true);</span>
+<span class="nc" id="L426">    }//GEN-LAST:event_btnAdminActionPerformed</span>
+
+    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+        int p;
+        int up; 
+<span class="nc" id="L431">        int i=0;</span>
+<span class="nc" id="L432">        String[] array = new String[100]; </span>
+<span class="nc bnc" id="L433" title="All 2 branches missed.">       if(Float.parseFloat(lblTotal.getText())!=0){</span>
+        //Ciclo for para recorrer toda la tabla y hacer las validaciones apropiadas
+<span class="nc" id="L435">        int opc = JOptionPane.showConfirmDialog(null,&quot;¿Seguro?&quot;,&quot;Alerta&quot;,JOptionPane.YES_NO_OPTION);</span>
+<span class="nc bnc" id="L436" title="All 2 branches missed.">        if(opc == JOptionPane.YES_OPTION){</span>
+<span class="nc bnc" id="L437" title="All 2 branches missed.">            for(p=0;p&lt;mod.getRowCount();p++){</span>
+<span class="nc" id="L438">                List&lt;Receta&gt; rec = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L439">                List&lt;Ingrediente&gt; cantI = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L440">                rec= (List&lt;Receta&gt;) Recetas.select(Conexion.getDBConexion(), String.format(&quot;select ingrediente_id,cant from recetas where producto_id = %s&quot;,mod.getValueAt(p, 0)), Receta.class);</span>
+<span class="nc" id="L441">                System.out.println(&quot;rec.size() = &quot; + rec.size());</span>
+<span class="nc bnc" id="L442" title="All 2 branches missed.">                for(up=0;up&lt;rec.size();up++){  </span>
+<span class="nc" id="L443">                Receta cant_rec = (Receta) rec.get(up);</span>
+<span class="nc" id="L444">                cantI= (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), String.format(&quot;select cant_disp,ingrediente_id from ingredientes where ingrediente_id like '%s'&quot;,cant_rec.getIngrediente_id()), Ingrediente.class);</span>
+<span class="nc" id="L445">                Ingrediente cant_ing = (Ingrediente) cantI.get(0);</span>
+<span class="nc" id="L446">                System.out.println(&quot;cant_ing = &quot; + mod.getValueAt(p, 2));</span>
+<span class="nc" id="L447">                int cel_disp = Integer.parseInt(cant_ing.getIngrediente_id().toString())-1;</span>
+<span class="nc" id="L448">                    System.out.println(&quot;cel_disp = &quot; + cel_disp);</span>
+<span class="nc" id="L449">                float cant_ingrediente = Float.parseFloat(cantidades_reg.getValueAt(cel_disp, 0).toString());//Valor de la celda donde se encuentra la cantidad de producto disp x ing</span>
+<span class="nc" id="L450">                    System.out.println(&quot;cant_ingrediente = &quot; + cant_ingrediente);</span>
+<span class="nc" id="L451">                float cant_receta = Float.parseFloat(cant_rec.getCant().toString());</span>
+<span class="nc" id="L452">                    System.out.println(&quot;cant_receta = &quot; + cant_receta);</span>
+<span class="nc" id="L453">                float cant_ingresada = Float.parseFloat(mod.getValueAt(p, 2).toString());</span>
+                 
+<span class="nc bnc" id="L455" title="All 2 branches missed.">                if(cant_ingrediente-(cant_receta*cant_ingresada)&lt;0){</span>
+<span class="nc" id="L456">                    System.out.println(&quot;Cantidad no disponible :C&quot;);</span>
+<span class="nc" id="L457">                    array[i] = &quot;- &quot;+mod.getValueAt(p, 1).toString();</span>
+<span class="nc" id="L458">                    i++;</span>
+                
+                }else{
+<span class="nc bnc" id="L461" title="All 2 branches missed.">                    if(cant_ingrediente-(cant_receta*cant_ingresada)&gt;=0){</span>
+<span class="nc" id="L462">                    cantidades_reg.setValueAt(cant_ingrediente-(cant_receta*cant_ingresada), cel_disp, 0);</span>
+                    }
+                }
+                }
+        }
+            
+<span class="nc bnc" id="L468" title="All 2 branches missed.">            if(i&gt;0){</span>
+<span class="nc" id="L469">                    JOptionPane.showMessageDialog(rootPane, &quot;¡No hay ingredientes suficientes para ciertos productos!&quot;, &quot;Advertencia&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L470">                    JOptionPane.showMessageDialog(rootPane, array, &quot;Productos Conflicto&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L471">                    JOptionPane.showMessageDialog(rootPane, &quot;Porfavor resurta ingredientes o elimine producto&quot;, &quot;Advertencia&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L472">                List&lt;Ingredientes&gt; ing= new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L473">                cant_disp = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select cant_Disp from Ingredientes&quot;, Ingrediente.class);;</span>
+<span class="nc" id="L474">                largo = cant_disp.size();</span>
+<span class="nc bnc" id="L475" title="All 2 branches missed.">                for(int o=0;o&lt;largo;o++){</span>
+<span class="nc" id="L476">                    cantidades_reg.removeRow(0);</span>
+                }
+<span class="nc bnc" id="L478" title="All 2 branches missed.">                for(int o=0;o&lt;largo;o++){</span>
+<span class="nc" id="L479">                    Ingrediente in = (Ingrediente) cant_disp.get(o);</span>
+<span class="nc" id="L480">                    System.out.println(&quot;cant_disp = &quot; + in.getCant_disp());</span>
+<span class="nc" id="L481">                    int fila = cantidades_reg.getRowCount();</span>
+<span class="nc" id="L482">                    cantidades_reg.addRow(new Object[fila]);</span>
+<span class="nc" id="L483">                    cantidades_reg.setValueAt(in.getCant_disp(),fila,0);</span>
+         
+                }
+<span class="nc" id="L486">            }else{</span>
+<span class="nc" id="L487">                 this.setVisible(false);</span>
+<span class="nc" id="L488">                 PagoAdmin pag = new PagoAdmin(mod,cantidades_reg);</span>
+<span class="nc" id="L489">                 pag.setVisible(true);</span>
+<span class="nc" id="L490">            }</span>
+           
+            
+        }
+<span class="nc bnc" id="L494" title="All 2 branches missed.">        else if(opc == JOptionPane.NO_OPTION){</span>
+<span class="nc" id="L495">            JOptionPane.showMessageDialog(null, &quot;Ok&quot;);</span>
+        }
+<span class="nc" id="L497">        }else{</span>
+<span class="nc" id="L498">            JOptionPane.showMessageDialog(null, &quot;No hay nada ha pagar&quot;);</span>
+        }
+        
+<span class="nc" id="L501">    }//GEN-LAST:event_btnPagarActionPerformed</span>
+
+    private void btnCrepasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrepasActionPerformed
+<span class="nc" id="L504">        this.setVisible(false);</span>
+<span class="nc" id="L505">        CrepasAdmin cp = new CrepasAdmin(this.mod);</span>
+<span class="nc" id="L506">        cp.setVisible(true);</span>
+<span class="nc" id="L507">    }//GEN-LAST:event_btnCrepasActionPerformed</span>
+
+    private void btnBloquearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBloquearActionPerformed
+<span class="nc" id="L510">        int opc = JOptionPane.showConfirmDialog(null,&quot;¿Seguro?&quot;,&quot;Alerta&quot;,JOptionPane.YES_NO_OPTION);</span>
+<span class="nc bnc" id="L511" title="All 2 branches missed.">        if(opc == JOptionPane.YES_OPTION){</span>
+<span class="nc" id="L512">            this.setVisible(false);</span>
+<span class="nc" id="L513">            Inicio i = new Inicio();</span>
+<span class="nc" id="L514">            i.setVisible(true);</span>
+<span class="nc" id="L515">        }</span>
+<span class="nc bnc" id="L516" title="All 2 branches missed.">        else if(opc == JOptionPane.NO_OPTION){</span>
+<span class="nc" id="L517">            JOptionPane.showMessageDialog(null, &quot;Ok&quot;);</span>
+        }
+<span class="nc" id="L519">    }//GEN-LAST:event_btnBloquearActionPerformed</span>
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+<span class="nc bnc" id="L522" title="All 2 branches missed.">        if(Float.parseFloat(lblTotal.getText())&gt;0){</span>
+<span class="nc" id="L523">        int opc = JOptionPane.showConfirmDialog(null,&quot;Aun hay una venta en proceso\n¿Seguro que quiere salir?&quot;,&quot;Alerta&quot;,JOptionPane.YES_NO_OPTION);</span>
+<span class="nc bnc" id="L524" title="All 2 branches missed.">        if(opc == JOptionPane.YES_OPTION){</span>
+<span class="nc" id="L525">            JOptionPane.showMessageDialog(rootPane, &quot;¡Hasta la proxima!&quot;, &quot;Saliendo&quot;, INFORMATION_MESSAGE);</span>
+<span class="nc" id="L526">            System.exit(0);</span>
+        }
+<span class="nc bnc" id="L528" title="All 2 branches missed.">        else if(opc == JOptionPane.NO_OPTION){</span>
+<span class="nc" id="L529">            JOptionPane.showMessageDialog(null, &quot;Ok&quot;);</span>
+        }
+<span class="nc" id="L531">        }else{</span>
+<span class="nc" id="L532">        int opc = JOptionPane.showConfirmDialog(null,&quot;¿Seguro que quiere salir?&quot;,&quot;Alerta&quot;,JOptionPane.YES_NO_OPTION);</span>
+<span class="nc bnc" id="L533" title="All 2 branches missed.">        if(opc == JOptionPane.YES_OPTION){</span>
+<span class="nc" id="L534">            JOptionPane.showMessageDialog(rootPane, &quot;¡Hasta la proxima!&quot;, &quot;Saliendo&quot;, INFORMATION_MESSAGE);</span>
+<span class="nc" id="L535">            System.exit(0);</span>
+        }
+<span class="nc bnc" id="L537" title="All 2 branches missed.">        else if(opc == JOptionPane.NO_OPTION){</span>
+<span class="nc" id="L538">            JOptionPane.showMessageDialog(null, &quot;Ok&quot;);</span>
+        }
+        }
+<span class="nc" id="L541">    }//GEN-LAST:event_btnSalirActionPerformed</span>
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+<span class="nc" id="L544">        Recetario rc = new Recetario();</span>
+<span class="nc" id="L545">        rc.setVisible(true);</span>
+<span class="nc" id="L546">    }//GEN-LAST:event_btnBuscarActionPerformed</span>
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+<span class="nc bnc" id="L558" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L559" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L560">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L561">                    break;</span>
+                }
+            }
+<span class="nc" id="L564">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L565">            java.util.logging.Logger.getLogger(MenuInicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L566">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L567">            java.util.logging.Logger.getLogger(MenuInicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L568">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L569">            java.util.logging.Logger.getLogger(MenuInicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L570">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L571">            java.util.logging.Logger.getLogger(MenuInicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L572">        }</span>
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+
+        /* Create and display the form */
+<span class="nc" id="L579">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+<span class="nc" id="L581">                new MenuInicioAdmin().setVisible(true);</span>
+<span class="nc" id="L582">            }</span>
+        });
+<span class="nc" id="L584">    }</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdmin;
+    private javax.swing.JButton btnBebCal;
+    private javax.swing.JButton btnBebFrias;
+    private javax.swing.JButton btnBloquear;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCrepas;
+    private javax.swing.JButton btnEliminarProducto;
+    private javax.swing.JButton btnPagar;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbl;
+    private javax.swing.JLabel lblTotal;
+    private javax.swing.JTable model;
+    private javax.swing.JTable tableCant_Disp;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

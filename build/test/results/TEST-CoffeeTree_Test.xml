@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="LAPTOP-EKTML5QD" name="CoffeeTree_Test" skipped="0" tests="4" time="4.879" timestamp="2018-03-13T07:09:49">
+  <properties>
+    <property name="libs.jsp-compiler.javadoc" value="" />
+    <property name="netbeans.autoupdate.country" value="MX" />
+    <property name="ant.file.type.CoffeeTree" value="file" />
+    <property name="javac.test.classpath" value="C:\Users\kenia\Downloads\CoffeeTree-master\ojdbc6.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\beansbinding-1.2.1.jar:build/classes:C:\Program Files\NetBeans 8.2\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.2\platform\modules\ext\hamcrest-core-1.3.jar:C:\Users\kenia\Documents\NetBeansProjects\loginMockito\mockito-all-1.10.19.jar" />
+    <property name="libs.jsf20.maven-pom" value="" />
+    <property name="libs.DataBindingME.src" value="C:\Program Files\NetBeans 8.2\mobility\sources\netbeans_databindingme-src.zip" />
+    <property name="libs.spring-webmvc4.0.src" value="" />
+    <property name="ant.core.lib" value="C:\Program Files\NetBeans 8.2\extide\ant\lib\ant.jar" />
+    <property name="javadoc.windowtitle" value="" />
+    <property name="libs.jsp-compilation.javadoc" value="" />
+    <property name="user.dir" value="C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master" />
+    <property name="libs.javaee-api-7.0.src" value="" />
+    <property name="java.vm.version" value="25.161-b12" />
+    <property name="libs.DataBindingME.classpath" value="C:\Program Files\NetBeans 8.2\mobility\modules\ext\netbeans_databindingme.jar" />
+    <property name="libs.j2me_common_ant.src" value="" />
+    <property name="libs.MySQLDriver.classpath" value="C:\Program Files\NetBeans 8.2\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar" />
+    <property name="libs.eclipselinkmodelgen.src" value="" />
+    <property name="javadoc.notree" value="false" />
+    <property name="netbeans.autoupdate.version" value="1.23" />
+    <property name="libs.javaee-web-api-6.0.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\javaee-web-api-6.0.jar" />
+    <property name="libs.DataBindingME-PIM.maven-pom" value="" />
+    <property name="javac.profile.cmd.line.arg" value="" />
+    <property name="jdk.home" value="C:\Program Files\Java\jdk1.8.0_161" />
+    <property name="libs.javac-api.src" value="" />
+    <property name="javadoc.noindex" value="false" />
+    <property name="libs.jpa2-persistence.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-jpa-2.1-api-1.0.0.Final.jar" />
+    <property name="ant.file.CoffeeTree-impl" value="C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master\nbproject\build-impl.xml" />
+    <property name="sun.os.patch.level" value="" />
+    <property name="do.archive+manifest.available" value="true" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="nb.show.statistics.ui" value="usageStatisticsEnabled" />
+    <property name="netbeans.autoupdate.variant" value="" />
+    <property name="have.tests" value="true" />
+    <property name="org.xml.sax.driver" value="com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser" />
+    <property name="libs.hamcrest.classpath" value="C:\Program Files\NetBeans 8.2\platform\modules\ext\hamcrest-core-1.3.jar" />
+    <property name="libs.javac-api.javadoc" value="" />
+    <property name="os.name" value="Windows 10" />
+    <property name="libs.beans-binding.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\beansbinding-1.2.1.jar" />
+    <property name="libs.javaee-endorsed-api-7.0.maven-pom" value="" />
+    <property name="ap.proc.none.internal" value="" />
+    <property name="libs.DataBindingME-SVG.javadoc" value="C:\Program Files\NetBeans 8.2\mobility\modules\docs\netbeans_databindingme_svg-api.zip" />
+    <property name="libs.restapi.javadoc" value="" />
+    <property name="libs.JWSAntTasks.maven-pom" value="" />
+    <property name="libs.jstl.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jstl-impl.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jstl-api.jar" />
+    <property name="libs.testng.src" value="" />
+    <property name="libs.spring-webmvc3.0.src" value="" />
+    <property name="libs.restapi.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jaxrs-2.0\javax.ws.rs-api-2.0.jar" />
+    <property name="libs.Mockito.javadoc" value="" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="libs.jaxb.maven-pom" value="" />
+    <property name="os.arch" value="amd64" />
+    <property name="libs.eclipselink.src" value="" />
+    <property name="user.name" value="kenia" />
+    <property name="libs.jsf12.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
+    <property name="copylibs.rebase" value="true" />
+    <property name="libs.j2me_common_ant.maven-pom" value="" />
+    <property name="libs.spring-webmvc3.0.maven-pom" value="" />
+    <property name="libs.swing-layout.maven-pom" value="" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner CoffeeTree_Test skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master\build\test\results\TEST-CoffeeTree_Test.xml crashfile=C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master\build\junitvmwatcher1837126832819893262.properties propsfile=C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master\build\junit4449321845119828627.properties" />
+    <property name="build.classes.dir" value="build/classes" />
+    <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
+    <property name="build.sysclasspath" value="ignore" />
+    <property name="manifest.encoding" value="UTF-8" />
+    <property name="ap.supported.internal" value="true" />
+    <property name="java.failonerror" value="true" />
+    <property name="libs.javaee-endorsed-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.jaxws21.javadoc" value="C:\Program Files\NetBeans 8.2\java\docs\jaxws-api-doc.zip" />
+    <property name="libs.spring-webmvc4.0.javadoc" value="" />
+    <property name="includes" value="**" />
+    <property name="user.country" value="MX" />
+    <property name="manifest.file" value="manifest.mf" />
+    <property name="javadoc.encoding" value="UTF-8" />
+    <property name="javac.classpath" value="C:\Users\kenia\Downloads\CoffeeTree-master\ojdbc6.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\beansbinding-1.2.1.jar" />
+    <property name="libs.jsp-compilation-syscp.src" value="" />
+    <property name="libs.spring-framework400.classpath" value="C:\Program Files\NetBeans 8.2\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-aop-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-aspects-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-beans-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-build-src-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-context-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-context-support-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-core-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-expression-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-framework-bom-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-instrument-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-instrument-tomcat-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-jdbc-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-jms-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-messaging-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-orm-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-oxm-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-test-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-tx-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-web-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-webmvc-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-webmvc-portlet-4.0.1.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-websocket-4.0.1.RELEASE.jar" />
+    <property name="debug-transport" value="dt_shmem" />
+    <property name="ant.file.type.CoffeeTree-impl" value="file" />
+    <property name="netbeans.home" value="C:\Program Files\NetBeans 8.2\platform" />
+    <property name="build.compiler.emacs" value="true" />
+    <property name="libs.javaee-web-api-6.0.src" value="" />
+    <property name="libs.jsp-compilation-syscp.classpath" value="C:\Program Files\NetBeans 8.2\extide\ant\lib\ant.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\servlet3.1-jsp2.3-api.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\glassfish-jspparser-4.0.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jstl-impl.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-2_2\javax.faces.jar" />
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_161\jre\lib\endorsed" />
+    <property name="libs.groovy-all.src" value="" />
+    <property name="netbeans.dynamic.classpath" value="C:\Program Files\NetBeans 8.2\platform\core\asm-all-5.0.1.jar;C:\Program Files\NetBeans 8.2\platform\core\core-base.jar;C:\Program Files\NetBeans 8.2\platform\core\core.jar;C:\Program Files\NetBeans 8.2\platform\core\org-netbeans-libs-asm.jar;C:\Program Files\NetBeans 8.2\platform\core\org-openide-filesystems-compat8.jar;C:\Program Files\NetBeans 8.2\platform\core\org-openide-filesystems.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\core-base_ja.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\core-base_pt_BR.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\core-base_ru.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\core-base_zh_CN.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\core_ja.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\core_pt_BR.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\core_ru.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\core_zh_CN.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\org-netbeans-libs-asm_ja.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\org-netbeans-libs-asm_pt_BR.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\org-netbeans-libs-asm_ru.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\org-netbeans-libs-asm_zh_CN.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\org-openide-filesystems-compat8_ja.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\org-openide-filesystems-compat8_pt_BR.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\org-openide-filesystems-compat8_ru.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\org-openide-filesystems-compat8_zh_CN.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\org-openide-filesystems_ja.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\org-openide-filesystems_pt_BR.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\org-openide-filesystems_ru.jar;C:\Program Files\NetBeans 8.2\platform\core\locale\org-openide-filesystems_zh_CN.jar;C:\Program Files\NetBeans 8.2\nb\core\org-netbeans-upgrader.jar;C:\Program Files\NetBeans 8.2\nb\core\locale\core_nb.jar;C:\Program Files\NetBeans 8.2\nb\core\locale\core_nb_ja.jar;C:\Program Files\NetBeans 8.2\nb\core\locale\core_nb_pt_BR.jar;C:\Program Files\NetBeans 8.2\nb\core\locale\core_nb_ru.jar;C:\Program Files\NetBeans 8.2\nb\core\locale\core_nb_zh_CN.jar;C:\Program Files\NetBeans 8.2\nb\core\locale\org-netbeans-upgrader_ja.jar;C:\Program Files\NetBeans 8.2\nb\core\locale\org-netbeans-upgrader_pt_BR.jar;C:\Program Files\NetBeans 8.2\nb\core\locale\org-netbeans-upgrader_ru.jar;C:\Program Files\NetBeans 8.2\nb\core\locale\org-netbeans-upgrader_zh_CN.jar" />
+    <property name="java.vm.specification.version" value="1.8" />
+    <property name="libs.hibernate4-support.src" value="" />
+    <property name="libs.primefaces.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\primefaces\primefaces-5.0.jar" />
+    <property name="libs.javaee-api-6.0.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\javaee-api-6.0.jar" />
+    <property name="libs.groovy-all.maven-pom" value="" />
+    <property name="netbeans.productversion" value="NetBeans IDE 8.2 (Build 201609300101)" />
+    <property name="libs.jaxws21.src" value="" />
+    <property name="application.title" value="CoffeeTree" />
+    <property name="do.archive" value="true" />
+    <property name="netbeans.autoupdate.language" value="es" />
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="libs.javaee-api-6.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
+    <property name="jar.index.metainf" value="false" />
+    <property name="javac.debug" value="true" />
+    <property name="javadoc.splitindex" value="true" />
+    <property name="file.separator" value="\" />
+    <property name="libs.junit_4.maven-pom" value="" />
+    <property name="mkdist.disabled" value="false" />
+    <property name="javac.test.processorpath" value="C:\Users\kenia\Downloads\CoffeeTree-master\ojdbc6.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\beansbinding-1.2.1.jar:build/classes:C:\Program Files\NetBeans 8.2\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.2\platform\modules\ext\hamcrest-core-1.3.jar:C:\Users\kenia\Documents\NetBeansProjects\loginMockito\mockito-all-1.10.19.jar" />
+    <property name="netbeans.buildnumber" value="201609300101" />
+    <property name="libs.JWSAntTasks.javadoc" value="" />
+    <property name="build.generated.sources.dir" value="build/generated-sources" />
+    <property name="user.variant" value="" />
+    <property name="libs.eclipselinkmodelgen.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.modelgen_2.5.2.v20140319-9ad6abd.jar" />
+    <property name="libs.javaee-endorsed-api-7.0.src" value="" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="libs.hibernate4-persistencemodelgen.javadoc" value="" />
+    <property name="libs.jaxb.javadoc" value="C:\Program Files\NetBeans 8.2\ide\docs\jaxb-api-doc.zip" />
+    <property name="libs.struts.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\antlr-2.7.2.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\bsf-2.3.0.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\commons-beanutils-1.8.0.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\commons-chain-1.2.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\commons-digester-1.8.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\commons-fileupload-1.1.1.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\commons-io-1.1.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\commons-logging-1.0.4.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\commons-validator-1.3.1.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\jstl-1.0.2.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\oro-2.0.8.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\standard-1.0.6.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\struts-core-1.3.10.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\struts-el-1.3.10.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\struts-extras-1.3.10.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\struts-faces-1.3.10.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\struts-mailreader-dao-1.3.10.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\struts-scripting-1.3.10.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\struts-taglib-1.3.10.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\struts\struts-tiles-1.3.10.jar" />
+    <property name="ant.home" value="C:\Program Files\NetBeans 8.2\extide\ant" />
+    <property name="libs.junit_4.src" value="C:\Program Files\NetBeans 8.2\platform\docs\junit-4.12-sources.jar" />
+    <property name="libs.testng.classpath" value="C:\Program Files\NetBeans 8.2\platform\modules\ext\testng-6.8.1-dist.jar" />
+    <property name="libs.absolutelayout.maven-pom" value="" />
+    <property name="ant.java.version" value="1.8" />
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_161\jre\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\oraclexe\app\oracle\product\11.2.0\server\bin;;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn\;C:\Users\kenia\AppData\Local\Microsoft\WindowsApps;C:\Users\kenia\AppData\Local\atom\bin;." />
+    <property name="javadoc.author" value="false" />
+    <property name="libs.metro.maven-pom" value="" />
+    <property name="java.util.logging.config.class" value="org.netbeans.core.startup.TopLogging" />
+    <property name="file.reference.ojdbc6.jar" value="C:\Users\kenia\Downloads\CoffeeTree-master\ojdbc6.jar" />
+    <property name="libs.spring-framework400.src" value="" />
+    <property name="libs.PostgreSQLDriver.src" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="basedir" value="C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master" />
+    <property name="libs.jpa20-persistence.maven-pom" value="" />
+    <property name="jar.compress" value="false" />
+    <property name="libs.javaee-web-api-7.0.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\javaee-web-api-7.0.jar" />
+    <property name="file.reference.mockito-all-1.10.19.jar" value="C:\Users\kenia\Documents\NetBeansProjects\loginMockito\mockito-all-1.10.19.jar" />
+    <property name="path.separator" value=";" />
+    <property name="libs.javaee-web-api-6.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
+    <property name="ant.junit.enabletestlistenerevents" value="true" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="libs.jaxws21.classpath" value="C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\jaxb-impl.jar;C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\jaxb-xjc.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\FastInfoset.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\gmbal-api-only.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\ha-api.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\javax.mail_1.4.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\jaxws-rt.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\jaxws-tools.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\management-api.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\mimepull.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\policy.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\saaj-impl.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\stax-ex.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\stax2-api.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\streambuffer.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\woodstox-core-asl.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\api\jaxws-api.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\api\jsr181-api.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\api\javax.annotation.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\jaxws22\api\saaj-api.jar;C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\activation.jar;C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\api\jaxb-api.jar;C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\api\jsr173_1.0_api.jar" />
+    <property name="libs.struts.src" value="" />
+    <property name="compile.on.save" value="true" />
+    <property name="apple.awt.graphics.UseQuartz" value="true" />
+    <property name="user.language" value="es" />
+    <property name="testng.mode" value="testng" />
+    <property name="libs.JAXB-ENDORSED.maven-pom" value="" />
+    <property name="libs.eclipselink.maven-pom" value="" />
+    <property name="application.vendor" value="kenia_000" />
+    <property name="test.binaryincludes" value="&lt;nothing&gt;" />
+    <property name="manifest.available" value="true" />
+    <property name="libs.primefaces.javadoc" value="" />
+    <property name="libs.spring-framework300.maven-pom" value="" />
+    <property name="run.test.classpath" value="C:\Users\kenia\Downloads\CoffeeTree-master\ojdbc6.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\beansbinding-1.2.1.jar:build/classes:C:\Program Files\NetBeans 8.2\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.2\platform\modules\ext\hamcrest-core-1.3.jar:C:\Users\kenia\Documents\NetBeansProjects\loginMockito\mockito-all-1.10.19.jar:build/test/classes" />
+    <property name="ant.project.invoked-targets" value="test" />
+    <property name="test.binaryexcludes" value="" />
+    <property name="libs.swing-layout.javadoc" value="C:\Program Files\NetBeans 8.2\platform\docs\swing-layout-1.0.4-doc.zip" />
+    <property name="sun.java2d.dpiaware" value="true" />
+    <property name="libs.hibernate4-persistence.maven-pom" value="" />
+    <property name="libs.DataBindingME-SVG.classpath" value="C:\Program Files\NetBeans 8.2\mobility\modules\ext\netbeans_databindingme_svg.jar" />
+    <property name="https.nonProxyHosts" value="localhost|127.0.0.1|LAPTOP-EKTML5QD" />
+    <property name="libs.PostgreSQLDriver.maven-pom" value="" />
+    <property name="java.class.version" value="52.0" />
+    <property name="libs.hibernate4-persistencemodelgen.maven-pom" value="" />
+    <property name="libs.javaee-endorsed-api-6.0.src" value="" />
+    <property name="libs.eclipselink.javadoc" value="C:\Program Files\NetBeans 8.2\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
+    <property name="libs.jsp-compilation.maven-pom" value="" />
+    <property name="user.properties.file" value="C:\Users\kenia\AppData\Roaming\NetBeans\8.2\build.properties" />
+    <property name="runtime.encoding" value="UTF-8" />
+    <property name="libs.javac-api.maven-pom" value="" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="libs.JAXB-ENDORSED.javadoc" value="" />
+    <property name="libs.JWSAntTasks.classpath" value="C:\Program Files\NetBeans 8.2\java\ant\extra\org-netbeans-modules-javawebstart-anttasks.jar" />
+    <property name="libs.spring-webmvc4.0.maven-pom" value="" />
+    <property name="libs.spring-framework300.src" value="" />
+    <property name="libs.jstl.src" value="" />
+    <property name="empty.dir" value="C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master\build\empty" />
+    <property name="version-output" value="java version &quot;1.8" />
+    <property name="test.binarytestincludes" value="" />
+    <property name="libs.hibernate4-persistencemodelgen.src" value="" />
+    <property name="javadoc.preview" value="true" />
+    <property name="libs.jpa20-persistence.javadoc" value="C:\Program Files\NetBeans 8.2\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_161\jre" />
+    <property name="libs.jsp-compilation.src" value="" />
+    <property name="debug.test.classpath" value="C:\Users\kenia\Downloads\CoffeeTree-master\ojdbc6.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\beansbinding-1.2.1.jar:build/classes:C:\Program Files\NetBeans 8.2\platform\modules\ext\junit-4.12.jar:C:\Program Files\NetBeans 8.2\platform\modules\ext\hamcrest-core-1.3.jar:C:\Users\kenia\Documents\NetBeansProjects\loginMockito\mockito-all-1.10.19.jar:build/test/classes" />
+    <property name="libs.javaee-endorsed-api-6.0.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\javaee6-endorsed\javax.annotation.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\javaee6-endorsed\jaxb-api-osgi.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\javaee6-endorsed\webservices-api-osgi.jar" />
+    <property name="libs.javaee-api-6.0.src" value="" />
+    <property name="netbeans.importclass" value="org.netbeans.upgrade.AutoUpgrade" />
+    <property name="ant.file.CoffeeTree" value="C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master\build.xml" />
+    <property name="ant.project.default-target" value="default" />
+    <property name="annotation.processing.run.all.processors" value="true" />
+    <property name="libs.DataBindingME.maven-pom" value="" />
+    <property name="libs.PostgreSQLDriver.javadoc" value="" />
+    <property name="libs.restlib.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\asm-all-repackaged-2.2.0-b21.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\cglib-2.2.0-b21.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\guava-14.0.1.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\hk2-api-2.2.0-b21.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\hk2-locator-2.2.0-b21.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\hk2-utils-2.2.0-b21.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\javax.annotation-api-1.2.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\javax.inject-2.2.0-b21.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\javax.servlet-api-3.0.1.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\jaxb-api-2.2.7.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\jersey-entity-filtering-2.5.1.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\jersey-media-moxy-2.5.1.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\org.osgi.core-4.2.0.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\osgi-resource-locator-1.0.1.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\persistence-api-1.0.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\ext\validation-api-1.1.0.Final.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\jersey-client.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\jersey-common.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\jersey-container-servlet.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\jersey-container-servlet-core.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jersey2\jersey-server.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar" />
+    <property name="libs.MySQLDriver.maven-pom" value="" />
+    <property name="libs.hibernate4-persistence.javadoc" value="C:\Program Files\NetBeans 8.2\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
+    <property name="http.nonProxyHosts" value="localhost|127.0.0.1|LAPTOP-EKTML5QD" />
+    <property name="libs.junit_4.javadoc" value="C:\Program Files\NetBeans 8.2\platform\docs\junit-4.12-javadoc.jar" />
+    <property name="libs.javaee-web-api-6.0.maven-pom" value="" />
+    <property name="run.classpath" value="C:\Users\kenia\Downloads\CoffeeTree-master\ojdbc6.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\beansbinding-1.2.1.jar:build/classes" />
+    <property name="jna.boot.library.name" value="jnidispatch-422" />
+    <property name="libs.javaee-endorsed-api-6.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.javaee-api-7.0.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\javaee-api-7.0.jar" />
+    <property name="sun.awt.datatransfer.timeout" value="1000" />
+    <property name="libs.spring-webmvc3.0.javadoc" value="" />
+    <property name="libs.jpa2-persistence.maven-pom" value="" />
+    <property name="annotation.processing.enabled.in.editor" value="false" />
+    <property name="libs.hibernate4-support.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\antlr-2.7.7.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\c3p0-0.9.2.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-c3p0-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\mchange-commons-java-0.2.3.4.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\dom4j-1.6.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\ehcache-core-2.4.3.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-ehcache-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-core-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\jboss-logging-3.1.3.GA.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-commons-annotations-4.0.4.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-entitymanager-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\javassist-3.18.1-GA.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\jboss-transaction-api_1.2_spec-1.0.0.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\slf4j-api-1.6.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\slf4j-simple-1.6.1.jar" />
+    <property name="libs.Mockito.src" value="" />
+    <property name="nb.native.filechooser" value="false" />
+    <property name="libs.restapi.src" value="" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="libs.j2me_common_ant.javadoc" value="" />
+    <property name="javac.deprecation" value="false" />
+    <property name="javadoc.use" value="true" />
+    <property name="sun.java2d.noddraw" value="true" />
+    <property name="libs.jsp-compiler.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\ant\extra\jspcompile.jar" />
+    <property name="javac.processorpath" value="C:\Users\kenia\Downloads\CoffeeTree-master\ojdbc6.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\beansbinding-1.2.1.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.modelgen_2.5.2.v20140319-9ad6abd.jar" />
+    <property name="libs.hamcrest.maven-pom" value="" />
+    <property name="javac.compilerargs" value="" />
+    <property name="ant.file" value="C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master\build.xml" />
+    <property name="libs.beans-binding.maven-pom" value="" />
+    <property name="libs.hibernate4-support.javadoc" value="C:\Program Files\NetBeans 8.2\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
+    <property name="libs.jsf12.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-1_2\commons-beanutils.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-1_2\commons-collections.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-1_2\commons-digester.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-1_2\commons-logging.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-1_2\jsf-api.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-1_2\jsf-impl.jar" />
+    <property name="libs.Mockito.classpath" value="C:\Users\kenia\Documents\NetBeansProjects\loginMockito\mockito-all-1.10.19.jar" />
+    <property name="libs.jstl.maven-pom" value="" />
+    <property name="libs.restapi.maven-pom" value="" />
+    <property name="libs.beans-binding.src" value="" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="libs.DataBindingME-PIM.javadoc" value="C:\Program Files\NetBeans 8.2\mobility\modules\docs\netbeans_databindingme_pim-api.zip" />
+    <property name="libs.swing-layout.src" value="C:\Program Files\NetBeans 8.2\platform\docs\swing-layout-1.0.4-src.zip" />
+    <property name="org.openide.major.version" value="IDE/1" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="netbeans.user" value="C:\Users\kenia\AppData\Roaming\NetBeans\8.2" />
+    <property name="javadoc.additionalparam" value="" />
+    <property name="java.io.tmpdir" value="C:\Users\kenia\AppData\Local\Temp\" />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="endorsed.classpath.cmd.line.arg" value="" />
+    <property name="jna.loaded" value="true" />
+    <property name="junit.available" value="true" />
+    <property name="libs.jsp-compiler.src" value="" />
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_161\jre\bin" />
+    <property name="have.sources" value="true" />
+    <property name="libs.hamcrest.javadoc" value="" />
+    <property name="debug.classpath" value="C:\Users\kenia\Downloads\CoffeeTree-master\ojdbc6.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar:C:\Program Files\NetBeans 8.2\java\modules\ext\beansbinding-1.2.1.jar:build/classes" />
+    <property name="javac.external.vm" value="true" />
+    <property name="javadoc.private" value="false" />
+    <property name="test.src.dir" value="test" />
+    <property name="libs.jsf20.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-2_2\javax.faces.jar" />
+    <property name="ap.processors.internal" value="" />
+    <property name="meta.inf.dir" value="src/META-INF" />
+    <property name="javadoc.encoding.used" value="UTF-8" />
+    <property name="libs.DataBindingME-SVG.src" value="C:\Program Files\NetBeans 8.2\mobility\sources\netbeans_databindingme_svg-src.zip" />
+    <property name="dist.jar" value="dist/CoffeeTree.jar" />
+    <property name="libs.spring-framework400.maven-pom" value="" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="ant.project.name" value="CoffeeTree" />
+    <property name="netbeans.hash.code" value="unique=NB_CND_EXTIDE_GFMOD_GROOVY_JAVA_JC_MOB_PHP_WEBCOMMON_WEBEE06a65bd88-6ca8-42a7-84c4-ecce71bbe330_79e3b364-5531-4cd3-ad6a-20784a55da9d" />
+    <property name="netbeans.default_userdir_root" value="C:\Users\kenia\AppData\Roaming\NetBeans" />
+    <property name="libs.jsp-compilation-syscp.maven-pom" value="" />
+    <property name="sun.cpu.isalist" value="amd64" />
+    <property name="libs.spring-framework400.javadoc" value="" />
+    <property name="libs.CopyLibs.javadoc" value="" />
+    <property name="org.openide.specification.version" value="6.2" />
+    <property name="libs.DataBindingME-PIM.classpath" value="C:\Program Files\NetBeans 8.2\mobility\modules\ext\netbeans_databindingme_pim.jar" />
+    <property name="user.home" value="C:\Users\kenia" />
+    <property name="annotation.processing.processors.list" value="" />
+    <property name="libs.primefaces.maven-pom" value="" />
+    <property name="debug-args-line" value="-Xdebug" />
+    <property name="libs.javaee-api-6.0.maven-pom" value="" />
+    <property name="libs.JWSAntTasks.src" value="" />
+    <property name="jar.index" value="false" />
+    <property name="libs.CopyLibs.maven-pom" value="" />
+    <property name="libs.spring-framework300.javadoc" value="" />
+    <property name="libs.absolutelayout.javadoc" value="" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="do.archive+main.class.available" value="true" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="libs.javac-api.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\nb-javac-api.jar" />
+    <property name="java.version" value="1.8.0_161" />
+    <property name="run.jvmargs.ide" value="" />
+    <property name="javadoc.version" value="false" />
+    <property name="libs.MySQLDriver.javadoc" value="" />
+    <property name="org.openide.version" value="deprecated" />
+    <property name="platform.java" value="C:\Program Files\Java\jdk1.8.0_161\jre/bin/java" />
+    <property name="source.encoding" value="UTF-8" />
+    <property name="ap.cmd.line.internal" value="" />
+    <property name="libs.eclipselinkmodelgen.maven-pom" value="" />
+    <property name="libs.jsp-compilation-syscp.javadoc" value="" />
+    <property name="libs.eclipselinkmodelgen.javadoc" value="" />
+    <property name="libs.javaee-endorsed-api-7.0.classpath" value="C:\Program Files\NetBeans 8.2\enterprise\modules\ext\javaee7-endorsed\javax.annotation-api.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\javaee7-endorsed\javax.xml.soap-api.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\javaee7-endorsed\jaxb-api-osgi.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\javaee7-endorsed\jaxws-api.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\javaee7-endorsed\jsr181-api.jar" />
+    <property name="libs.metro.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\metro-1.4-doc.zip" />
+    <property name="libs.struts.maven-pom" value="" />
+    <property name="netbeans.home+have.tests" value="true" />
+    <property name="annotation.processing.processor.options" value="-Aeclipselink.canonicalmodel.use_static_factory=false" />
+    <property name="libs.testng.maven-pom" value="" />
+    <property name="libs.jaxb.src" value="" />
+    <property name="jdk.launcher.addexports.5" value="java.management/sun.management=ALL-UNNAMED" />
+    <property name="jdk.launcher.addexports.4" value="java.desktop/com.sun.java.swing.plaf.windows=ALL-UNNAMED" />
+    <property name="work.dir" value="C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master" />
+    <property name="jdk.launcher.addexports.3" value="java.desktop/sun.awt.im=ALL-UNNAMED" />
+    <property name="jdk.launcher.addexports.2" value="java.desktop/java.awt.peer=ALL-UNNAMED" />
+    <property name="libs.jaxb.classpath" value="C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\jaxb-impl.jar;C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\jaxb-xjc.jar;C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\jaxb1-impl.jar;C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\activation.jar;C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\api\jaxb-api.jar;C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\api\jsr173_1.0_api.jar" />
+    <property name="jdk.launcher.addexports.1" value="java.base/jdk.internal.jrtfs=ALL-UNNAMED" />
+    <property name="jdk.launcher.addexports.0" value="java.desktop/sun.awt=ALL-UNNAMED" />
+    <property name="do.depend" value="false" />
+    <property name="has.persistence.xml" value="true" />
+    <property name="libs.j2me_common_ant.classpath" value="C:\Program Files\NetBeans 8.2\mobility\modules\org-netbeans-modules-j2me-common-ant.jar;C:\Program Files\NetBeans 8.2\java\modules\org-netbeans-modules-classfile.jar" />
+    <property name="dist.javadoc.dir" value="dist/javadoc" />
+    <property name="libs.spring-webmvc3.0.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar" />
+    <property name="libs.swing-layout.classpath" value="C:\Program Files\NetBeans 8.2\platform\modules\ext\swing-layout-1.0.4.jar" />
+    <property name="libs.javaee-web-api-7.0.maven-pom" value="" />
+    <property name="libs.restlib.src" value="" />
+    <property name="build.generated.dir" value="build/generated" />
+    <property name="javac.source" value="1.8" />
+    <property name="line.separator" value="&#xd;&#xa;" />
+    <property name="java.specification.version" value="1.8" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="libs.jaxws21.maven-pom" value="" />
+    <property name="nb.junit.batch" value="true" />
+    <property name="junit.forkmode" value="perTest" />
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_161\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_161\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_161\jre\classes" />
+    <property name="javac.target" value="1.8" />
+    <property name="built-jar.properties" value="C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master\build\built-jar.properties" />
+    <property name="build.test.classes.dir" value="build/test/classes" />
+    <property name="src.dir" value="src" />
+    <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
+    <property name="libs.jpa2-persistence.src" value="" />
+    <property name="annotation.processing.enabled" value="true" />
+    <property name="libs.jsf20.src" value="" />
+    <property name="libs.jpa20-persistence.src" value="" />
+    <property name="libs.jsf12.src" value="" />
+    <property name="libs.DataBindingME-SVG.maven-pom" value="" />
+    <property name="libs.struts.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\struts-1.3.10-javadoc.zip" />
+    <property name="libs.javaee-web-api-7.0.src" value="" />
+    <property name="libs.primefaces.src" value="" />
+    <property name="dist.dir" value="dist" />
+    <property name="libs.groovy-all.javadoc" value="" />
+    <property name="testng.debug.mode" value="" />
+    <property name="libs.groovy-all.classpath" value="C:\Program Files\NetBeans 8.2\groovy\modules\ext\groovy-all.jar" />
+    <property name="javac.fork" value="true" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="default.javac.source" value="1.8" />
+    <property name="debug-transport-by-os" value="dt_shmem" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="libs.MySQLDriver.src" value="" />
+    <property name="build.test.results.dir" value="build/test/results" />
+    <property name="java.runtime.version" value="1.8.0_161-b12" />
+    <property name="default.javac.target" value="1.8" />
+    <property name="libs.junit_4.classpath" value="C:\Program Files\NetBeans 8.2\platform\modules\ext\junit-4.12.jar" />
+    <property name="user.timezone" value="" />
+    <property name="nb.junit.single" value="false" />
+    <property name="do.jar" value="true" />
+    <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
+    <property name="netbeans.dirs" value="C:\Program Files\NetBeans 8.2\nb;C:\Program Files\NetBeans 8.2\ergonomics;C:\Program Files\NetBeans 8.2\ide;C:\Program Files\NetBeans 8.2\extide;C:\Program Files\NetBeans 8.2\java;C:\Program Files\NetBeans 8.2\apisupport;C:\Program Files\NetBeans 8.2\webcommon;C:\Program Files\NetBeans 8.2\websvccommon;C:\Program Files\NetBeans 8.2\enterprise;C:\Program Files\NetBeans 8.2\mobility;C:\Program Files\NetBeans 8.2\profiler;C:\Program Files\NetBeans 8.2\python;C:\Program Files\NetBeans 8.2\php;C:\Program Files\NetBeans 8.2\identity;C:\Program Files\NetBeans 8.2\harness;C:\Program Files\NetBeans 8.2\cnd;C:\Program Files\NetBeans 8.2\cndext;C:\Program Files\NetBeans 8.2\dlight;C:\Program Files\NetBeans 8.2\groovy;C:\Program Files\NetBeans 8.2\extra;C:\Program Files\NetBeans 8.2\javacard;C:\Program Files\NetBeans 8.2\javafx" />
+    <property name="libs.jstl.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.jsf20.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_161\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext" />
+    <property name="libs.metro.src" value="" />
+    <property name="endorsed.classpath" value="" />
+    <property name="libs.absolutelayout.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\AbsoluteLayout.jar;C:\Users\kenia\Documents\NetBeansProjects\loginMockito\mockito-all-1.10.19.jar" />
+    <property name="excludes" value="" />
+    <property name="libs.metro.classpath" value="C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\activation.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\metro\webservices-api.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\metro\webservices-extra-api.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\metro\webservices-extra.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\metro\webservices-rt.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\metro\webservices-tools.jar" />
+    <property name="libs.restlib.maven-pom" value="" />
+    <property name="libs.jpa2-persistence.javadoc" value="C:\Program Files\NetBeans 8.2\java\modules\ext\docs\javax.persistence-2.1.0-doc.zip" />
+    <property name="libs.DataBindingME.javadoc" value="C:\Program Files\NetBeans 8.2\mobility\modules\docs\netbeans_databindingme-api.zip" />
+    <property name="apple.laf.useScreenMenuBar" value="true" />
+    <property name="java.class.path" value="C:\Users\kenia\Downloads\CoffeeTree-master\ojdbc6.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\beansbinding-1.2.1.jar;C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master\build\classes;C:\Program Files\NetBeans 8.2\platform\modules\ext\junit-4.12.jar;C:\Program Files\NetBeans 8.2\platform\modules\ext\hamcrest-core-1.3.jar;C:\Users\kenia\Documents\NetBeansProjects\loginMockito\mockito-all-1.10.19.jar;C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master\build\test\classes;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant.jar;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant-junit.jar;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant-junit4.jar;C:\Users\kenia\AppData\Roaming\NetBeans\8.2\modules\ext\jacocoagent.jar" />
+    <property name="do.mkdist" value="true" />
+    <property name="libs.absolutelayout.src" value="" />
+    <property name="libs.jpa20-persistence.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar" />
+    <property name="os.version" value="10.0" />
+    <property name="application.args" value="" />
+    <property name="libs.javaee-api-7.0.maven-pom" value="" />
+    <property name="main.class.available" value="true" />
+    <property name="sun.awt.enableExtraMouseButtons" value="true" />
+    <property name="sun.desktop" value="windows" />
+    <property name="libs.hibernate4-persistence.src" value="" />
+    <property name="libs.hibernate4-support.maven-pom" value="" />
+    <property name="libs.restlib.javadoc" value="" />
+    <property name="libs.JAXB-ENDORSED.classpath" value="C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\api\jaxb-api.jar" />
+    <property name="libs.javaee-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.eclipselink.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar" />
+    <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans 8.2\java\docs\beansbinding-1.2.1-doc.zip" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="libs.CopyLibs.classpath" value="C:\Program Files\NetBeans 8.2\java\ant\extra\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
+    <property name="libs.spring-framework300.classpath" value="C:\Program Files\NetBeans 8.2\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-aop-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-aspects-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-beans-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-build-src-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-context-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-context-support-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-core-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-expression-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-framework-bom-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-instrument-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-jdbc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-jms-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-orm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-oxm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-struts-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-test-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-tx-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-web-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.7.RELEASE.jar" />
+    <property name="libs.jsp-compiler.maven-pom" value="" />
+    <property name="libs.hamcrest.src" value="" />
+    <property name="run.jvmargs" value="  -javaagent:&quot;C:\Users\kenia\AppData\Roaming\NetBeans\8.2\modules\ext\jacocoagent.jar&quot;=includes=controladores.*:datos.*:GUI.*:Imagenes.*:META-INF.*:models.*:oraclegeneral.*:utils.*:models.enums.*,destfile=&quot;C:\Users\kenia\Documents\NetBeansProjects\CoffeeTree-master\jacoco.exec-230964645926682&quot;" />
+    <property name="libs.hibernate4-persistence.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\antlr-2.7.7.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\c3p0-0.9.2.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-c3p0-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\mchange-commons-java-0.2.3.4.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\dom4j-1.6.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\ehcache-core-2.4.3.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-ehcache-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-core-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\jboss-logging-3.1.3.GA.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-commons-annotations-4.0.4.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-entitymanager-4.3.1.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\javassist-3.18.1-GA.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\jboss-transaction-api_1.2_spec-1.0.0.Final.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\slf4j-api-1.6.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\slf4j-simple-1.6.1.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-jpa-2.1-api-1.0.0.Final.jar" />
+    <property name="libs.JAXB-ENDORSED.src" value="" />
+    <property name="dist.archive.excludes" value="" />
+    <property name="libs.DataBindingME-PIM.src" value="C:\Program Files\NetBeans 8.2\mobility\sources\netbeans_databindingme_pim-src.zip" />
+    <property name="libs.testng.javadoc" value="C:\Program Files\NetBeans 8.2\platform\docs\testng-6.8.1-javadoc.zip" />
+    <property name="user.script" value="" />
+    <property name="libs.PostgreSQLDriver.classpath" value="C:\Program Files\NetBeans 8.2\ide\modules\ext\postgresql-9.4.1209.jar" />
+    <property name="libs.jsf12.maven-pom" value="" />
+    <property name="libs.Mockito.maven-pom" value="" />
+    <property name="libs.hibernate4-persistencemodelgen.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-jpamodelgen-4.3.1.Final.jar" />
+    <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
+    <property name="main.class" value="oraclegeneral.InicioSistema" />
+    <property name="build.dir" value="build" />
+    <property name="libs.CopyLibs.src" value="" />
+    <property name="libs.jsp-compilation.classpath" value="C:\Program Files\NetBeans 8.2\extide\ant\lib\ant.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\servlet3.1-jsp2.3-api.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\glassfish-jspparser-4.0.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-2_2\javax.faces.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jstl-api.jar;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant-launcher.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.7 compiled on April 9 2016" />
+    <property name="build.classes.excludes" value="**/*.java,**/*.form" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="jdkBug6558476" value="false" />
+    <property name="javadoc.nonavbar" value="false" />
+    <property name="libs.spring-webmvc4.0.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-webmvc-4.0.1.RELEASE.jar" />
+    <property name="platform.active" value="default_platform" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
+  </properties>
+  <testcase classname="CoffeeTree_Test" name="inicioInventario" time="3.181" />
+  <testcase classname="CoffeeTree_Test" name="usuarioExistenteDBTest" time="0.19" />
+  <testcase classname="CoffeeTree_Test" name="usuarioNuevoDBTest" time="1.144" />
+  <testcase classname="CoffeeTree_Test" name="usuarioInicioOKTest" time="0.274" />
+  <system-out><![CDATA[Cuando entras como admin y hay que resurtir un ingrediente
+Menos de 8 ingredientes y la cantDisp > 0, return debe ser 2
+oracle.jdbc.driver.T4CConnection@63a65a25
+cant_disp = 1
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+oracle.jdbc.driver.T4CConnection@3541cb24
+Comprobración de inventario como Administrador
+oracle.jdbc.driver.T4CConnection@3315d2d7
+cant_disp = 1
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+cant_disp = 10000
+Cuando entras como admin y hay que resurtir urgentemente
+Mas de 8 ingredientes casi por acabarse, return debe ser 1
+----------------------/////////----------------------
+---------------------- Test 1 ----------------------
+----------------------/////////----------------------
+----------------------/////////----------------------
+---------------------- Test 1 ----------------------
+----------------------/////////----------------------
+create user CoffeeTrw identified by abcd1234 
+grant connect to CoffeeTrw 
+grant all privileges to CoffeeTrw identified by abcd1234
+CREATE TABLE ingredientes(ingrediente_id INTEGER NOT NULL ,nombre VARCHAR2(30),cant_disp FLOAT,fecha_ped DATE,medida VARCHAR(3),PRIMARY KEY (ingrediente_id))
+CREATE TABLE usuarios(usuario_id INTEGER NOT NULL ,contrasena VARCHAR2(8),rol VARCHAR2(13),PRIMARY KEY (usuario_id))
+CREATE TABLE metodos_pago(metodo_clave VARCHAR2(4) NOT NULL ,Nombre_met VARCHAR2(30),PRIMARY KEY (metodo_clave))
+CREATE TABLE productos(producto_id INTEGER NOT NULL ,nombre VARCHAR2(30) NULL ,precio FLOAT, PRIMARY KEY (producto_id))
+CREATE TABLE ventas(venta_id INTEGER NOT NULL ,usuario_id INTEGER NULL , hora VARCHAR2(9) NULL , fecha DATE NULL,total FLOAT NOT NULL , metodo_clave VARCHAR2(4) NULL ,PRIMARY KEY (venta_id))
+CREATE TABLE ticket(venta_id INTEGER NOT NULL ,producto_id INTEGER NULL , cant INT NOT NULL ,PRIMARY KEY (venta_id,producto_id))
+CREATE TABLE recetas(producto_id INTEGER NULL ,ingrediente_id INTEGER NOT NULL ,cant FLOAT NULL ,PRIMARY KEY (producto_id,ingrediente_id))
+ALTER TABLE ventas ADD (FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id) ON DELETE SET NULL)
+ALTER TABLE ventas ADD (FOREIGN KEY (metodo_clave) REFERENCES metodos_pago (metodo_clave) ON DELETE SET NULL)
+ALTER TABLE ticket ADD (FOREIGN KEY (venta_id) REFERENCES ventas (venta_id) ON DELETE CASCADE)
+ALTER TABLE ticket ADD (FOREIGN KEY (producto_id) REFERENCES productos (producto_id) ON DELETE SET NULL)
+ALTER TABLE recetas ADD (FOREIGN KEY (ingrediente_id) REFERENCES ingredientes (ingrediente_id) ON DELETE CASCADE)
+ALTER TABLE recetas ADD (FOREIGN KEY (producto_id) REFERENCES productos (producto_id) ON DELETE CASCADE)
+INSERT INTO metodos_pago VALUES('EFEC', 'Efectivo')
+INSERT INTO metodos_pago VALUES('CRED', 'Tarjeta')
+INSERT INTO metodos_pago VALUES('MIXT', 'Mixto')
+INSERT INTO usuarios(usuario_id,contrasena,rol) VALUES(1, '123', 'Administrador')
+INSERT INTO usuarios(usuario_id,contrasena,rol) VALUES(2, '321', 'Cajero')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(1, 'Cafe', 10000,  (select to_date(sysdate,'dd-mm-yyyy') from dual),'g')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(2, 'Leche', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'ml')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(3, 'Jarabe de chololate', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'ml')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(4, 'Jarabe de chololate blanco', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'ml')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(5, 'Esencia de te chai', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'ml')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(6, 'Polvo frapuccino', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(7, 'Jarabe trutas tropicales', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'ml')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(8, 'Masa de crepa', 10000, to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(9, 'Nutella', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(10, 'Cajeta', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(11, 'Philadelphia', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(12, 'Mermelada de fresa', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(13, 'Mermelada de zarzamora', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(14, 'Lechera', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'ml')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(15, 'Queso', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(16, 'Jamon', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(17, 'ChampiÃ±ones', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+INSERT INTO productos(producto_id,nombre,precio) VALUES(1, 'Crepa nutcaje', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(2, 'Crepa nutelphia', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(3, 'Crepa nutfresa', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(4, 'Crepa nutzarza', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(5, 'Crepa nutchera', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(6, 'Crepa cajelphia', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(7, 'Crepa cajfresa', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(8, 'Crepa cajzarza', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(9, 'Crepa cajchera',35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(10,'Crepa philafresa',35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(11, 'Crepa philazarza', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(12, 'Crepa philachera',35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(13, 'Crepa frezarza', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(14, 'Crepa frechera', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(15, 'Crepa zarzachera', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(16, 'Crepa lechera', 20)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(17, 'Crepa nutella', 20)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(18, 'Crepa cajeta', 20)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(19, 'Crepa philadelphia', 20)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(20, 'Crepa fresa', 20)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(21, 'Crepa zarzamora', 20)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(22, 'Crepa quesomon', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(23, 'Crepa quesochamp', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(24, 'Crepa quesophilia', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(25, 'Crepa jamonchamp', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(26, 'Crepa jamonphi', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(27, 'Crepa champhi', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(28, 'Crepa queso', 20)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(29, 'Crepa jamon', 20)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(30, 'Crepa champiÃ±ones', 20)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(31, 'Americano chico', 18)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(32, 'Americano mediano', 23)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(33, 'Americano grande', 26)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(34, 'Latte chico', 27)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(35, 'Latte mediano', 32)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(36, 'Latte grande',35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(37, 'Capuccino chico', 27)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(38, 'Capuccino mediano', 32)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(39, 'Capuccino grande', 35)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(40, 'Moka chico', 32)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(41, 'Moka mediano', 37)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(42, 'Moka grande', 40)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(43, 'Moka blanco chico', 32)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(44, 'Moka blanco mediano', 37)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(45, 'Moka blanco grande', 40)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(46, 'Chocolate chico', 28)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(47, 'Chocolate mediano', 33)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(48, 'Chocolate grande', 36)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(49, 'Chocolate blanco chico', 28)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(50, 'Chocolate blanco mediano', 33)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(51, 'Chocolate blanco grande', 36)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(52, 'Te chai chico', 28)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(53, 'Te chai mediano', 33)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(54, 'Te chai grande',36)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(55, 'Expresso chico', 16)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(56, 'Expresso mediano', 18)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(57, 'Expresso grande', 20)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(58, 'Frapuccino chico', 40)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(59, 'Frapuccino mediano', 45)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(60, 'Frapuccino grande', 50)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(61, 'Smoothie chico', 45)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(62, 'Smoothie mediano', 50)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(63, 'Smoothie grande', 55)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(64, 'Te chai helado chico', 28)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(65, 'Te chai helado mediano', 33)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(66, ' Te chai helado grande', 36)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(67, 'Latte frio chico', 27)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(68, 'Latte frio mediano', 32)
+INSERT INTO productos(producto_id,nombre,precio) VALUES(69, 'Latte frio grande', 35)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(1, 9, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(1, 10, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(1,8,450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(2, 9, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(2, 11, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(2, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(3, 9, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(3, 12, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(3, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(4, 9, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(4, 13, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(4, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(5, 9, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(5, 14, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(5, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(6, 10, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(6, 11, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(6, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(7, 10, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(7, 12, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(7, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(8, 10, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(8, 13, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(8, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(9,10, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(9, 14, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(9, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(10, 11, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(10, 12, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(10, 8, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(11, 11, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(11, 13, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(11, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(12, 11, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(12, 14, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(12, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(13, 12, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(13, 13, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(13, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(14, 12, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(14, 14, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(14, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(15, 13, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(15, 14, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(15, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(16, 14, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(16, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(17, 9, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(17, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(18, 10, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(18, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(19, 11, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(19, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(20, 12, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(20, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(21, 13, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(21, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(22, 15, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(22, 16, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(22, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(23, 15, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(23, 17, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(23, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(24, 15, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(24, 11, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(24, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(25, 16, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(25, 17, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(25, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(26, 16, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(26, 11, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(26, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(27, 17, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(27, 11, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(27, 8, 450.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(28, 15, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(28, 8, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(29, 16, 30.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(29, 8, 30.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(30, 17, 25.5)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(30, 8, 25.5)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(31, 1, 50.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(32, 1, 100.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(33, 1, 150.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(34, 1, 50.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(34, 2, 350.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(35, 1, 100.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(35, 2, 400.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(36, 1, 150)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(36, 2, 500)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(37, 1, 50.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(37, 2, 350.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(38, 1, 100.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(38, 2, 400.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(39, 1, 150.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(39, 2, 500.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(40, 1, 50.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(40, 2, 325.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(40, 3, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(41, 1, 100.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(41, 2, 350.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(41, 3, 50.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(42, 1, 100.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(42, 2, 425.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(42, 3, 75.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(43, 1, 50.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(43, 2, 325.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(43, 4, 25.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(44, 1, 100.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(44, 2, 350.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(44, 4, 50.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(45, 1, 100.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(45, 2, 425.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(45, 4, 75.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(46, 2, 370.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(46, 3, 30.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(47, 2, 445.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(47, 3, 55.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(48, 2, 570.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(48, 3, 80.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(49, 2, 370.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(49, 4, 30.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(50, 2, 445.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(50, 4, 55.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(51, 2, 570.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(51, 4, 80.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(52, 5, 20.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(52, 2, 380.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(53, 5, 40.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(53, 2, 460.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(54, 5, 60.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(54, 2, 590.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(55, 1, 50.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(56, 1, 100.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(57, 1, 150.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(58, 6, 100.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(58, 2, 200.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(59, 6, 200.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(59, 2, 300.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(60, 6, 350.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(60, 2, 400.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(61, 7, 50.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(62, 7, 70.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(63, 7, 90.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(64, 5, 20.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(64, 2, 380.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(65, 5, 40.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(65, 2, 460.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(66, 5, 60.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(66, 2, 590.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(67, 1, 50.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(67, 2, 350.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(68, 1, 100.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(68, 2, 400.0)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(69, 1, 150)
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(69, 2, 500)
+----------------------/////////----------------------
+---------------------- Test 3 ----------------------
+----------------------/////////----------------------
+oracle.jdbc.driver.T4CConnection@316bcf94
+oracle.jdbc.driver.T4CConnection@6404f418
+Felicidades!, entraste como admin!
+oracle.jdbc.driver.T4CConnection@3e11f9e9
+oracle.jdbc.driver.T4CConnection@1de5f259
+oracle.jdbc.driver.T4CConnection@729d991e
+oracle.jdbc.driver.T4CConnection@31fa1761
+Felicidades!, entraste como cajero!
+oracle.jdbc.driver.T4CConnection@21282ed8
+oracle.jdbc.driver.T4CConnection@36916eb0
+oracle.jdbc.driver.T4CConnection@7bab3f1a
+oracle.jdbc.driver.T4CConnection@437da279
+Te quivocaste ;w;
+oracle.jdbc.driver.T4CConnection@23c30a20
+oracle.jdbc.driver.T4CConnection@1e1a0406
+oracle.jdbc.driver.T4CConnection@3cebbb30
+oracle.jdbc.driver.T4CConnection@12aba8be
+Te quivocaste ;w;
+oracle.jdbc.driver.T4CConnection@290222c1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

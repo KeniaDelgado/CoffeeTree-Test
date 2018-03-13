@@ -1,0 +1,520 @@
+﻿
+CREATE TABLE ingredientes(ingrediente_id INTEGER NOT NULL ,nombre VARCHAR2(30),cant_disp FLOAT,fecha_ped DATE,medida VARCHAR(3),PRIMARY KEY (ingrediente_id))
+
+CREATE TABLE usuarios(usuario_id INTEGER NOT NULL ,contrasena VARCHAR2(8),rol VARCHAR2(13),PRIMARY KEY (usuario_id))
+
+CREATE TABLE metodos_pago(metodo_clave VARCHAR2(4) NOT NULL ,Nombre_met VARCHAR2(30),PRIMARY KEY (metodo_clave))
+
+CREATE TABLE productos(producto_id INTEGER NOT NULL ,nombre VARCHAR2(30) NULL ,precio FLOAT, PRIMARY KEY (producto_id))
+
+CREATE TABLE ventas(venta_id INTEGER NOT NULL ,usuario_id INTEGER NULL , hora VARCHAR2(9) NULL , fecha DATE NULL,total FLOAT NOT NULL , metodo_clave VARCHAR2(4) NULL ,PRIMARY KEY (venta_id))
+
+CREATE TABLE ticket(venta_id INTEGER NOT NULL ,producto_id INTEGER NULL , cant INT NOT NULL ,PRIMARY KEY (venta_id,producto_id))
+
+CREATE TABLE recetas(producto_id INTEGER NULL ,ingrediente_id INTEGER NOT NULL ,cant FLOAT NULL ,PRIMARY KEY (producto_id,ingrediente_id))
+
+ALTER TABLE ventas ADD (FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id) ON DELETE SET NULL)
+
+ALTER TABLE ventas ADD (FOREIGN KEY (metodo_clave) REFERENCES metodos_pago (metodo_clave) ON DELETE SET NULL)
+
+ALTER TABLE ticket ADD (FOREIGN KEY (venta_id) REFERENCES ventas (venta_id) ON DELETE CASCADE)
+
+ALTER TABLE ticket ADD (FOREIGN KEY (producto_id) REFERENCES productos (producto_id) ON DELETE SET NULL)
+
+ALTER TABLE recetas ADD (FOREIGN KEY (ingrediente_id) REFERENCES ingredientes (ingrediente_id) ON DELETE CASCADE)
+
+ALTER TABLE recetas ADD (FOREIGN KEY (producto_id) REFERENCES productos (producto_id) ON DELETE CASCADE)
+
+INSERT INTO metodos_pago VALUES('EFEC', 'Efectivo')
+
+INSERT INTO metodos_pago VALUES('CRED', 'Tarjeta')
+
+INSERT INTO metodos_pago VALUES('MIXT', 'Mixto')
+
+INSERT INTO usuarios(usuario_id,contrasena,rol) VALUES(1, '123', 'Administrador')
+
+INSERT INTO usuarios(usuario_id,contrasena,rol) VALUES(2, '321', 'Cajero')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(1, 'Cafe', 10000,  (select to_date(sysdate,'dd-mm-yyyy') from dual),'g')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(2, 'Leche', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'ml')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(3, 'Jarabe de chololate', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'ml')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(4, 'Jarabe de chololate blanco', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'ml')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(5, 'Esencia de te chai', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'ml')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(6, 'Polvo frapuccino', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(7, 'Jarabe trutas tropicales', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'ml')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(8, 'Masa de crepa', 10000, to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(9, 'Nutella', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(10, 'Cajeta', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(11, 'Philadelphia', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(12, 'Mermelada de fresa', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(13, 'Mermelada de zarzamora', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(14, 'Lechera', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'ml')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(15, 'Queso', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(16, 'Jamon', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+
+INSERT INTO ingredientes(ingrediente_id,nombre,cant_disp,fecha_ped,medida) VALUES(17, 'Champiñones', 10000,  to_date('2016-05-20', 'yyyy/mm/dd'),'g')
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(1, 'Crepa nutcaje', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(2, 'Crepa nutelphia', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(3, 'Crepa nutfresa', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(4, 'Crepa nutzarza', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(5, 'Crepa nutchera', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(6, 'Crepa cajelphia', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(7, 'Crepa cajfresa', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(8, 'Crepa cajzarza', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(9, 'Crepa cajchera',35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(10,'Crepa philafresa',35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(11, 'Crepa philazarza', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(12, 'Crepa philachera',35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(13, 'Crepa frezarza', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(14, 'Crepa frechera', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(15, 'Crepa zarzachera', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(16, 'Crepa lechera', 20)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(17, 'Crepa nutella', 20)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(18, 'Crepa cajeta', 20)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(19, 'Crepa philadelphia', 20)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(20, 'Crepa fresa', 20)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(21, 'Crepa zarzamora', 20)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(22, 'Crepa quesomon', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(23, 'Crepa quesochamp', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(24, 'Crepa quesophilia', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(25, 'Crepa jamonchamp', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(26, 'Crepa jamonphi', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(27, 'Crepa champhi', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(28, 'Crepa queso', 20)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(29, 'Crepa jamon', 20)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(30, 'Crepa champiñones', 20)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(31, 'Americano chico', 18)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(32, 'Americano mediano', 23)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(33, 'Americano grande', 26)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(34, 'Latte chico', 27)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(35, 'Latte mediano', 32)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(36, 'Latte grande',35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(37, 'Capuccino chico', 27)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(38, 'Capuccino mediano', 32)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(39, 'Capuccino grande', 35)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(40, 'Moka chico', 32)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(41, 'Moka mediano', 37)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(42, 'Moka grande', 40)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(43, 'Moka blanco chico', 32)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(44, 'Moka blanco mediano', 37)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(45, 'Moka blanco grande', 40)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(46, 'Chocolate chico', 28)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(47, 'Chocolate mediano', 33)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(48, 'Chocolate grande', 36)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(49, 'Chocolate blanco chico', 28)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(50, 'Chocolate blanco mediano', 33)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(51, 'Chocolate blanco grande', 36)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(52, 'Te chai chico', 28)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(53, 'Te chai mediano', 33)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(54, 'Te chai grande',36)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(55, 'Expresso chico', 16)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(56, 'Expresso mediano', 18)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(57, 'Expresso grande', 20)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(58, 'Frapuccino chico', 40)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(59, 'Frapuccino mediano', 45)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(60, 'Frapuccino grande', 50)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(61, 'Smoothie chico', 45)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(62, 'Smoothie mediano', 50)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(63, 'Smoothie grande', 55)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(64, 'Te chai helado chico', 28)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(65, 'Te chai helado mediano', 33)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(66, ' Te chai helado grande', 36)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(67, 'Latte frio chico', 27)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(68, 'Latte frio mediano', 32)
+
+INSERT INTO productos(producto_id,nombre,precio) VALUES(69, 'Latte frio grande', 35)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(1, 9, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(1, 10, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(1,8,450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(2, 9, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(2, 11, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(2, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(3, 9, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(3, 12, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(3, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(4, 9, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(4, 13, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(4, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(5, 9, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(5, 14, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(5, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(6, 10, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(6, 11, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(6, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(7, 10, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(7, 12, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(7, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(8, 10, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(8, 13, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(8, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(9,10, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(9, 14, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(9, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(10, 11, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(10, 12, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(10, 8, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(11, 11, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(11, 13, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(11, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(12, 11, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(12, 14, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(12, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(13, 12, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(13, 13, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(13, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(14, 12, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(14, 14, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(14, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(15, 13, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(15, 14, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(15, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(16, 14, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(16, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(17, 9, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(17, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(18, 10, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(18, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(19, 11, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(19, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(20, 12, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(20, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(21, 13, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(21, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(22, 15, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(22, 16, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(22, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(23, 15, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(23, 17, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(23, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(24, 15, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(24, 11, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(24, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(25, 16, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(25, 17, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(25, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(26, 16, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(26, 11, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(26, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(27, 17, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(27, 11, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(27, 8, 450.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(28, 15, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(28, 8, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(29, 16, 30.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(29, 8, 30.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(30, 17, 25.5)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(30, 8, 25.5)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(31, 1, 50.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(32, 1, 100.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(33, 1, 150.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(34, 1, 50.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(34, 2, 350.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(35, 1, 100.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(35, 2, 400.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(36, 1, 150)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(36, 2, 500)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(37, 1, 50.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(37, 2, 350.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(38, 1, 100.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(38, 2, 400.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(39, 1, 150.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(39, 2, 500.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(40, 1, 50.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(40, 2, 325.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(40, 3, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(41, 1, 100.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(41, 2, 350.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(41, 3, 50.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(42, 1, 100.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(42, 2, 425.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(42, 3, 75.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(43, 1, 50.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(43, 2, 325.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(43, 4, 25.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(44, 1, 100.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(44, 2, 350.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(44, 4, 50.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(45, 1, 100.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(45, 2, 425.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(45, 4, 75.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(46, 2, 370.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(46, 3, 30.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(47, 2, 445.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(47, 3, 55.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(48, 2, 570.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(48, 3, 80.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(49, 2, 370.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(49, 4, 30.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(50, 2, 445.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(50, 4, 55.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(51, 2, 570.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(51, 4, 80.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(52, 5, 20.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(52, 2, 380.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(53, 5, 40.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(53, 2, 460.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(54, 5, 60.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(54, 2, 590.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(55, 1, 50.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(56, 1, 100.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(57, 1, 150.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(58, 6, 100.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(58, 2, 200.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(59, 6, 200.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(59, 2, 300.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(60, 6, 350.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(60, 2, 400.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(61, 7, 50.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(62, 7, 70.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(63, 7, 90.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(64, 5, 20.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(64, 2, 380.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(65, 5, 40.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(65, 2, 460.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(66, 5, 60.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(66, 2, 590.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(67, 1, 50.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(67, 2, 350.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(68, 1, 100.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(68, 2, 400.0)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(69, 1, 150)
+
+INSERT INTO recetas(producto_id ,ingrediente_id  ,cant) VALUES(69, 2, 500)

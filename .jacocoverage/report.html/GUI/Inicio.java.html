@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Inicio.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;CoffeeTree&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">GUI</a> &gt; <span class="el_source">Inicio.java</span></div><h1>Inicio.java</h1><pre class="source lang-java linenums">
+package GUI;
+
+import controladores.Ingredientes;
+import datos.Ingrediente;
+import java.awt.event.KeyEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
+import javax.swing.table.DefaultTableModel;
+import oraclegeneral.Conexion;
+
+
+public class Inicio extends javax.swing.JFrame {
+    private String usr;
+    private String pass;
+    private Connection cnn;
+    private Statement st;
+    private ResultSet rs;
+    private DefaultTableModel dtmUsuarios;
+<span class="fc" id="L25">    private List&lt;Ingrediente&gt; cant_disp = new ArrayList&lt;Ingrediente&gt;();</span>
+    int largo;
+    
+<span class="fc" id="L28">    public Inicio() {</span>
+<span class="fc" id="L29">            setUndecorated(true);</span>
+<span class="fc" id="L30">            initComponents();</span>
+<span class="fc" id="L31">            this.setSize(1086, 726);</span>
+<span class="fc" id="L32">            this.setLocationRelativeTo(null);</span>
+ 
+<span class="fc" id="L34">    }</span>
+     
+    
+    
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="fc" id="L42">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="fc" id="L43">        txtContra = new javax.swing.JPasswordField();</span>
+<span class="fc" id="L44">        txtUsuario = new javax.swing.JTextField();</span>
+<span class="fc" id="L45">        btnOk = new javax.swing.JButton();</span>
+<span class="fc" id="L46">        inicio = new javax.swing.JLabel();</span>
+
+<span class="fc" id="L48">        jLabel1.setText(&quot;jLabel1&quot;);</span>
+
+<span class="fc" id="L50">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L51">        getContentPane().setLayout(null);</span>
+
+<span class="fc" id="L53">        txtContra.addKeyListener(new java.awt.event.KeyAdapter() {</span>
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+<span class="nc" id="L55">                txtContraKeyPressed(evt);</span>
+<span class="nc" id="L56">            }</span>
+        });
+<span class="fc" id="L58">        getContentPane().add(txtContra);</span>
+<span class="fc" id="L59">        txtContra.setBounds(260, 370, 220, 50);</span>
+
+<span class="fc" id="L61">        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {</span>
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+<span class="nc" id="L63">                txtUsuarioKeyPressed(evt);</span>
+<span class="nc" id="L64">            }</span>
+        });
+<span class="fc" id="L66">        getContentPane().add(txtUsuario);</span>
+<span class="fc" id="L67">        txtUsuario.setBounds(210, 300, 270, 50);</span>
+
+<span class="fc" id="L69">        btnOk.setBorderPainted(false);</span>
+<span class="fc" id="L70">        btnOk.setContentAreaFilled(false);</span>
+<span class="fc" id="L71">        btnOk.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="fc" id="L72">        btnOk.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L74">                btnOkActionPerformed(evt);</span>
+<span class="nc" id="L75">            }</span>
+        });
+<span class="fc" id="L77">        getContentPane().add(btnOk);</span>
+<span class="fc" id="L78">        btnOk.setBounds(420, 440, 80, 50);</span>
+
+<span class="fc" id="L80">        inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Imagenes/índice.jpg&quot;))); // NOI18N</span>
+<span class="fc" id="L81">        inicio.setText(&quot;jLabel2&quot;);</span>
+<span class="fc" id="L82">        getContentPane().add(inicio);</span>
+<span class="fc" id="L83">        inicio.setBounds(0, -10, 1127, 726);</span>
+
+<span class="fc" id="L85">        pack();</span>
+<span class="fc" id="L86">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void txtContraKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContraKeyPressed
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        if(evt.getKeyCode() == KeyEvent.VK_ENTER){</span>
+<span class="nc" id="L90">        usr = txtUsuario.getText();</span>
+<span class="nc" id="L91">        pass = txtContra.getText();</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        if(controladores.Usuarios.checkUsuario(usr, pass).equals(&quot;admin&quot;)){</span>
+<span class="nc" id="L93">            List&lt;Ingredientes&gt; ing= new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L94">        cant_disp = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select cant_Disp,nombre from Ingredientes&quot;, Ingrediente.class);;</span>
+        
+<span class="nc" id="L96">        largo = cant_disp.size();</span>
+<span class="nc" id="L97">        int l=0;</span>
+<span class="nc" id="L98">        String[] array = new String[100]; </span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        for(int i=0;i&lt;largo;i++){</span>
+<span class="nc" id="L100">        Ingrediente in = (Ingrediente) cant_disp.get(i);</span>
+<span class="nc" id="L101">        System.out.println(&quot;cant_disp = &quot; + in.getCant_disp());</span>
+        
+<span class="nc bnc" id="L103" title="All 2 branches missed.">            if(Float.parseFloat(in.getCant_disp().toString())&lt;=1000){</span>
+<span class="nc" id="L104">            array[i] = &quot;-&quot; + in.getNombre();</span>
+<span class="nc" id="L105">            l++;</span>
+            }
+        }
+<span class="nc bnc" id="L108" title="All 2 branches missed.">        if(l&gt;=8){</span>
+<span class="nc" id="L109">                   JOptionPane.showMessageDialog(null, &quot;¡Tiempo de resurtir!&quot;, &quot;Advertencia&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L110">                    JOptionPane.showMessageDialog(null, array, &quot;Ingredientes Conflicto&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L111">                    JOptionPane.showMessageDialog(null, &quot;¡Porfavor resurta!\n&quot;</span>
+                                                          + &quot;O no se podra realizar ninguna venta :C&quot;, &quot;Advertencia&quot;, WARNING_MESSAGE);
+<span class="nc" id="L113">                MenuInicioAdmin menuAdmin = new MenuInicioAdmin(1);</span>
+<span class="nc" id="L114">                menuAdmin.setVisible(true);</span>
+<span class="nc" id="L115">                this.dispose();</span>
+<span class="nc" id="L116">        }else{</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">            if(l&gt;0){</span>
+<span class="nc" id="L118">                JOptionPane.showMessageDialog(null, &quot;¡Hay ingredientes a punto de acabarce o sin existencias!&quot;, &quot;Advertencia&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L119">                JOptionPane.showMessageDialog(null, array, &quot;Ingredientes Conflicto&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L120">                JOptionPane.showMessageDialog(null, &quot;¡Porfavor revise la disponibilidad!&quot;, &quot;Advertencia&quot;, WARNING_MESSAGE);</span>
+            }
+<span class="nc" id="L122">            MenuInicioAdmin menuAdmin = new MenuInicioAdmin();</span>
+<span class="nc" id="L123">            menuAdmin.setVisible(true);</span>
+<span class="nc" id="L124">            this.dispose(); </span>
+        }
+            
+            
+<span class="nc bnc" id="L128" title="All 2 branches missed.">        }else if(controladores.Usuarios.checkUsuario(usr, pass).equals(&quot;Cajero&quot;)){</span>
+<span class="nc" id="L129">            List&lt;Ingredientes&gt; ing= new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L130">        cant_disp = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select cant_Disp,nombre from Ingredientes&quot;, Ingrediente.class);;</span>
+        
+<span class="nc" id="L132">        largo = cant_disp.size();</span>
+<span class="nc" id="L133">        int l=0;</span>
+<span class="nc" id="L134">        String[] array = new String[100]; </span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">        for(int i=0;i&lt;largo;i++){</span>
+<span class="nc" id="L136">        Ingrediente in = (Ingrediente) cant_disp.get(i);</span>
+<span class="nc" id="L137">        System.out.println(&quot;cant_disp = &quot; + in.getCant_disp());</span>
+        
+<span class="nc bnc" id="L139" title="All 2 branches missed.">            if(Float.parseFloat(in.getCant_disp().toString())&lt;=1000){</span>
+<span class="nc" id="L140">            array[i] = &quot;-&quot; + in.getNombre();</span>
+<span class="nc" id="L141">            l++;</span>
+            }
+        }
+<span class="nc bnc" id="L144" title="All 2 branches missed.">        if(l&gt;=8){</span>
+<span class="nc" id="L145">                   JOptionPane.showMessageDialog(null, &quot;¡Tiempo de resurtir!&quot;, &quot;Advertencia&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L146">                    JOptionPane.showMessageDialog(null, array, &quot;Ingredientes Conflicto&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L147">                    JOptionPane.showMessageDialog(null, &quot;¡Porfavor avise al administrador!\n&quot;</span>
+                                                          + &quot;O no se podra realizar ninguna venta :C&quot;, &quot;Advertencia&quot;, WARNING_MESSAGE);
+<span class="nc" id="L149">                   MenuInicio menuCajero = new MenuInicio(1);</span>
+<span class="nc" id="L150">                   menuCajero.setVisible(true);</span>
+<span class="nc" id="L151">                    this.dispose();</span>
+<span class="nc" id="L152">        }else{</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">            if(l&gt;0){</span>
+<span class="nc" id="L154">                JOptionPane.showMessageDialog(null, &quot;¡Hay ingredientes a punto de acabarce o sin existencias!&quot;, &quot;Advertencia&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L155">                JOptionPane.showMessageDialog(null, array, &quot;Ingredientes Conflicto&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L156">                JOptionPane.showMessageDialog(null, &quot;¡Porfavor avise al administrador!&quot;, &quot;Advertencia&quot;, WARNING_MESSAGE);</span>
+                
+            }
+<span class="nc" id="L159">            MenuInicio menuCajero = new MenuInicio();</span>
+<span class="nc" id="L160">            menuCajero.setVisible(true);</span>
+<span class="nc" id="L161">            this.dispose();</span>
+              }
+            
+<span class="nc" id="L164">        }else{</span>
+<span class="nc" id="L165">            JOptionPane.showMessageDialog(null, &quot;Usuario o contraseña incorrecta&quot;);</span>
+        }
+        }
+<span class="nc" id="L168">    }//GEN-LAST:event_txtContraKeyPressed</span>
+
+    private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
+<span class="nc" id="L171">        usr = txtUsuario.getText();</span>
+<span class="nc" id="L172">        pass = txtContra.getText();</span>
+<span class="nc" id="L173">        String checkUser = controladores.Usuarios.checkUsuario(usr, pass);</span>
+<span class="nc bnc" id="L174" title="All 2 branches missed.">        if(checkUser.equals(&quot;Administrador&quot;)){</span>
+<span class="nc" id="L175">            MenuInicioAdmin menuAdmin = new MenuInicioAdmin();</span>
+<span class="nc" id="L176">            menuAdmin.setVisible(true);</span>
+<span class="nc" id="L177">            this.dispose();</span>
+            
+<span class="nc bnc" id="L179" title="All 2 branches missed.">        }else if(checkUser.equals(&quot;Cajero&quot;)){</span>
+<span class="nc" id="L180">            MenuInicio menuCajero = new MenuInicio();</span>
+<span class="nc" id="L181">            menuCajero.setVisible(true);</span>
+<span class="nc" id="L182">            this.dispose();</span>
+<span class="nc" id="L183">        }else{</span>
+<span class="nc" id="L184">            JOptionPane.showMessageDialog(null, &quot;Usuario o contraseña incorrecta&quot;);</span>
+        }
+        
+<span class="nc" id="L187">    }//GEN-LAST:event_btnOkActionPerformed</span>
+
+    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
+<span class="nc bnc" id="L190" title="All 2 branches missed.">        if(evt.getKeyCode() == KeyEvent.VK_ENTER){</span>
+<span class="nc" id="L191">        usr = txtUsuario.getText();</span>
+<span class="nc" id="L192">        pass = txtContra.getText();</span>
+<span class="nc bnc" id="L193" title="All 2 branches missed.">        if(controladores.Usuarios.checkUsuario(usr, pass).equals(&quot;admin&quot;)){</span>
+<span class="nc" id="L194">            MenuInicioAdmin menuAdmin = new MenuInicioAdmin();</span>
+<span class="nc" id="L195">            menuAdmin.setVisible(true);</span>
+<span class="nc" id="L196">            this.dispose();</span>
+            
+<span class="nc bnc" id="L198" title="All 2 branches missed.">        }else if(controladores.Usuarios.checkUsuario(usr, pass).equals(&quot;Cajero&quot;)){</span>
+<span class="nc" id="L199">            MenuInicio menuCajero = new MenuInicio();</span>
+<span class="nc" id="L200">            menuCajero.setVisible(true);</span>
+<span class="nc" id="L201">            this.dispose();</span>
+<span class="nc" id="L202">        }else{</span>
+<span class="nc" id="L203">            JOptionPane.showMessageDialog(null, &quot;Usuario o contraseña incorrecta&quot;);</span>
+        }
+        }
+<span class="nc" id="L206">    }//GEN-LAST:event_txtUsuarioKeyPressed</span>
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+<span class="nc bnc" id="L218" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L220">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L221">                    break;</span>
+                }
+            }
+<span class="nc" id="L224">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L225">            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L226">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L227">            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L228">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L229">            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L230">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L231">            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L232">        }</span>
+        //&lt;/editor-fold&gt;
+
+        /* Create and display the form */
+<span class="nc" id="L236">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+<span class="nc" id="L238">                new Inicio().setVisible(true);</span>
+<span class="nc" id="L239">            }</span>
+        });
+<span class="nc" id="L241">    }</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnOk;
+    private javax.swing.JLabel inicio;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPasswordField txtContra;
+    private javax.swing.JTextField txtUsuario;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

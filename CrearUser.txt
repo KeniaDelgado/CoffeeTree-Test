@@ -1,0 +1,6 @@
+
+create user CoffeeTrw identified by abcd1234 
+
+grant connect to CoffeeTrw 
+
+grant all privileges to CoffeeTrw identified by abcd1234

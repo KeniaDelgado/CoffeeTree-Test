@@ -1,0 +1,6 @@
+
+create user CoffeeTreePTd identified by abcd1234 
+
+grant connect to CoffeeTreePTd 
+
+grant all privileges to CoffeeTreePTd identified by abcd1234

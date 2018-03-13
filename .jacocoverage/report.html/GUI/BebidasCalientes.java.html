@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>BebidasCalientes.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;CoffeeTree&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">GUI</a> &gt; <span class="el_source">BebidasCalientes.java</span></div><h1>BebidasCalientes.java</h1><pre class="source lang-java linenums">
+package GUI;
+
+import controladores.Ingredientes;
+import controladores.Productos;
+import controladores.Recetas;
+import datos.Ingrediente;
+import datos.Producto;
+import datos.Receta;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+import javax.swing.table.DefaultTableModel;
+import oraclegeneral.Conexion;
+
+
+public class BebidasCalientes extends javax.swing.JFrame {
+
+<span class="nc" id="L21">    private List&lt;Productos&gt; prod = new ArrayList&lt;Productos&gt;();</span>
+    DefaultTableModel mod;
+<span class="nc" id="L23">    MenuInicio tabla = new MenuInicio(); </span>
+<span class="nc" id="L24">    JFrame frame = new JFrame(&quot;Tamaño producto&quot;);</span>
+    
+<span class="nc" id="L26">    public BebidasCalientes() {</span>
+<span class="nc" id="L27">            setUndecorated(true);</span>
+<span class="nc" id="L28">            initComponents();</span>
+<span class="nc" id="L29">            this.setSize(1086, 726);</span>
+<span class="nc" id="L30">            this.setLocationRelativeTo(null);</span>
+            
+            
+<span class="nc" id="L33">    }</span>
+    
+<span class="nc" id="L35">     public BebidasCalientes(DefaultTableModel mod) {</span>
+<span class="nc" id="L36">            setUndecorated(true);</span>
+<span class="nc" id="L37">            initComponents();</span>
+<span class="nc" id="L38">            this.setSize(1086, 726);</span>
+<span class="nc" id="L39">            this.setLocationRelativeTo(null);</span>
+<span class="nc" id="L40">            tabla.mod = mod;</span>
+<span class="nc" id="L41">            System.out.println(&quot;mod.getRowCount() = &quot; + mod.getRowCount());</span>
+            
+<span class="nc" id="L43">    }</span>
+
+    
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L50">        btnSalir = new javax.swing.JButton();</span>
+<span class="nc" id="L51">        btnBloquear = new javax.swing.JButton();</span>
+<span class="nc" id="L52">        btnRegresar = new javax.swing.JButton();</span>
+<span class="nc" id="L53">        btnChocolate = new javax.swing.JButton();</span>
+<span class="nc" id="L54">        btnMoka = new javax.swing.JButton();</span>
+<span class="nc" id="L55">        btnChocolateB = new javax.swing.JButton();</span>
+<span class="nc" id="L56">        btnMokaBlanco = new javax.swing.JButton();</span>
+<span class="nc" id="L57">        btnLatte = new javax.swing.JButton();</span>
+<span class="nc" id="L58">        btnExpresso = new javax.swing.JButton();</span>
+<span class="nc" id="L59">        btnTe = new javax.swing.JButton();</span>
+<span class="nc" id="L60">        btnCappuccino = new javax.swing.JButton();</span>
+<span class="nc" id="L61">        btnCafeAm = new javax.swing.JButton();</span>
+<span class="nc" id="L62">        jLabel1 = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L64">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L65">        getContentPane().setLayout(null);</span>
+
+<span class="nc" id="L67">        btnSalir.setBorderPainted(false);</span>
+<span class="nc" id="L68">        btnSalir.setContentAreaFilled(false);</span>
+<span class="nc" id="L69">        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L70">        btnSalir.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L72">                btnSalirActionPerformed(evt);</span>
+<span class="nc" id="L73">            }</span>
+        });
+<span class="nc" id="L75">        getContentPane().add(btnSalir);</span>
+<span class="nc" id="L76">        btnSalir.setBounds(490, 650, 210, 80);</span>
+
+<span class="nc" id="L78">        btnBloquear.setBorderPainted(false);</span>
+<span class="nc" id="L79">        btnBloquear.setContentAreaFilled(false);</span>
+<span class="nc" id="L80">        btnBloquear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L81">        btnBloquear.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L83">                btnBloquearActionPerformed(evt);</span>
+<span class="nc" id="L84">            }</span>
+        });
+<span class="nc" id="L86">        getContentPane().add(btnBloquear);</span>
+<span class="nc" id="L87">        btnBloquear.setBounds(250, 650, 210, 80);</span>
+
+<span class="nc" id="L89">        btnRegresar.setBorderPainted(false);</span>
+<span class="nc" id="L90">        btnRegresar.setContentAreaFilled(false);</span>
+<span class="nc" id="L91">        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L92">        btnRegresar.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L94">                btnRegresarActionPerformed(evt);</span>
+<span class="nc" id="L95">            }</span>
+        });
+<span class="nc" id="L97">        getContentPane().add(btnRegresar);</span>
+<span class="nc" id="L98">        btnRegresar.setBounds(40, 20, 120, 80);</span>
+
+<span class="nc" id="L100">        btnChocolate.setBorderPainted(false);</span>
+<span class="nc" id="L101">        btnChocolate.setContentAreaFilled(false);</span>
+<span class="nc" id="L102">        btnChocolate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L103">        btnChocolate.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L105">                btnChocolateActionPerformed(evt);</span>
+<span class="nc" id="L106">            }</span>
+        });
+<span class="nc" id="L108">        getContentPane().add(btnChocolate);</span>
+<span class="nc" id="L109">        btnChocolate.setBounds(38, 502, 206, 120);</span>
+
+<span class="nc" id="L111">        btnMoka.setBorderPainted(false);</span>
+<span class="nc" id="L112">        btnMoka.setContentAreaFilled(false);</span>
+<span class="nc" id="L113">        btnMoka.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L114">        btnMoka.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L116">                btnMokaActionPerformed(evt);</span>
+<span class="nc" id="L117">            }</span>
+        });
+<span class="nc" id="L119">        getContentPane().add(btnMoka);</span>
+<span class="nc" id="L120">        btnMoka.setBounds(38, 380, 206, 120);</span>
+
+<span class="nc" id="L122">        btnChocolateB.setBorderPainted(false);</span>
+<span class="nc" id="L123">        btnChocolateB.setContentAreaFilled(false);</span>
+<span class="nc" id="L124">        btnChocolateB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L125">        btnChocolateB.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L127">                btnChocolateBActionPerformed(evt);</span>
+<span class="nc" id="L128">            }</span>
+        });
+<span class="nc" id="L130">        getContentPane().add(btnChocolateB);</span>
+<span class="nc" id="L131">        btnChocolateB.setBounds(247, 502, 206, 118);</span>
+
+<span class="nc" id="L133">        btnMokaBlanco.setBorderPainted(false);</span>
+<span class="nc" id="L134">        btnMokaBlanco.setContentAreaFilled(false);</span>
+<span class="nc" id="L135">        btnMokaBlanco.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L136">        btnMokaBlanco.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L138">                btnMokaBlancoActionPerformed(evt);</span>
+<span class="nc" id="L139">            }</span>
+        });
+<span class="nc" id="L141">        getContentPane().add(btnMokaBlanco);</span>
+<span class="nc" id="L142">        btnMokaBlanco.setBounds(247, 380, 206, 118);</span>
+
+<span class="nc" id="L144">        btnLatte.setBorderPainted(false);</span>
+<span class="nc" id="L145">        btnLatte.setContentAreaFilled(false);</span>
+<span class="nc" id="L146">        btnLatte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L147">        btnLatte.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L149">                btnLatteActionPerformed(evt);</span>
+<span class="nc" id="L150">            }</span>
+        });
+<span class="nc" id="L152">        getContentPane().add(btnLatte);</span>
+<span class="nc" id="L153">        btnLatte.setBounds(247, 260, 206, 120);</span>
+
+<span class="nc" id="L155">        btnExpresso.setBorderPainted(false);</span>
+<span class="nc" id="L156">        btnExpresso.setContentAreaFilled(false);</span>
+<span class="nc" id="L157">        btnExpresso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L158">        btnExpresso.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L160">                btnExpressoActionPerformed(evt);</span>
+<span class="nc" id="L161">            }</span>
+        });
+<span class="nc" id="L163">        getContentPane().add(btnExpresso);</span>
+<span class="nc" id="L164">        btnExpresso.setBounds(458, 502, 208, 120);</span>
+
+<span class="nc" id="L166">        btnTe.setBorderPainted(false);</span>
+<span class="nc" id="L167">        btnTe.setContentAreaFilled(false);</span>
+<span class="nc" id="L168">        btnTe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L169">        btnTe.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L171">                btnTeActionPerformed(evt);</span>
+<span class="nc" id="L172">            }</span>
+        });
+<span class="nc" id="L174">        getContentPane().add(btnTe);</span>
+<span class="nc" id="L175">        btnTe.setBounds(458, 380, 208, 120);</span>
+
+<span class="nc" id="L177">        btnCappuccino.setBorderPainted(false);</span>
+<span class="nc" id="L178">        btnCappuccino.setContentAreaFilled(false);</span>
+<span class="nc" id="L179">        btnCappuccino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L180">        btnCappuccino.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L182">                btnCappuccinoActionPerformed(evt);</span>
+<span class="nc" id="L183">            }</span>
+        });
+<span class="nc" id="L185">        getContentPane().add(btnCappuccino);</span>
+<span class="nc" id="L186">        btnCappuccino.setBounds(458, 260, 208, 120);</span>
+
+<span class="nc" id="L188">        btnCafeAm.setBorderPainted(false);</span>
+<span class="nc" id="L189">        btnCafeAm.setContentAreaFilled(false);</span>
+<span class="nc" id="L190">        btnCafeAm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L191">        btnCafeAm.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L193">                btnCafeAmActionPerformed(evt);</span>
+<span class="nc" id="L194">            }</span>
+        });
+<span class="nc" id="L196">        getContentPane().add(btnCafeAm);</span>
+<span class="nc" id="L197">        btnCafeAm.setBounds(38, 260, 206, 120);</span>
+
+<span class="nc" id="L199">        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Imagenes/bebidas_calientes.jpg&quot;))); // NOI18N</span>
+<span class="nc" id="L200">        getContentPane().add(jLabel1);</span>
+<span class="nc" id="L201">        jLabel1.setBounds(0, 0, 1089, 726);</span>
+
+<span class="nc" id="L203">        pack();</span>
+<span class="nc" id="L204">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+<span class="nc" id="L207">        this.setVisible(false);</span>
+<span class="nc" id="L208">        MenuInicio m = new MenuInicio(tabla.mod);</span>
+<span class="nc" id="L209">        m.setVisible(true);</span>
+<span class="nc" id="L210">    }//GEN-LAST:event_btnRegresarActionPerformed</span>
+
+    private void btnCafeAmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCafeAmActionPerformed
+<span class="nc" id="L213">        prod = Productos.productosMostrar(&quot;Americano&quot;);</span>
+<span class="nc" id="L214">        get(prod);</span>
+<span class="nc" id="L215">    }//GEN-LAST:event_btnCafeAmActionPerformed</span>
+
+    private void btnLatteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLatteActionPerformed
+<span class="nc" id="L218">        prod = Productos.productosMostrarNo(&quot;Latte&quot;,&quot;Latte frio&quot;);</span>
+<span class="nc" id="L219">        get(prod);</span>
+<span class="nc" id="L220">    }//GEN-LAST:event_btnLatteActionPerformed</span>
+
+    private void btnCappuccinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCappuccinoActionPerformed
+<span class="nc" id="L223">        prod = Productos.productosMostrar(&quot;Capuccino&quot;);</span>
+<span class="nc" id="L224">        get(prod);</span>
+<span class="nc" id="L225">    }//GEN-LAST:event_btnCappuccinoActionPerformed</span>
+
+    private void btnMokaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMokaActionPerformed
+<span class="nc" id="L228">        prod = Productos.productosMostrarNo(&quot;Moka&quot;,&quot;Moka blanco&quot;);</span>
+<span class="nc" id="L229">        get(prod);</span>
+<span class="nc" id="L230">    }//GEN-LAST:event_btnMokaActionPerformed</span>
+
+    private void btnMokaBlancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMokaBlancoActionPerformed
+<span class="nc" id="L233">        prod = Productos.productosMostrar(&quot;Moka blanco&quot;);</span>
+<span class="nc" id="L234">        get(prod);</span>
+<span class="nc" id="L235">    }//GEN-LAST:event_btnMokaBlancoActionPerformed</span>
+
+    private void btnTeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeActionPerformed
+<span class="nc" id="L238">        prod = Productos.productosMostrarNo(&quot;Te chai&quot;,&quot;Te chai helado&quot;);</span>
+<span class="nc" id="L239">        get(prod);</span>
+<span class="nc" id="L240">    }//GEN-LAST:event_btnTeActionPerformed</span>
+
+    private void btnChocolateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChocolateActionPerformed
+<span class="nc" id="L243">        prod = Productos.productosMostrarNo(&quot;Chocolate&quot;,&quot;Chocolate blanco&quot;);</span>
+<span class="nc" id="L244">        get(prod);</span>
+<span class="nc" id="L245">    }//GEN-LAST:event_btnChocolateActionPerformed</span>
+
+    private void btnChocolateBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChocolateBActionPerformed
+<span class="nc" id="L248">        prod = Productos.productosMostrar(&quot;Chocolate blanco&quot;);</span>
+<span class="nc" id="L249">        get(prod);</span>
+<span class="nc" id="L250">    }//GEN-LAST:event_btnChocolateBActionPerformed</span>
+
+    private void btnExpressoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpressoActionPerformed
+<span class="nc" id="L253">        prod = Productos.productosMostrar(&quot;Expresso&quot;);</span>
+<span class="nc" id="L254">        get(prod);</span>
+<span class="nc" id="L255">    }//GEN-LAST:event_btnExpressoActionPerformed</span>
+
+    private void btnBloquearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBloquearActionPerformed
+<span class="nc" id="L258">        int opc = JOptionPane.showConfirmDialog(null,&quot;¿Seguro?&quot;,&quot;Alerta&quot;,JOptionPane.YES_NO_OPTION);</span>
+<span class="nc bnc" id="L259" title="All 2 branches missed.">        if(opc == JOptionPane.YES_OPTION){</span>
+<span class="nc" id="L260">            this.setVisible(false);</span>
+<span class="nc" id="L261">            Inicio i = new Inicio();</span>
+<span class="nc" id="L262">            i.setVisible(true);</span>
+<span class="nc" id="L263">        }</span>
+<span class="nc bnc" id="L264" title="All 2 branches missed.">        else if(opc == JOptionPane.NO_OPTION){</span>
+<span class="nc" id="L265">            JOptionPane.showMessageDialog(null, &quot;Ok&quot;);</span>
+        }
+<span class="nc" id="L267">    }//GEN-LAST:event_btnBloquearActionPerformed</span>
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+<span class="nc bnc" id="L270" title="All 2 branches missed.">        if(this.tabla.mod.getColumnCount()&gt;0){</span>
+<span class="nc" id="L271">            int opc = JOptionPane.showConfirmDialog(null,&quot;Aun hay una venta en proceso\n¿Seguro que quiere salir?&quot;,&quot;Alerta&quot;,JOptionPane.YES_NO_OPTION);</span>
+<span class="nc bnc" id="L272" title="All 2 branches missed.">            if(opc == JOptionPane.YES_OPTION){</span>
+<span class="nc" id="L273">                JOptionPane.showMessageDialog(rootPane, &quot;¡Hasta la proxima!&quot;, &quot;Saliendo&quot;, INFORMATION_MESSAGE);</span>
+<span class="nc" id="L274">                System.exit(0);</span>
+            }
+<span class="nc bnc" id="L276" title="All 2 branches missed.">            else if(opc == JOptionPane.NO_OPTION){</span>
+<span class="nc" id="L277">                JOptionPane.showMessageDialog(null, &quot;Ok&quot;);</span>
+            }
+<span class="nc" id="L279">        }else{</span>
+<span class="nc" id="L280">            int opc = JOptionPane.showConfirmDialog(null,&quot;¿Seguro que quiere salir?&quot;,&quot;Alerta&quot;,JOptionPane.YES_NO_OPTION);</span>
+<span class="nc bnc" id="L281" title="All 2 branches missed.">            if(opc == JOptionPane.YES_OPTION){</span>
+<span class="nc" id="L282">                JOptionPane.showMessageDialog(rootPane, &quot;¡Hasta la proxima!&quot;, &quot;Saliendo&quot;, INFORMATION_MESSAGE);</span>
+<span class="nc" id="L283">                System.exit(0);</span>
+            }
+<span class="nc bnc" id="L285" title="All 2 branches missed.">            else if(opc == JOptionPane.NO_OPTION){</span>
+<span class="nc" id="L286">                JOptionPane.showMessageDialog(null, &quot;Ok&quot;);</span>
+            }
+        }
+<span class="nc" id="L289">    }//GEN-LAST:event_btnSalirActionPerformed</span>
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+<span class="nc bnc" id="L301" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L302" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L303">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L304">                    break;</span>
+                }
+            }
+<span class="nc" id="L307">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L308">            java.util.logging.Logger.getLogger(BebidasCalientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L309">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L310">            java.util.logging.Logger.getLogger(BebidasCalientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L311">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L312">            java.util.logging.Logger.getLogger(BebidasCalientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L313">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L314">            java.util.logging.Logger.getLogger(BebidasCalientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L315">        }</span>
+        //&lt;/editor-fold&gt;
+
+        /* Create and display the form */
+<span class="nc" id="L319">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+<span class="nc" id="L321">                new BebidasCalientes().setVisible(true);</span>
+<span class="nc" id="L322">            }</span>
+        });
+<span class="nc" id="L324">    }</span>
+
+ public void get(List&lt;Productos&gt; prod){
+<span class="nc" id="L327">        int cant = 0;</span>
+<span class="nc" id="L328">        int banSal=0;</span>
+<span class="nc" id="L329">        String val = &quot;&quot;;</span>
+<span class="nc" id="L330">    Producto tam_prod = (Producto) JOptionPane.showInputDialog(frame, </span>
+        &quot;Tamaño&quot;,
+        &quot;Tamaño Producto&quot;,
+        JOptionPane.QUESTION_MESSAGE, 
+        null,
+<span class="nc" id="L335">        prod.toArray(), prod.get(0));</span>
+        
+<span class="nc bnc" id="L337" title="All 2 branches missed.">        if(tam_prod == null){</span>
+        
+        }else{
+<span class="nc" id="L340">         boolean bandera=false;</span>
+          do{
+          try{
+<span class="nc" id="L343">          val = JOptionPane.showInputDialog(&quot;Cantidad&quot;); </span>
+<span class="nc" id="L344">          System.out.println(&quot;val = &quot; + val);</span>
+<span class="nc bnc" id="L345" title="All 2 branches missed.">          if(val == null){</span>
+<span class="nc" id="L346">              bandera=true;</span>
+          }else{
+              
+<span class="nc bnc" id="L349" title="All 2 branches missed.">              if(Integer.parseInt(val)&gt;0){</span>
+<span class="nc" id="L350">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L351">                List&lt;Receta&gt; rec = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L352">                List&lt;Ingrediente&gt; cantI = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L353">                rec= (List&lt;Receta&gt;) Recetas.select(Conexion.getDBConexion(), String.format(&quot;select ingrediente_id,cant from recetas where producto_id = %s&quot;,tam_prod.getProducto_id()), Receta.class);</span>
+<span class="nc bnc" id="L354" title="All 2 branches missed.">                for(int up=0;up&lt;rec.size();up++){  </span>
+<span class="nc" id="L355">                Receta cant_rec = (Receta) rec.get(up);</span>
+<span class="nc" id="L356">                System.out.println(&quot;cant_rec = &quot; + cant_rec.getIngrediente_id() + cant_rec.getCant());</span>
+<span class="nc" id="L357">                cantI= (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), String.format(&quot;select cant_disp from ingredientes where ingrediente_id like '%s'&quot;,cant_rec.getIngrediente_id()), Ingrediente.class);</span>
+                
+<span class="nc" id="L359">                Ingrediente cant_ing = (Ingrediente) cantI.get(0);</span>
+<span class="nc" id="L360">                System.out.println(&quot;cant_ing = &quot; + cant_ing.getNombre());</span>
+<span class="nc" id="L361">                float cant_ingrediente = Float.parseFloat(cant_ing.getCant_disp().toString());</span>
+<span class="nc" id="L362">                float cant_receta = Float.parseFloat(cant_rec.getCant().toString());</span>
+<span class="nc" id="L363">                float cant_ingresada = cant;</span>
+<span class="nc bnc" id="L364" title="All 2 branches missed.">                if(cant_ingrediente-(cant_receta*cant_ingresada)&gt;0){</span>
+<span class="nc" id="L365">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L366">                bandera=true; </span>
+                }else{
+<span class="nc" id="L368">                val=null;</span>
+<span class="nc bnc" id="L369" title="All 2 branches missed.">                if(banSal==0){</span>
+<span class="nc" id="L370">                JOptionPane.showMessageDialog(null,&quot;No hay ingredientes suficientes&quot;);</span>
+<span class="nc" id="L371">                bandera=true;</span>
+<span class="nc" id="L372">                banSal++;</span>
+                } 
+                }
+                }  
+<span class="nc" id="L376">                 bandera=true; </span>
+<span class="nc" id="L377">              }else{</span>
+<span class="nc" id="L378">                JOptionPane.showMessageDialog(null,&quot;Catidad no valida&quot;);</span>
+<span class="nc" id="L379">                bandera=false;</span>
+              }
+          }
+          }
+<span class="nc" id="L383">          catch(NumberFormatException e){</span>
+<span class="nc" id="L384">          javax.swing.JOptionPane.showMessageDialog(null,&quot;!!!!&quot;);</span>
+<span class="nc" id="L385">          bandera=false;</span>
+<span class="nc" id="L386">          }</span>
+<span class="nc bnc" id="L387" title="All 2 branches missed.">          }while(!bandera);</span>
+  
+        
+<span class="nc bnc" id="L390" title="All 2 branches missed.">        if(val == null){</span>
+           
+        }else{
+<span class="nc" id="L393">        int fila = tabla.mod.getRowCount();</span>
+<span class="nc" id="L394">        tabla.mod.addRow(new Object[fila]);</span>
+<span class="nc bnc" id="L395" title="All 2 branches missed.">        for(int x = 0;x&lt;this.tabla.mod.getColumnCount()-1;x++){</span>
+<span class="nc" id="L396">            tabla.mod.setValueAt(tam_prod.getProducto_id(),fila,0);</span>
+<span class="nc" id="L397">            tabla.mod.setValueAt(tam_prod.getNombre(),fila,1);</span>
+<span class="nc" id="L398">            tabla.mod.setValueAt(cant,fila,2);</span>
+<span class="nc" id="L399">            tabla.mod.setValueAt(tam_prod.getPrecio(),fila,3);</span>
+<span class="nc" id="L400">            tabla.mod.setValueAt(0,fila,4);</span>
+        }
+        }
+        }
+<span class="nc" id="L404">    };    </span>
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBloquear;
+    private javax.swing.JButton btnCafeAm;
+    private javax.swing.JButton btnCappuccino;
+    private javax.swing.JButton btnChocolate;
+    private javax.swing.JButton btnChocolateB;
+    private javax.swing.JButton btnExpresso;
+    private javax.swing.JButton btnLatte;
+    private javax.swing.JButton btnMoka;
+    private javax.swing.JButton btnMokaBlanco;
+    private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnTe;
+    private javax.swing.JLabel jLabel1;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Ticket.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;CoffeeTree&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">datos</a> &gt; <span class="el_source">Ticket.java</span></div><h1>Ticket.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package datos;
+
+import java.beans.PropertyChangeSupport;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+/**
+ *
+ * @author kenia_000
+ */
+<span class="nc" id="L16">public class Ticket {</span>
+    
+    public static final String PROP_ID_PEDIDO = &quot;PROP_ID_PEDIDO&quot;;
+    public static final String PROP_FECHA_PEDIDO = &quot;PROP_FECHA_PEDIDO&quot;;
+    public static final String PROP_TOTAL = &quot;PROP_TOTAL&quot;;
+    public static final String PROP_FECHA_ENTREGA = &quot;PROP_FECHA_ENTREGA&quot;;
+    public static final String PROP_ESTADO = &quot;PROP_ESTADO&quot;;
+    
+    private BigDecimal id_pedido;
+    
+    private Timestamp fecha_pedido;
+    
+    private BigDecimal total;
+    
+    private Timestamp fecha_entrega;
+    
+    private String estado;
+<span class="nc" id="L33">    private final transient PropertyChangeSupport propertyChangeSupport = new java.beans.PropertyChangeSupport(this);</span>
+
+    /**
+     * Método para obtener un id_pedido de un objeto Pedido.
+     * @return the id_pedido
+     */
+    public BigDecimal getId_pedido() {
+<span class="nc" id="L40">        return id_pedido;</span>
+    }
+
+    /**
+     * Método para asignar un id_pedido de un objeto Pedido.
+     * @param id_pedido the id_pedido to set
+     */
+    public void setId_pedido(BigDecimal id_pedido) {
+<span class="nc" id="L48">        java.math.BigDecimal oldId_pedido = this.id_pedido;</span>
+<span class="nc" id="L49">        this.id_pedido = id_pedido;</span>
+<span class="nc" id="L50">        propertyChangeSupport.firePropertyChange(PROP_ID_PEDIDO, oldId_pedido, id_pedido);</span>
+<span class="nc" id="L51">    }</span>
+
+    /**
+     * Método para obtener una fecha_pedido de un objeto Pedido.
+     * @return the fecha_pedido
+     */
+    public Timestamp getFecha_pedido() {
+<span class="nc" id="L58">        return fecha_pedido;</span>
+    }
+
+    /**
+     * Método para asignar una fecha_pedido de un objeto Pedido.
+     * @param fecha_pedido the fecha_pedido to set
+     */
+    public void setFecha_pedido(Timestamp fecha_pedido) {
+<span class="nc" id="L66">        java.sql.Timestamp oldFecha_pedido = this.fecha_pedido;</span>
+<span class="nc" id="L67">        this.fecha_pedido = fecha_pedido;</span>
+<span class="nc" id="L68">        propertyChangeSupport.firePropertyChange(PROP_FECHA_PEDIDO, oldFecha_pedido, fecha_pedido);</span>
+<span class="nc" id="L69">    }</span>
+
+    /**
+     * Método para obtener un total de un objeto Pedido.
+     * @return the total
+     */
+    public BigDecimal getTotal() {
+<span class="nc" id="L76">        return total;</span>
+    }
+
+    /**
+     * Método para asignar un total de un objeto Pedido.
+     * @param total the total to set
+     */
+    public void setTotal(BigDecimal total) {
+<span class="nc" id="L84">        java.math.BigDecimal oldTotal = this.total;</span>
+<span class="nc" id="L85">        this.total = total;</span>
+<span class="nc" id="L86">        propertyChangeSupport.firePropertyChange(PROP_TOTAL, oldTotal, total);</span>
+<span class="nc" id="L87">    }</span>
+
+    /**
+     * Método para obtener una fecha_entrega de un objeto Pedido.
+     * @return the fecha_entrega
+     */
+    public Timestamp getFecha_entrega() {
+<span class="nc" id="L94">        return fecha_entrega;</span>
+    }
+
+    /**
+     * Método para asignar una fecha_entrega de un objeto Pedido.
+     * @param fecha_entrega the fecha_entrega to set
+     */
+    public void setFecha_entrega(Timestamp fecha_entrega) {
+<span class="nc" id="L102">        java.sql.Timestamp oldFecha_entrega = this.fecha_entrega;</span>
+<span class="nc" id="L103">        this.fecha_entrega = fecha_entrega;</span>
+<span class="nc" id="L104">        propertyChangeSupport.firePropertyChange(PROP_FECHA_ENTREGA, oldFecha_entrega, fecha_entrega);</span>
+<span class="nc" id="L105">    }</span>
+
+    /**
+     * Método para obtener un estado de un objeto Pedido.
+     * @return the estado
+     */
+    public String getEstado() {
+<span class="nc" id="L112">        return estado;</span>
+    }
+
+    /**
+     * Método para asignar un pedido de un objeto Pedido.
+     * @param estado the estado to set
+     */
+    public void setEstado(String estado) {
+<span class="nc" id="L120">        java.lang.String oldEstado = this.estado;</span>
+<span class="nc" id="L121">        this.estado = estado;</span>
+<span class="nc" id="L122">        propertyChangeSupport.firePropertyChange(PROP_ESTADO, oldEstado, estado);</span>
+<span class="nc" id="L123">    }</span>
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

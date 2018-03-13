@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>BebidasCalientesAdmin.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;CoffeeTree&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">GUI</a> &gt; <span class="el_source">BebidasCalientesAdmin.java</span></div><h1>BebidasCalientesAdmin.java</h1><pre class="source lang-java linenums">package GUI;
+
+import controladores.Ingredientes;
+import controladores.Productos;
+import controladores.Recetas;
+import datos.Ingrediente;
+import datos.Producto;
+import datos.Receta;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+import javax.swing.table.DefaultTableModel;
+import oraclegeneral.Conexion;
+
+
+public class BebidasCalientesAdmin extends javax.swing.JFrame {
+
+<span class="nc" id="L20">    private List&lt;Productos&gt; prod = new ArrayList&lt;Productos&gt;();</span>
+    DefaultTableModel mod;
+<span class="nc" id="L22">    MenuInicioAdmin tabla = new MenuInicioAdmin(); </span>
+<span class="nc" id="L23">    JFrame frame = new JFrame(&quot;Tamaño producto&quot;);</span>
+    
+<span class="nc" id="L25">    public BebidasCalientesAdmin() {</span>
+<span class="nc" id="L26">            setUndecorated(true);</span>
+<span class="nc" id="L27">            initComponents();</span>
+<span class="nc" id="L28">            this.setSize(1086, 726);</span>
+<span class="nc" id="L29">            this.setLocationRelativeTo(null);</span>
+            
+            
+<span class="nc" id="L32">    }</span>
+    
+<span class="nc" id="L34">     public BebidasCalientesAdmin(DefaultTableModel mod) {</span>
+<span class="nc" id="L35">            setUndecorated(true);</span>
+<span class="nc" id="L36">            initComponents();</span>
+<span class="nc" id="L37">            this.setSize(1086, 726);</span>
+<span class="nc" id="L38">            this.setLocationRelativeTo(null);</span>
+<span class="nc" id="L39">            tabla.mod = mod;</span>
+<span class="nc" id="L40">            System.out.println(&quot;mod.getRowCount() = &quot; + mod.getRowCount());</span>
+            
+<span class="nc" id="L42">    }</span>
+
+    
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L49">        btnSalir = new javax.swing.JButton();</span>
+<span class="nc" id="L50">        btnBloquear = new javax.swing.JButton();</span>
+<span class="nc" id="L51">        btnRegresar = new javax.swing.JButton();</span>
+<span class="nc" id="L52">        btnChocolate = new javax.swing.JButton();</span>
+<span class="nc" id="L53">        btnMoka = new javax.swing.JButton();</span>
+<span class="nc" id="L54">        btnChocolateB = new javax.swing.JButton();</span>
+<span class="nc" id="L55">        btnMokaBlanco = new javax.swing.JButton();</span>
+<span class="nc" id="L56">        btnLatte = new javax.swing.JButton();</span>
+<span class="nc" id="L57">        btnExpresso = new javax.swing.JButton();</span>
+<span class="nc" id="L58">        btnTe = new javax.swing.JButton();</span>
+<span class="nc" id="L59">        btnCappuccino = new javax.swing.JButton();</span>
+<span class="nc" id="L60">        btnCafeAm = new javax.swing.JButton();</span>
+<span class="nc" id="L61">        jLabel1 = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L63">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L64">        getContentPane().setLayout(null);</span>
+
+<span class="nc" id="L66">        btnSalir.setBorderPainted(false);</span>
+<span class="nc" id="L67">        btnSalir.setContentAreaFilled(false);</span>
+<span class="nc" id="L68">        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L69">        btnSalir.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L71">                btnSalirActionPerformed(evt);</span>
+<span class="nc" id="L72">            }</span>
+        });
+<span class="nc" id="L74">        getContentPane().add(btnSalir);</span>
+<span class="nc" id="L75">        btnSalir.setBounds(490, 650, 210, 80);</span>
+
+<span class="nc" id="L77">        btnBloquear.setBorderPainted(false);</span>
+<span class="nc" id="L78">        btnBloquear.setContentAreaFilled(false);</span>
+<span class="nc" id="L79">        btnBloquear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L80">        btnBloquear.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L82">                btnBloquearActionPerformed(evt);</span>
+<span class="nc" id="L83">            }</span>
+        });
+<span class="nc" id="L85">        getContentPane().add(btnBloquear);</span>
+<span class="nc" id="L86">        btnBloquear.setBounds(250, 650, 210, 80);</span>
+
+<span class="nc" id="L88">        btnRegresar.setBorderPainted(false);</span>
+<span class="nc" id="L89">        btnRegresar.setContentAreaFilled(false);</span>
+<span class="nc" id="L90">        btnRegresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L91">        btnRegresar.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L93">                btnRegresarActionPerformed(evt);</span>
+<span class="nc" id="L94">            }</span>
+        });
+<span class="nc" id="L96">        getContentPane().add(btnRegresar);</span>
+<span class="nc" id="L97">        btnRegresar.setBounds(40, 20, 120, 80);</span>
+
+<span class="nc" id="L99">        btnChocolate.setBorderPainted(false);</span>
+<span class="nc" id="L100">        btnChocolate.setContentAreaFilled(false);</span>
+<span class="nc" id="L101">        btnChocolate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L102">        btnChocolate.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L104">                btnChocolateActionPerformed(evt);</span>
+<span class="nc" id="L105">            }</span>
+        });
+<span class="nc" id="L107">        getContentPane().add(btnChocolate);</span>
+<span class="nc" id="L108">        btnChocolate.setBounds(38, 502, 206, 120);</span>
+
+<span class="nc" id="L110">        btnMoka.setBorderPainted(false);</span>
+<span class="nc" id="L111">        btnMoka.setContentAreaFilled(false);</span>
+<span class="nc" id="L112">        btnMoka.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L113">        btnMoka.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L115">                btnMokaActionPerformed(evt);</span>
+<span class="nc" id="L116">            }</span>
+        });
+<span class="nc" id="L118">        getContentPane().add(btnMoka);</span>
+<span class="nc" id="L119">        btnMoka.setBounds(38, 380, 206, 120);</span>
+
+<span class="nc" id="L121">        btnChocolateB.setBorderPainted(false);</span>
+<span class="nc" id="L122">        btnChocolateB.setContentAreaFilled(false);</span>
+<span class="nc" id="L123">        btnChocolateB.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L124">        btnChocolateB.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L126">                btnChocolateBActionPerformed(evt);</span>
+<span class="nc" id="L127">            }</span>
+        });
+<span class="nc" id="L129">        getContentPane().add(btnChocolateB);</span>
+<span class="nc" id="L130">        btnChocolateB.setBounds(247, 502, 206, 118);</span>
+
+<span class="nc" id="L132">        btnMokaBlanco.setBorderPainted(false);</span>
+<span class="nc" id="L133">        btnMokaBlanco.setContentAreaFilled(false);</span>
+<span class="nc" id="L134">        btnMokaBlanco.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L135">        btnMokaBlanco.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L137">                btnMokaBlancoActionPerformed(evt);</span>
+<span class="nc" id="L138">            }</span>
+        });
+<span class="nc" id="L140">        getContentPane().add(btnMokaBlanco);</span>
+<span class="nc" id="L141">        btnMokaBlanco.setBounds(247, 380, 206, 118);</span>
+
+<span class="nc" id="L143">        btnLatte.setBorderPainted(false);</span>
+<span class="nc" id="L144">        btnLatte.setContentAreaFilled(false);</span>
+<span class="nc" id="L145">        btnLatte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L146">        btnLatte.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L148">                btnLatteActionPerformed(evt);</span>
+<span class="nc" id="L149">            }</span>
+        });
+<span class="nc" id="L151">        getContentPane().add(btnLatte);</span>
+<span class="nc" id="L152">        btnLatte.setBounds(247, 260, 206, 120);</span>
+
+<span class="nc" id="L154">        btnExpresso.setBorderPainted(false);</span>
+<span class="nc" id="L155">        btnExpresso.setContentAreaFilled(false);</span>
+<span class="nc" id="L156">        btnExpresso.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L157">        btnExpresso.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L159">                btnExpressoActionPerformed(evt);</span>
+<span class="nc" id="L160">            }</span>
+        });
+<span class="nc" id="L162">        getContentPane().add(btnExpresso);</span>
+<span class="nc" id="L163">        btnExpresso.setBounds(458, 502, 208, 120);</span>
+
+<span class="nc" id="L165">        btnTe.setBorderPainted(false);</span>
+<span class="nc" id="L166">        btnTe.setContentAreaFilled(false);</span>
+<span class="nc" id="L167">        btnTe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L168">        btnTe.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L170">                btnTeActionPerformed(evt);</span>
+<span class="nc" id="L171">            }</span>
+        });
+<span class="nc" id="L173">        getContentPane().add(btnTe);</span>
+<span class="nc" id="L174">        btnTe.setBounds(458, 380, 208, 120);</span>
+
+<span class="nc" id="L176">        btnCappuccino.setBorderPainted(false);</span>
+<span class="nc" id="L177">        btnCappuccino.setContentAreaFilled(false);</span>
+<span class="nc" id="L178">        btnCappuccino.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L179">        btnCappuccino.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L181">                btnCappuccinoActionPerformed(evt);</span>
+<span class="nc" id="L182">            }</span>
+        });
+<span class="nc" id="L184">        getContentPane().add(btnCappuccino);</span>
+<span class="nc" id="L185">        btnCappuccino.setBounds(458, 260, 208, 120);</span>
+
+<span class="nc" id="L187">        btnCafeAm.setBorderPainted(false);</span>
+<span class="nc" id="L188">        btnCafeAm.setContentAreaFilled(false);</span>
+<span class="nc" id="L189">        btnCafeAm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L190">        btnCafeAm.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L192">                btnCafeAmActionPerformed(evt);</span>
+<span class="nc" id="L193">            }</span>
+        });
+<span class="nc" id="L195">        getContentPane().add(btnCafeAm);</span>
+<span class="nc" id="L196">        btnCafeAm.setBounds(38, 260, 206, 120);</span>
+
+<span class="nc" id="L198">        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Imagenes/bebidas_calientes.jpg&quot;))); // NOI18N</span>
+<span class="nc" id="L199">        getContentPane().add(jLabel1);</span>
+<span class="nc" id="L200">        jLabel1.setBounds(0, 0, 1089, 726);</span>
+
+<span class="nc" id="L202">        pack();</span>
+<span class="nc" id="L203">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+<span class="nc" id="L206">        this.setVisible(false);</span>
+<span class="nc" id="L207">        MenuInicioAdmin m = new MenuInicioAdmin(tabla.mod);</span>
+<span class="nc" id="L208">        m.setVisible(true);</span>
+<span class="nc" id="L209">    }//GEN-LAST:event_btnRegresarActionPerformed</span>
+
+    private void btnCafeAmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCafeAmActionPerformed
+<span class="nc" id="L212">        int cant = 0;</span>
+<span class="nc" id="L213">        int banSal=0;</span>
+<span class="nc" id="L214">        String val = &quot;&quot;;</span>
+<span class="nc" id="L215">        prod = Productos.productosMostrar(&quot;Americano&quot;);</span>
+<span class="nc" id="L216">        Producto tam_prod = (Producto) JOptionPane.showInputDialog(frame, </span>
+        &quot;Tamaño&quot;,
+        &quot;Tamaño Producto&quot;,
+        JOptionPane.QUESTION_MESSAGE, 
+        null,
+<span class="nc" id="L221">        prod.toArray(), prod.get(0));</span>
+<span class="nc bnc" id="L222" title="All 2 branches missed.">        if(tam_prod == null){</span>
+        
+        }else{
+<span class="nc" id="L225">        boolean bandera=false;</span>
+          do{
+          try{
+<span class="nc" id="L228">          val = JOptionPane.showInputDialog(&quot;Cantidad&quot;); </span>
+<span class="nc" id="L229">          System.out.println(&quot;val = &quot; + val);</span>
+<span class="nc bnc" id="L230" title="All 2 branches missed.">          if(val == null){</span>
+<span class="nc" id="L231">              bandera=true;</span>
+          }else{
+              
+<span class="nc bnc" id="L234" title="All 2 branches missed.">              if(Integer.parseInt(val)&gt;0){</span>
+<span class="nc" id="L235">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L236">                List&lt;Receta&gt; rec = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L237">                List&lt;Ingrediente&gt; cantI = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L238">                rec= (List&lt;Receta&gt;) Recetas.select(Conexion.getDBConexion(), String.format(&quot;select ingrediente_id,cant from recetas where producto_id = %s&quot;,tam_prod.getProducto_id()), Receta.class);</span>
+<span class="nc bnc" id="L239" title="All 2 branches missed.">                for(int up=0;up&lt;rec.size();up++){  </span>
+<span class="nc" id="L240">                Receta cant_rec = (Receta) rec.get(up);</span>
+<span class="nc" id="L241">                System.out.println(&quot;cant_rec = &quot; + cant_rec.getIngrediente_id() + cant_rec.getCant());</span>
+<span class="nc" id="L242">                cantI= (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), String.format(&quot;select cant_disp from ingredientes where ingrediente_id like '%s'&quot;,cant_rec.getIngrediente_id()), Ingrediente.class);</span>
+                
+<span class="nc" id="L244">                Ingrediente cant_ing = (Ingrediente) cantI.get(0);</span>
+<span class="nc" id="L245">                System.out.println(&quot;cant_ing = &quot; + cant_ing.getNombre());</span>
+<span class="nc" id="L246">                float cant_ingrediente = Float.parseFloat(cant_ing.getCant_disp().toString());</span>
+<span class="nc" id="L247">                float cant_receta = Float.parseFloat(cant_rec.getCant().toString());</span>
+<span class="nc" id="L248">                float cant_ingresada = cant;</span>
+<span class="nc bnc" id="L249" title="All 2 branches missed.">                if(cant_ingrediente-(cant_receta*cant_ingresada)&gt;0){</span>
+<span class="nc" id="L250">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L251">                bandera=true; </span>
+                }else{
+<span class="nc" id="L253">                val=null;</span>
+<span class="nc bnc" id="L254" title="All 2 branches missed.">                if(banSal==0){</span>
+<span class="nc" id="L255">                JOptionPane.showMessageDialog(null,&quot;No hay ingredientes suficientes&quot;);</span>
+<span class="nc" id="L256">                bandera=true;</span>
+<span class="nc" id="L257">                banSal++;</span>
+                } 
+                }
+                }  
+<span class="nc" id="L261">                 bandera=true; </span>
+<span class="nc" id="L262">              }else{</span>
+<span class="nc" id="L263">                JOptionPane.showMessageDialog(null,&quot;Catidad no valida&quot;);</span>
+<span class="nc" id="L264">                bandera=false;</span>
+              }
+          }
+          }
+<span class="nc" id="L268">          catch(NumberFormatException e){</span>
+<span class="nc" id="L269">          JOptionPane.showMessageDialog(null,&quot;!!!!&quot;);</span>
+<span class="nc" id="L270">          bandera=false;</span>
+<span class="nc" id="L271">          }</span>
+<span class="nc bnc" id="L272" title="All 2 branches missed.">          }while(!bandera);</span>
+  
+        
+<span class="nc bnc" id="L275" title="All 2 branches missed.">        if(val == null){</span>
+           
+        }else{
+<span class="nc" id="L278">        int fila = tabla.mod.getRowCount();</span>
+<span class="nc" id="L279">        tabla.mod.addRow(new Object[fila]);</span>
+<span class="nc bnc" id="L280" title="All 2 branches missed.">        for(int x = 0;x&lt;this.tabla.mod.getColumnCount()-1;x++){</span>
+<span class="nc" id="L281">            tabla.mod.setValueAt(tam_prod.getProducto_id(),fila,0);</span>
+<span class="nc" id="L282">            tabla.mod.setValueAt(tam_prod.getNombre(),fila,1);</span>
+<span class="nc" id="L283">            tabla.mod.setValueAt(cant,fila,2);</span>
+<span class="nc" id="L284">            tabla.mod.setValueAt(tam_prod.getPrecio(),fila,3);</span>
+<span class="nc" id="L285">            tabla.mod.setValueAt(0,fila,4);</span>
+        }
+        }
+        }
+         
+     
+<span class="nc" id="L291">    }//GEN-LAST:event_btnCafeAmActionPerformed</span>
+
+    private void btnLatteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLatteActionPerformed
+
+<span class="nc" id="L295">        int cant = 0;</span>
+<span class="nc" id="L296">        int banSal=0;</span>
+<span class="nc" id="L297">        String val = &quot;&quot;;</span>
+<span class="nc" id="L298">        prod = Productos.productosMostrarNo(&quot;Latte&quot;,&quot;Latte frio&quot;);</span>
+<span class="nc" id="L299">        Producto tam_prod = (Producto) JOptionPane.showInputDialog(frame, </span>
+        &quot;Tamaño&quot;,
+        &quot;Tamaño Producto&quot;,
+        JOptionPane.QUESTION_MESSAGE, 
+        null,
+<span class="nc" id="L304">        prod.toArray(), prod.get(0)); </span>
+        
+<span class="nc bnc" id="L306" title="All 2 branches missed.">        if(tam_prod == null){</span>
+        
+        }else{
+<span class="nc" id="L309">         boolean bandera=false;</span>
+          do{
+          try{
+<span class="nc" id="L312">          val = JOptionPane.showInputDialog(&quot;Cantidad&quot;); </span>
+<span class="nc" id="L313">          System.out.println(&quot;val = &quot; + val);</span>
+<span class="nc bnc" id="L314" title="All 2 branches missed.">          if(val == null){</span>
+<span class="nc" id="L315">              bandera=true;</span>
+          }else{
+              
+<span class="nc bnc" id="L318" title="All 2 branches missed.">              if(Integer.parseInt(val)&gt;0){</span>
+<span class="nc" id="L319">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L320">                List&lt;Receta&gt; rec = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L321">                List&lt;Ingrediente&gt; cantI = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L322">                rec= (List&lt;Receta&gt;) Recetas.select(Conexion.getDBConexion(), String.format(&quot;select ingrediente_id,cant from recetas where producto_id = %s&quot;,tam_prod.getProducto_id()), Receta.class);</span>
+<span class="nc bnc" id="L323" title="All 2 branches missed.">                for(int up=0;up&lt;rec.size();up++){  </span>
+<span class="nc" id="L324">                Receta cant_rec = (Receta) rec.get(up);</span>
+<span class="nc" id="L325">                System.out.println(&quot;cant_rec = &quot; + cant_rec.getIngrediente_id() + cant_rec.getCant());</span>
+<span class="nc" id="L326">                cantI= (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), String.format(&quot;select cant_disp from ingredientes where ingrediente_id like '%s'&quot;,cant_rec.getIngrediente_id()), Ingrediente.class);</span>
+                
+<span class="nc" id="L328">                Ingrediente cant_ing = (Ingrediente) cantI.get(0);</span>
+<span class="nc" id="L329">                System.out.println(&quot;cant_ing = &quot; + cant_ing.getNombre());</span>
+<span class="nc" id="L330">                float cant_ingrediente = Float.parseFloat(cant_ing.getCant_disp().toString());</span>
+<span class="nc" id="L331">                float cant_receta = Float.parseFloat(cant_rec.getCant().toString());</span>
+<span class="nc" id="L332">                float cant_ingresada = cant;</span>
+<span class="nc bnc" id="L333" title="All 2 branches missed.">                if(cant_ingrediente-(cant_receta*cant_ingresada)&gt;0){</span>
+<span class="nc" id="L334">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L335">                bandera=true; </span>
+                }else{
+<span class="nc" id="L337">                val=null;</span>
+<span class="nc bnc" id="L338" title="All 2 branches missed.">                if(banSal==0){</span>
+<span class="nc" id="L339">                JOptionPane.showMessageDialog(null,&quot;No hay ingredientes suficientes&quot;);</span>
+<span class="nc" id="L340">                bandera=true;</span>
+<span class="nc" id="L341">                banSal++;</span>
+                } 
+                }
+                }  
+<span class="nc" id="L345">                 bandera=true; </span>
+<span class="nc" id="L346">              }else{</span>
+<span class="nc" id="L347">                JOptionPane.showMessageDialog(null,&quot;Catidad no valida&quot;);</span>
+<span class="nc" id="L348">                bandera=false;</span>
+              }
+          }
+          }
+<span class="nc" id="L352">          catch(NumberFormatException e){</span>
+<span class="nc" id="L353">          javax.swing.JOptionPane.showMessageDialog(null,&quot;!!!!&quot;);</span>
+<span class="nc" id="L354">          bandera=false;</span>
+<span class="nc" id="L355">          }</span>
+<span class="nc bnc" id="L356" title="All 2 branches missed.">          }while(!bandera);</span>
+  
+        
+<span class="nc bnc" id="L359" title="All 2 branches missed.">        if(val == null){</span>
+           
+        }else{
+<span class="nc" id="L362">        int fila = tabla.mod.getRowCount();</span>
+<span class="nc" id="L363">        tabla.mod.addRow(new Object[fila]);</span>
+<span class="nc bnc" id="L364" title="All 2 branches missed.">        for(int x = 0;x&lt;this.tabla.mod.getColumnCount()-1;x++){</span>
+<span class="nc" id="L365">            tabla.mod.setValueAt(tam_prod.getProducto_id(),fila,0);</span>
+<span class="nc" id="L366">            tabla.mod.setValueAt(tam_prod.getNombre(),fila,1);</span>
+<span class="nc" id="L367">            tabla.mod.setValueAt(cant,fila,2);</span>
+<span class="nc" id="L368">            tabla.mod.setValueAt(tam_prod.getPrecio(),fila,3);</span>
+<span class="nc" id="L369">            tabla.mod.setValueAt(0,fila,4);</span>
+        }
+        }
+        }
+<span class="nc" id="L373">    }//GEN-LAST:event_btnLatteActionPerformed</span>
+
+    private void btnCappuccinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCappuccinoActionPerformed
+
+<span class="nc" id="L377">        int cant = 0;</span>
+<span class="nc" id="L378">        int banSal=0;</span>
+<span class="nc" id="L379">        String val = &quot;&quot;;</span>
+<span class="nc" id="L380">        prod = Productos.productosMostrar(&quot;Capuccino&quot;);</span>
+<span class="nc" id="L381">        Producto tam_prod = (Producto) JOptionPane.showInputDialog(frame, </span>
+        &quot;Tamaño&quot;,
+        &quot;Tamaño Producto&quot;,
+        JOptionPane.QUESTION_MESSAGE, 
+        null,
+<span class="nc" id="L386">        prod.toArray(), prod.get(0)); </span>
+        
+<span class="nc bnc" id="L388" title="All 2 branches missed.">        if(tam_prod == null){</span>
+        
+        }else{
+<span class="nc" id="L391">         boolean bandera=false;</span>
+          do{
+          try{
+<span class="nc" id="L394">          val = JOptionPane.showInputDialog(&quot;Cantidad&quot;); </span>
+<span class="nc" id="L395">          System.out.println(&quot;val = &quot; + val);</span>
+<span class="nc bnc" id="L396" title="All 2 branches missed.">          if(val == null){</span>
+<span class="nc" id="L397">              bandera=true;</span>
+          }else{
+              
+<span class="nc bnc" id="L400" title="All 2 branches missed.">              if(Integer.parseInt(val)&gt;0){</span>
+<span class="nc" id="L401">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L402">                List&lt;Receta&gt; rec = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L403">                List&lt;Ingrediente&gt; cantI = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L404">                rec= (List&lt;Receta&gt;) Recetas.select(Conexion.getDBConexion(), String.format(&quot;select ingrediente_id,cant from recetas where producto_id = %s&quot;,tam_prod.getProducto_id()), Receta.class);</span>
+<span class="nc bnc" id="L405" title="All 2 branches missed.">                for(int up=0;up&lt;rec.size();up++){  </span>
+<span class="nc" id="L406">                Receta cant_rec = (Receta) rec.get(up);</span>
+<span class="nc" id="L407">                System.out.println(&quot;cant_rec = &quot; + cant_rec.getIngrediente_id() + cant_rec.getCant());</span>
+<span class="nc" id="L408">                cantI= (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), String.format(&quot;select cant_disp from ingredientes where ingrediente_id like '%s'&quot;,cant_rec.getIngrediente_id()), Ingrediente.class);</span>
+                
+<span class="nc" id="L410">                Ingrediente cant_ing = (Ingrediente) cantI.get(0);</span>
+<span class="nc" id="L411">                System.out.println(&quot;cant_ing = &quot; + cant_ing.getNombre());</span>
+<span class="nc" id="L412">                float cant_ingrediente = Float.parseFloat(cant_ing.getCant_disp().toString());</span>
+<span class="nc" id="L413">                float cant_receta = Float.parseFloat(cant_rec.getCant().toString());</span>
+<span class="nc" id="L414">                float cant_ingresada = cant;</span>
+<span class="nc bnc" id="L415" title="All 2 branches missed.">                if(cant_ingrediente-(cant_receta*cant_ingresada)&gt;0){</span>
+<span class="nc" id="L416">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L417">                bandera=true; </span>
+                }else{
+<span class="nc" id="L419">                val=null;</span>
+<span class="nc bnc" id="L420" title="All 2 branches missed.">                if(banSal==0){</span>
+<span class="nc" id="L421">                JOptionPane.showMessageDialog(null,&quot;No hay ingredientes suficientes&quot;);</span>
+<span class="nc" id="L422">                bandera=true;</span>
+<span class="nc" id="L423">                banSal++;</span>
+                } 
+                }
+                }  
+<span class="nc" id="L427">                 bandera=true; </span>
+<span class="nc" id="L428">              }else{</span>
+<span class="nc" id="L429">                JOptionPane.showMessageDialog(null,&quot;Catidad no valida&quot;);</span>
+<span class="nc" id="L430">                bandera=false;</span>
+              }
+          }
+          }
+<span class="nc" id="L434">          catch(NumberFormatException e){</span>
+<span class="nc" id="L435">          javax.swing.JOptionPane.showMessageDialog(null,&quot;!!!!&quot;);</span>
+<span class="nc" id="L436">          bandera=false;</span>
+<span class="nc" id="L437">          }</span>
+<span class="nc bnc" id="L438" title="All 2 branches missed.">          }while(!bandera);</span>
+  
+        
+<span class="nc bnc" id="L441" title="All 2 branches missed.">        if(val == null){</span>
+           
+        }else{
+<span class="nc" id="L444">        int fila = tabla.mod.getRowCount();</span>
+<span class="nc" id="L445">        tabla.mod.addRow(new Object[fila]);</span>
+<span class="nc bnc" id="L446" title="All 2 branches missed.">        for(int x = 0;x&lt;this.tabla.mod.getColumnCount()-1;x++){</span>
+<span class="nc" id="L447">            tabla.mod.setValueAt(tam_prod.getProducto_id(),fila,0);</span>
+<span class="nc" id="L448">            tabla.mod.setValueAt(tam_prod.getNombre(),fila,1);</span>
+<span class="nc" id="L449">            tabla.mod.setValueAt(cant,fila,2);</span>
+<span class="nc" id="L450">            tabla.mod.setValueAt(tam_prod.getPrecio(),fila,3);</span>
+<span class="nc" id="L451">            tabla.mod.setValueAt(0,fila,4);</span>
+        }
+        }
+        }
+<span class="nc" id="L455">    }//GEN-LAST:event_btnCappuccinoActionPerformed</span>
+
+    private void btnMokaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMokaActionPerformed
+   
+<span class="nc" id="L459">        int cant = 0;</span>
+<span class="nc" id="L460">        int banSal=0;</span>
+<span class="nc" id="L461">        String val = &quot;&quot;;</span>
+<span class="nc" id="L462">        prod = Productos.productosMostrarNo(&quot;Moka&quot;,&quot;Moka blanco&quot;);</span>
+<span class="nc" id="L463">        Producto tam_prod = (Producto) JOptionPane.showInputDialog(frame, </span>
+        &quot;Tamaño&quot;,
+        &quot;Tamaño Producto&quot;,
+        JOptionPane.QUESTION_MESSAGE, 
+        null,
+<span class="nc" id="L468">        prod.toArray(), prod.get(0)); </span>
+        
+<span class="nc bnc" id="L470" title="All 2 branches missed.">        if(tam_prod == null){</span>
+        
+        }else{
+<span class="nc" id="L473">         boolean bandera=false;</span>
+          do{
+          try{
+<span class="nc" id="L476">          val = JOptionPane.showInputDialog(&quot;Cantidad&quot;); </span>
+<span class="nc" id="L477">          System.out.println(&quot;val = &quot; + val);</span>
+<span class="nc bnc" id="L478" title="All 2 branches missed.">          if(val == null){</span>
+<span class="nc" id="L479">              bandera=true;</span>
+          }else{
+              
+<span class="nc bnc" id="L482" title="All 2 branches missed.">              if(Integer.parseInt(val)&gt;0){</span>
+<span class="nc" id="L483">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L484">                List&lt;Receta&gt; rec = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L485">                List&lt;Ingrediente&gt; cantI = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L486">                rec= (List&lt;Receta&gt;) Recetas.select(Conexion.getDBConexion(), String.format(&quot;select ingrediente_id,cant from recetas where producto_id = %s&quot;,tam_prod.getProducto_id()), Receta.class);</span>
+<span class="nc bnc" id="L487" title="All 2 branches missed.">                for(int up=0;up&lt;rec.size();up++){  </span>
+<span class="nc" id="L488">                Receta cant_rec = (Receta) rec.get(up);</span>
+<span class="nc" id="L489">                System.out.println(&quot;cant_rec = &quot; + cant_rec.getIngrediente_id() + cant_rec.getCant());</span>
+<span class="nc" id="L490">                cantI= (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), String.format(&quot;select cant_disp from ingredientes where ingrediente_id like '%s'&quot;,cant_rec.getIngrediente_id()), Ingrediente.class);</span>
+                
+<span class="nc" id="L492">                Ingrediente cant_ing = (Ingrediente) cantI.get(0);</span>
+<span class="nc" id="L493">                System.out.println(&quot;cant_ing = &quot; + cant_ing.getNombre());</span>
+<span class="nc" id="L494">                float cant_ingrediente = Float.parseFloat(cant_ing.getCant_disp().toString());</span>
+<span class="nc" id="L495">                float cant_receta = Float.parseFloat(cant_rec.getCant().toString());</span>
+<span class="nc" id="L496">                float cant_ingresada = cant;</span>
+<span class="nc bnc" id="L497" title="All 2 branches missed.">                if(cant_ingrediente-(cant_receta*cant_ingresada)&gt;0){</span>
+<span class="nc" id="L498">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L499">                bandera=true; </span>
+                }else{
+<span class="nc" id="L501">                val=null;</span>
+<span class="nc bnc" id="L502" title="All 2 branches missed.">                if(banSal==0){</span>
+<span class="nc" id="L503">                JOptionPane.showMessageDialog(null,&quot;No hay ingredientes suficientes&quot;);</span>
+<span class="nc" id="L504">                bandera=true;</span>
+<span class="nc" id="L505">                banSal++;</span>
+                } 
+                }
+                }  
+<span class="nc" id="L509">                 bandera=true; </span>
+<span class="nc" id="L510">              }else{</span>
+<span class="nc" id="L511">                JOptionPane.showMessageDialog(null,&quot;Catidad no valida&quot;);</span>
+<span class="nc" id="L512">                bandera=false;</span>
+              }
+          }
+          }
+<span class="nc" id="L516">          catch(NumberFormatException e){</span>
+<span class="nc" id="L517">          javax.swing.JOptionPane.showMessageDialog(null,&quot;!!!!&quot;);</span>
+<span class="nc" id="L518">          bandera=false;</span>
+<span class="nc" id="L519">          }</span>
+<span class="nc bnc" id="L520" title="All 2 branches missed.">          }while(!bandera);</span>
+  
+        
+<span class="nc bnc" id="L523" title="All 2 branches missed.">        if(val == null){</span>
+           
+        }else{
+<span class="nc" id="L526">        int fila = tabla.mod.getRowCount();</span>
+<span class="nc" id="L527">        tabla.mod.addRow(new Object[fila]);</span>
+<span class="nc bnc" id="L528" title="All 2 branches missed.">        for(int x = 0;x&lt;this.tabla.mod.getColumnCount()-1;x++){</span>
+<span class="nc" id="L529">            tabla.mod.setValueAt(tam_prod.getProducto_id(),fila,0);</span>
+<span class="nc" id="L530">            tabla.mod.setValueAt(tam_prod.getNombre(),fila,1);</span>
+<span class="nc" id="L531">            tabla.mod.setValueAt(cant,fila,2);</span>
+<span class="nc" id="L532">            tabla.mod.setValueAt(tam_prod.getPrecio(),fila,3);</span>
+<span class="nc" id="L533">            tabla.mod.setValueAt(0,fila,4);</span>
+        }
+        }
+        }
+        
+<span class="nc" id="L538">    }//GEN-LAST:event_btnMokaActionPerformed</span>
+
+    private void btnMokaBlancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMokaBlancoActionPerformed
+
+<span class="nc" id="L542">        int cant = 0;</span>
+<span class="nc" id="L543">        int banSal=0;</span>
+<span class="nc" id="L544">        String val = &quot;&quot;;</span>
+<span class="nc" id="L545">        prod = Productos.productosMostrar(&quot;Moka blanco&quot;);</span>
+<span class="nc" id="L546">        Producto tam_prod = (Producto) JOptionPane.showInputDialog(frame, </span>
+        &quot;Tamaño&quot;,
+        &quot;Tamaño Producto&quot;,
+        JOptionPane.QUESTION_MESSAGE, 
+        null,
+<span class="nc" id="L551">        prod.toArray(), prod.get(0)); //De donde recupera los daos a mostrar</span>
+        
+<span class="nc bnc" id="L553" title="All 2 branches missed.">        if(tam_prod == null){</span>
+        
+        }else{
+<span class="nc" id="L556">         boolean bandera=false;</span>
+          do{
+          try{
+<span class="nc" id="L559">          val = JOptionPane.showInputDialog(&quot;Cantidad&quot;); </span>
+<span class="nc" id="L560">          System.out.println(&quot;val = &quot; + val);</span>
+<span class="nc bnc" id="L561" title="All 2 branches missed.">          if(val == null){</span>
+<span class="nc" id="L562">              bandera=true;</span>
+          }else{
+              
+<span class="nc bnc" id="L565" title="All 2 branches missed.">              if(Integer.parseInt(val)&gt;0){</span>
+<span class="nc" id="L566">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L567">                List&lt;Receta&gt; rec = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L568">                List&lt;Ingrediente&gt; cantI = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L569">                rec= (List&lt;Receta&gt;) Recetas.select(Conexion.getDBConexion(), String.format(&quot;select ingrediente_id,cant from recetas where producto_id = %s&quot;,tam_prod.getProducto_id()), Receta.class);</span>
+<span class="nc bnc" id="L570" title="All 2 branches missed.">                for(int up=0;up&lt;rec.size();up++){  </span>
+<span class="nc" id="L571">                Receta cant_rec = (Receta) rec.get(up);</span>
+<span class="nc" id="L572">                System.out.println(&quot;cant_rec = &quot; + cant_rec.getIngrediente_id() + cant_rec.getCant());</span>
+<span class="nc" id="L573">                cantI= (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), String.format(&quot;select cant_disp from ingredientes where ingrediente_id like '%s'&quot;,cant_rec.getIngrediente_id()), Ingrediente.class);</span>
+                
+<span class="nc" id="L575">                Ingrediente cant_ing = (Ingrediente) cantI.get(0);</span>
+<span class="nc" id="L576">                System.out.println(&quot;cant_ing = &quot; + cant_ing.getNombre());</span>
+<span class="nc" id="L577">                float cant_ingrediente = Float.parseFloat(cant_ing.getCant_disp().toString());</span>
+<span class="nc" id="L578">                float cant_receta = Float.parseFloat(cant_rec.getCant().toString());</span>
+<span class="nc" id="L579">                float cant_ingresada = cant;</span>
+<span class="nc bnc" id="L580" title="All 2 branches missed.">                if(cant_ingrediente-(cant_receta*cant_ingresada)&gt;0){</span>
+<span class="nc" id="L581">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L582">                bandera=true; </span>
+                }else{
+<span class="nc" id="L584">                val=null;</span>
+<span class="nc bnc" id="L585" title="All 2 branches missed.">                if(banSal==0){</span>
+<span class="nc" id="L586">                JOptionPane.showMessageDialog(null,&quot;No hay ingredientes suficientes&quot;);</span>
+<span class="nc" id="L587">                bandera=true;</span>
+<span class="nc" id="L588">                banSal++;</span>
+                } 
+                }
+                }  
+<span class="nc" id="L592">                 bandera=true; </span>
+<span class="nc" id="L593">              }else{</span>
+<span class="nc" id="L594">                JOptionPane.showMessageDialog(null,&quot;Catidad no valida&quot;);</span>
+<span class="nc" id="L595">                bandera=false;</span>
+              }
+          }
+          }
+<span class="nc" id="L599">          catch(NumberFormatException e){</span>
+<span class="nc" id="L600">          javax.swing.JOptionPane.showMessageDialog(null,&quot;!!!!&quot;);</span>
+<span class="nc" id="L601">          bandera=false;</span>
+<span class="nc" id="L602">          }</span>
+<span class="nc bnc" id="L603" title="All 2 branches missed.">          }while(!bandera);</span>
+  
+        
+<span class="nc bnc" id="L606" title="All 2 branches missed.">        if(val == null){</span>
+           
+        }else{
+<span class="nc" id="L609">        int fila = tabla.mod.getRowCount();</span>
+<span class="nc" id="L610">        tabla.mod.addRow(new Object[fila]);</span>
+<span class="nc bnc" id="L611" title="All 2 branches missed.">        for(int x = 0;x&lt;this.tabla.mod.getColumnCount()-1;x++){</span>
+<span class="nc" id="L612">            tabla.mod.setValueAt(tam_prod.getProducto_id(),fila,0);</span>
+<span class="nc" id="L613">            tabla.mod.setValueAt(tam_prod.getNombre(),fila,1);</span>
+<span class="nc" id="L614">            tabla.mod.setValueAt(cant,fila,2);</span>
+<span class="nc" id="L615">            tabla.mod.setValueAt(tam_prod.getPrecio(),fila,3);</span>
+<span class="nc" id="L616">            tabla.mod.setValueAt(0,fila,4);</span>
+        }
+        }
+        }
+        
+<span class="nc" id="L621">    }//GEN-LAST:event_btnMokaBlancoActionPerformed</span>
+
+    private void btnTeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeActionPerformed
+
+<span class="nc" id="L625">        int cant = 0;</span>
+<span class="nc" id="L626">        int banSal=0;</span>
+<span class="nc" id="L627">        String val = &quot;&quot;;</span>
+<span class="nc" id="L628">        prod = Productos.productosMostrarNo(&quot;Te chai&quot;,&quot;Te chai helado&quot;);</span>
+<span class="nc" id="L629">        Producto tam_prod = (Producto) JOptionPane.showInputDialog(frame, </span>
+        &quot;Tamaño&quot;,
+        &quot;Tamaño Producto&quot;,
+        JOptionPane.QUESTION_MESSAGE, 
+        null,
+<span class="nc" id="L634">        prod.toArray(), prod.get(0)); </span>
+        
+<span class="nc bnc" id="L636" title="All 2 branches missed.">        if(tam_prod == null){</span>
+        
+        }else{
+<span class="nc" id="L639">         boolean bandera=false;</span>
+          do{
+          try{
+<span class="nc" id="L642">          val = JOptionPane.showInputDialog(&quot;Cantidad&quot;); </span>
+<span class="nc" id="L643">          System.out.println(&quot;val = &quot; + val);</span>
+<span class="nc bnc" id="L644" title="All 2 branches missed.">          if(val == null){</span>
+<span class="nc" id="L645">              bandera=true;</span>
+          }else{
+              
+<span class="nc bnc" id="L648" title="All 2 branches missed.">              if(Integer.parseInt(val)&gt;0){</span>
+<span class="nc" id="L649">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L650">                List&lt;Receta&gt; rec = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L651">                List&lt;Ingrediente&gt; cantI = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L652">                rec= (List&lt;Receta&gt;) Recetas.select(Conexion.getDBConexion(), String.format(&quot;select ingrediente_id,cant from recetas where producto_id = %s&quot;,tam_prod.getProducto_id()), Receta.class);</span>
+<span class="nc bnc" id="L653" title="All 2 branches missed.">                for(int up=0;up&lt;rec.size();up++){  </span>
+<span class="nc" id="L654">                Receta cant_rec = (Receta) rec.get(up);</span>
+<span class="nc" id="L655">                System.out.println(&quot;cant_rec = &quot; + cant_rec.getIngrediente_id() + cant_rec.getCant());</span>
+<span class="nc" id="L656">                cantI= (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), String.format(&quot;select cant_disp from ingredientes where ingrediente_id like '%s'&quot;,cant_rec.getIngrediente_id()), Ingrediente.class);</span>
+                
+<span class="nc" id="L658">                Ingrediente cant_ing = (Ingrediente) cantI.get(0);</span>
+<span class="nc" id="L659">                System.out.println(&quot;cant_ing = &quot; + cant_ing.getNombre());</span>
+<span class="nc" id="L660">                float cant_ingrediente = Float.parseFloat(cant_ing.getCant_disp().toString());</span>
+<span class="nc" id="L661">                float cant_receta = Float.parseFloat(cant_rec.getCant().toString());</span>
+<span class="nc" id="L662">                float cant_ingresada = cant;</span>
+<span class="nc bnc" id="L663" title="All 2 branches missed.">                if(cant_ingrediente-(cant_receta*cant_ingresada)&gt;0){</span>
+<span class="nc" id="L664">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L665">                bandera=true; </span>
+                }else{
+<span class="nc" id="L667">                val=null;</span>
+<span class="nc bnc" id="L668" title="All 2 branches missed.">                if(banSal==0){</span>
+<span class="nc" id="L669">                JOptionPane.showMessageDialog(null,&quot;No hay ingredientes suficientes&quot;);</span>
+<span class="nc" id="L670">                bandera=true;</span>
+<span class="nc" id="L671">                banSal++;</span>
+                } 
+                }
+                }  
+<span class="nc" id="L675">                 bandera=true; </span>
+<span class="nc" id="L676">              }else{</span>
+<span class="nc" id="L677">                JOptionPane.showMessageDialog(null,&quot;Catidad no valida&quot;);</span>
+<span class="nc" id="L678">                bandera=false;</span>
+              }
+          }
+          }
+<span class="nc" id="L682">          catch(NumberFormatException e){</span>
+<span class="nc" id="L683">          javax.swing.JOptionPane.showMessageDialog(null,&quot;!!!!&quot;);</span>
+<span class="nc" id="L684">          bandera=false;</span>
+<span class="nc" id="L685">          }</span>
+<span class="nc bnc" id="L686" title="All 2 branches missed.">          }while(!bandera);</span>
+  
+        
+<span class="nc bnc" id="L689" title="All 2 branches missed.">        if(val == null){</span>
+           
+        }else{
+<span class="nc" id="L692">        int fila = tabla.mod.getRowCount();</span>
+<span class="nc" id="L693">        tabla.mod.addRow(new Object[fila]);</span>
+<span class="nc bnc" id="L694" title="All 2 branches missed.">        for(int x = 0;x&lt;this.tabla.mod.getColumnCount()-1;x++){</span>
+<span class="nc" id="L695">            tabla.mod.setValueAt(tam_prod.getProducto_id(),fila,0);</span>
+<span class="nc" id="L696">            tabla.mod.setValueAt(tam_prod.getNombre(),fila,1);</span>
+<span class="nc" id="L697">            tabla.mod.setValueAt(cant,fila,2);</span>
+<span class="nc" id="L698">            tabla.mod.setValueAt(tam_prod.getPrecio(),fila,3);</span>
+<span class="nc" id="L699">            tabla.mod.setValueAt(0,fila,4);</span>
+        }
+        }
+        }
+<span class="nc" id="L703">    }//GEN-LAST:event_btnTeActionPerformed</span>
+
+    private void btnChocolateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChocolateActionPerformed
+        
+<span class="nc" id="L707">        int cant = 0;</span>
+<span class="nc" id="L708">        int banSal=0;</span>
+<span class="nc" id="L709">        String val = &quot;&quot;;</span>
+<span class="nc" id="L710">        prod = Productos.productosMostrarNo(&quot;Chocolate&quot;,&quot;Chocolate blanco&quot;);</span>
+<span class="nc" id="L711">        Producto tam_prod = (Producto) JOptionPane.showInputDialog(frame, </span>
+        &quot;Tamaño&quot;,
+        &quot;Tamaño Producto&quot;,
+        JOptionPane.QUESTION_MESSAGE, 
+        null,
+<span class="nc" id="L716">        prod.toArray(), prod.get(0)); </span>
+        
+<span class="nc bnc" id="L718" title="All 2 branches missed.">        if(tam_prod == null){</span>
+        
+        }else{
+<span class="nc" id="L721">         boolean bandera=false;</span>
+          do{
+          try{
+<span class="nc" id="L724">          val = JOptionPane.showInputDialog(&quot;Cantidad&quot;); </span>
+<span class="nc" id="L725">          System.out.println(&quot;val = &quot; + val);</span>
+<span class="nc bnc" id="L726" title="All 2 branches missed.">          if(val == null){</span>
+<span class="nc" id="L727">              bandera=true;</span>
+          }else{
+              
+<span class="nc bnc" id="L730" title="All 2 branches missed.">              if(Integer.parseInt(val)&gt;0){</span>
+<span class="nc" id="L731">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L732">                List&lt;Receta&gt; rec = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L733">                List&lt;Ingrediente&gt; cantI = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L734">                rec= (List&lt;Receta&gt;) Recetas.select(Conexion.getDBConexion(), String.format(&quot;select ingrediente_id,cant from recetas where producto_id = %s&quot;,tam_prod.getProducto_id()), Receta.class);</span>
+<span class="nc bnc" id="L735" title="All 2 branches missed.">                for(int up=0;up&lt;rec.size();up++){  </span>
+<span class="nc" id="L736">                Receta cant_rec = (Receta) rec.get(up);</span>
+<span class="nc" id="L737">                System.out.println(&quot;cant_rec = &quot; + cant_rec.getIngrediente_id() + cant_rec.getCant());</span>
+<span class="nc" id="L738">                cantI= (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), String.format(&quot;select cant_disp from ingredientes where ingrediente_id like '%s'&quot;,cant_rec.getIngrediente_id()), Ingrediente.class);</span>
+                
+<span class="nc" id="L740">                Ingrediente cant_ing = (Ingrediente) cantI.get(0);</span>
+<span class="nc" id="L741">                System.out.println(&quot;cant_ing = &quot; + cant_ing.getNombre());</span>
+<span class="nc" id="L742">                float cant_ingrediente = Float.parseFloat(cant_ing.getCant_disp().toString());</span>
+<span class="nc" id="L743">                float cant_receta = Float.parseFloat(cant_rec.getCant().toString());</span>
+<span class="nc" id="L744">                float cant_ingresada = cant;</span>
+<span class="nc bnc" id="L745" title="All 2 branches missed.">                if(cant_ingrediente-(cant_receta*cant_ingresada)&gt;0){</span>
+<span class="nc" id="L746">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L747">                bandera=true; </span>
+                }else{
+<span class="nc" id="L749">                val=null;</span>
+<span class="nc bnc" id="L750" title="All 2 branches missed.">                if(banSal==0){</span>
+<span class="nc" id="L751">                JOptionPane.showMessageDialog(null,&quot;No hay ingredientes suficientes&quot;);</span>
+<span class="nc" id="L752">                bandera=true;</span>
+<span class="nc" id="L753">                banSal++;</span>
+                } 
+                }
+                }  
+<span class="nc" id="L757">                 bandera=true; </span>
+<span class="nc" id="L758">              }else{</span>
+<span class="nc" id="L759">                JOptionPane.showMessageDialog(null,&quot;Catidad no valida&quot;);</span>
+<span class="nc" id="L760">                bandera=false;</span>
+              }
+          }
+          }
+<span class="nc" id="L764">          catch(NumberFormatException e){</span>
+<span class="nc" id="L765">          javax.swing.JOptionPane.showMessageDialog(null,&quot;!!!!&quot;);</span>
+<span class="nc" id="L766">          bandera=false;</span>
+<span class="nc" id="L767">          }</span>
+<span class="nc bnc" id="L768" title="All 2 branches missed.">          }while(!bandera);</span>
+  
+        
+<span class="nc bnc" id="L771" title="All 2 branches missed.">        if(val == null){</span>
+           
+        }else{
+<span class="nc" id="L774">        int fila = tabla.mod.getRowCount();</span>
+<span class="nc" id="L775">        tabla.mod.addRow(new Object[fila]);</span>
+<span class="nc bnc" id="L776" title="All 2 branches missed.">        for(int x = 0;x&lt;this.tabla.mod.getColumnCount()-1;x++){</span>
+<span class="nc" id="L777">            tabla.mod.setValueAt(tam_prod.getProducto_id(),fila,0);</span>
+<span class="nc" id="L778">            tabla.mod.setValueAt(tam_prod.getNombre(),fila,1);</span>
+<span class="nc" id="L779">            tabla.mod.setValueAt(cant,fila,2);</span>
+<span class="nc" id="L780">            tabla.mod.setValueAt(tam_prod.getPrecio(),fila,3);</span>
+<span class="nc" id="L781">            tabla.mod.setValueAt(0,fila,4);</span>
+        }
+        }
+        }
+<span class="nc" id="L785">    }//GEN-LAST:event_btnChocolateActionPerformed</span>
+
+    private void btnChocolateBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChocolateBActionPerformed
+    
+<span class="nc" id="L789">        int cant = 0;</span>
+<span class="nc" id="L790">        int banSal=0;</span>
+<span class="nc" id="L791">        String val = &quot;&quot;;</span>
+<span class="nc" id="L792">        prod = Productos.productosMostrar(&quot;Chocolate blanco&quot;);</span>
+<span class="nc" id="L793">        Producto tam_prod = (Producto) JOptionPane.showInputDialog(frame, </span>
+        &quot;Tamaño&quot;,
+        &quot;Tamaño Producto&quot;,
+        JOptionPane.QUESTION_MESSAGE, 
+        null,
+<span class="nc" id="L798">        prod.toArray(), prod.get(0)); </span>
+        
+<span class="nc bnc" id="L800" title="All 2 branches missed.">        if(tam_prod == null){</span>
+        
+        }else{
+<span class="nc" id="L803">         boolean bandera=false;</span>
+          do{
+          try{
+<span class="nc" id="L806">          val = JOptionPane.showInputDialog(&quot;Cantidad&quot;); </span>
+<span class="nc" id="L807">          System.out.println(&quot;val = &quot; + val);</span>
+<span class="nc bnc" id="L808" title="All 2 branches missed.">          if(val == null){</span>
+<span class="nc" id="L809">              bandera=true;</span>
+          }else{
+              
+<span class="nc bnc" id="L812" title="All 2 branches missed.">              if(Integer.parseInt(val)&gt;0){</span>
+<span class="nc" id="L813">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L814">                List&lt;Receta&gt; rec = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L815">                List&lt;Ingrediente&gt; cantI = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L816">                rec= (List&lt;Receta&gt;) Recetas.select(Conexion.getDBConexion(), String.format(&quot;select ingrediente_id,cant from recetas where producto_id = %s&quot;,tam_prod.getProducto_id()), Receta.class);</span>
+<span class="nc bnc" id="L817" title="All 2 branches missed.">                for(int up=0;up&lt;rec.size();up++){  </span>
+<span class="nc" id="L818">                Receta cant_rec = (Receta) rec.get(up);</span>
+<span class="nc" id="L819">                System.out.println(&quot;cant_rec = &quot; + cant_rec.getIngrediente_id() + cant_rec.getCant());</span>
+<span class="nc" id="L820">                cantI= (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), String.format(&quot;select cant_disp from ingredientes where ingrediente_id like '%s'&quot;,cant_rec.getIngrediente_id()), Ingrediente.class);</span>
+                
+<span class="nc" id="L822">                Ingrediente cant_ing = (Ingrediente) cantI.get(0);</span>
+<span class="nc" id="L823">                System.out.println(&quot;cant_ing = &quot; + cant_ing.getNombre());</span>
+<span class="nc" id="L824">                float cant_ingrediente = Float.parseFloat(cant_ing.getCant_disp().toString());</span>
+<span class="nc" id="L825">                float cant_receta = Float.parseFloat(cant_rec.getCant().toString());</span>
+<span class="nc" id="L826">                float cant_ingresada = cant;</span>
+<span class="nc bnc" id="L827" title="All 2 branches missed.">                if(cant_ingrediente-(cant_receta*cant_ingresada)&gt;0){</span>
+<span class="nc" id="L828">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L829">                bandera=true; </span>
+                }else{
+<span class="nc" id="L831">                val=null;</span>
+<span class="nc bnc" id="L832" title="All 2 branches missed.">                if(banSal==0){</span>
+<span class="nc" id="L833">                JOptionPane.showMessageDialog(null,&quot;No hay ingredientes suficientes&quot;);</span>
+<span class="nc" id="L834">                bandera=true;</span>
+<span class="nc" id="L835">                banSal++;</span>
+                } 
+                }
+                }  
+<span class="nc" id="L839">                 bandera=true; </span>
+<span class="nc" id="L840">              }else{</span>
+<span class="nc" id="L841">                JOptionPane.showMessageDialog(null,&quot;Catidad no valida&quot;);</span>
+<span class="nc" id="L842">                bandera=false;</span>
+              }
+          }
+          }
+<span class="nc" id="L846">          catch(NumberFormatException e){</span>
+<span class="nc" id="L847">          javax.swing.JOptionPane.showMessageDialog(null,&quot;!!!!&quot;);</span>
+<span class="nc" id="L848">          bandera=false;</span>
+<span class="nc" id="L849">          }</span>
+<span class="nc bnc" id="L850" title="All 2 branches missed.">          }while(!bandera);</span>
+  
+        
+<span class="nc bnc" id="L853" title="All 2 branches missed.">        if(val == null){</span>
+           
+        }else{
+<span class="nc" id="L856">        int fila = tabla.mod.getRowCount();</span>
+<span class="nc" id="L857">        tabla.mod.addRow(new Object[fila]);</span>
+<span class="nc bnc" id="L858" title="All 2 branches missed.">        for(int x = 0;x&lt;this.tabla.mod.getColumnCount()-1;x++){</span>
+<span class="nc" id="L859">            tabla.mod.setValueAt(tam_prod.getProducto_id(),fila,0);</span>
+<span class="nc" id="L860">            tabla.mod.setValueAt(tam_prod.getNombre(),fila,1);</span>
+<span class="nc" id="L861">            tabla.mod.setValueAt(cant,fila,2);</span>
+<span class="nc" id="L862">            tabla.mod.setValueAt(tam_prod.getPrecio(),fila,3);</span>
+<span class="nc" id="L863">            tabla.mod.setValueAt(0,fila,4);</span>
+        }
+        }
+        }
+<span class="nc" id="L867">    }//GEN-LAST:event_btnChocolateBActionPerformed</span>
+
+    private void btnExpressoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpressoActionPerformed
+      
+<span class="nc" id="L871">        int cant = 0;</span>
+<span class="nc" id="L872">        int banSal=0;</span>
+<span class="nc" id="L873">        String val = &quot;&quot;;</span>
+<span class="nc" id="L874">        prod = Productos.productosMostrar(&quot;Expresso&quot;);</span>
+<span class="nc" id="L875">        Producto tam_prod = (Producto) JOptionPane.showInputDialog(frame, </span>
+        &quot;Tamaño&quot;,
+        &quot;Tamaño Producto&quot;,
+        JOptionPane.QUESTION_MESSAGE, 
+        null,
+<span class="nc" id="L880">        prod.toArray(), prod.get(0)); </span>
+        
+<span class="nc bnc" id="L882" title="All 2 branches missed.">        if(tam_prod == null){</span>
+        
+        }else{
+<span class="nc" id="L885">         boolean bandera=false;</span>
+          do{
+          try{
+<span class="nc" id="L888">          val = JOptionPane.showInputDialog(&quot;Cantidad&quot;); </span>
+<span class="nc" id="L889">          System.out.println(&quot;val = &quot; + val);</span>
+<span class="nc bnc" id="L890" title="All 2 branches missed.">          if(val == null){</span>
+<span class="nc" id="L891">              bandera=true;</span>
+          }else{
+              
+<span class="nc bnc" id="L894" title="All 2 branches missed.">              if(Integer.parseInt(val)&gt;0){</span>
+<span class="nc" id="L895">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L896">                List&lt;Receta&gt; rec = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L897">                List&lt;Ingrediente&gt; cantI = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L898">                rec= (List&lt;Receta&gt;) Recetas.select(Conexion.getDBConexion(), String.format(&quot;select ingrediente_id,cant from recetas where producto_id = %s&quot;,tam_prod.getProducto_id()), Receta.class);</span>
+<span class="nc bnc" id="L899" title="All 2 branches missed.">                for(int up=0;up&lt;rec.size();up++){  </span>
+<span class="nc" id="L900">                Receta cant_rec = (Receta) rec.get(up);</span>
+<span class="nc" id="L901">                System.out.println(&quot;cant_rec = &quot; + cant_rec.getIngrediente_id() + cant_rec.getCant());</span>
+<span class="nc" id="L902">                cantI= (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), String.format(&quot;select cant_disp from ingredientes where ingrediente_id like '%s'&quot;,cant_rec.getIngrediente_id()), Ingrediente.class);</span>
+                
+<span class="nc" id="L904">                Ingrediente cant_ing = (Ingrediente) cantI.get(0);</span>
+<span class="nc" id="L905">                System.out.println(&quot;cant_ing = &quot; + cant_ing.getNombre());</span>
+<span class="nc" id="L906">                float cant_ingrediente = Float.parseFloat(cant_ing.getCant_disp().toString());</span>
+<span class="nc" id="L907">                float cant_receta = Float.parseFloat(cant_rec.getCant().toString());</span>
+<span class="nc" id="L908">                float cant_ingresada = cant;</span>
+<span class="nc bnc" id="L909" title="All 2 branches missed.">                if(cant_ingrediente-(cant_receta*cant_ingresada)&gt;0){</span>
+<span class="nc" id="L910">                cant = Integer.parseInt(val);</span>
+<span class="nc" id="L911">                bandera=true; </span>
+                }else{
+<span class="nc" id="L913">                val=null;</span>
+<span class="nc bnc" id="L914" title="All 2 branches missed.">                if(banSal==0){</span>
+<span class="nc" id="L915">                JOptionPane.showMessageDialog(null,&quot;No hay ingredientes suficientes&quot;);</span>
+<span class="nc" id="L916">                bandera=true;</span>
+<span class="nc" id="L917">                banSal++;</span>
+                } 
+                }
+                }  
+<span class="nc" id="L921">                 bandera=true; </span>
+<span class="nc" id="L922">              }else{</span>
+<span class="nc" id="L923">                JOptionPane.showMessageDialog(null,&quot;Catidad no valida&quot;);</span>
+<span class="nc" id="L924">                bandera=false;</span>
+              }
+          }
+          }
+<span class="nc" id="L928">          catch(NumberFormatException e){</span>
+<span class="nc" id="L929">          javax.swing.JOptionPane.showMessageDialog(null,&quot;!!!!&quot;);</span>
+<span class="nc" id="L930">          bandera=false;</span>
+<span class="nc" id="L931">          }</span>
+<span class="nc bnc" id="L932" title="All 2 branches missed.">          }while(!bandera);</span>
+  
+        
+<span class="nc bnc" id="L935" title="All 2 branches missed.">        if(val == null){</span>
+           
+        }else{
+<span class="nc" id="L938">        int fila = tabla.mod.getRowCount();</span>
+<span class="nc" id="L939">        tabla.mod.addRow(new Object[fila]);</span>
+<span class="nc bnc" id="L940" title="All 2 branches missed.">        for(int x = 0;x&lt;this.tabla.mod.getColumnCount()-1;x++){</span>
+<span class="nc" id="L941">            tabla.mod.setValueAt(tam_prod.getProducto_id(),fila,0);</span>
+<span class="nc" id="L942">            tabla.mod.setValueAt(tam_prod.getNombre(),fila,1);</span>
+<span class="nc" id="L943">            tabla.mod.setValueAt(cant,fila,2);</span>
+<span class="nc" id="L944">            tabla.mod.setValueAt(tam_prod.getPrecio(),fila,3);</span>
+<span class="nc" id="L945">            tabla.mod.setValueAt(0,fila,4);</span>
+        }
+        }
+        }
+<span class="nc" id="L949">    }//GEN-LAST:event_btnExpressoActionPerformed</span>
+
+    private void btnBloquearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBloquearActionPerformed
+<span class="nc" id="L952">        int opc = JOptionPane.showConfirmDialog(null,&quot;¿Seguro?&quot;,&quot;Alerta&quot;,JOptionPane.YES_NO_OPTION);</span>
+<span class="nc bnc" id="L953" title="All 2 branches missed.">        if(opc == JOptionPane.YES_OPTION){</span>
+<span class="nc" id="L954">            this.setVisible(false);</span>
+<span class="nc" id="L955">            Inicio i = new Inicio();</span>
+<span class="nc" id="L956">            i.setVisible(true);</span>
+<span class="nc" id="L957">        }</span>
+<span class="nc bnc" id="L958" title="All 2 branches missed.">        else if(opc == JOptionPane.NO_OPTION){</span>
+<span class="nc" id="L959">            JOptionPane.showMessageDialog(null, &quot;Ok&quot;);</span>
+        }
+<span class="nc" id="L961">    }//GEN-LAST:event_btnBloquearActionPerformed</span>
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+<span class="nc bnc" id="L964" title="All 2 branches missed.">        if(this.tabla.mod.getColumnCount()&gt;0){</span>
+<span class="nc" id="L965">            int opc = JOptionPane.showConfirmDialog(null,&quot;Aun hay una venta en proceso\n¿Seguro que quiere salir?&quot;,&quot;Alerta&quot;,JOptionPane.YES_NO_OPTION);</span>
+<span class="nc bnc" id="L966" title="All 2 branches missed.">            if(opc == JOptionPane.YES_OPTION){</span>
+<span class="nc" id="L967">                JOptionPane.showMessageDialog(rootPane, &quot;¡Hasta la proxima!&quot;, &quot;Saliendo&quot;, INFORMATION_MESSAGE);</span>
+<span class="nc" id="L968">                System.exit(0);</span>
+            }
+<span class="nc bnc" id="L970" title="All 2 branches missed.">            else if(opc == JOptionPane.NO_OPTION){</span>
+<span class="nc" id="L971">                JOptionPane.showMessageDialog(null, &quot;Ok&quot;);</span>
+            }
+<span class="nc" id="L973">        }else{</span>
+<span class="nc" id="L974">            int opc = JOptionPane.showConfirmDialog(null,&quot;¿Seguro que quiere salir?&quot;,&quot;Alerta&quot;,JOptionPane.YES_NO_OPTION);</span>
+<span class="nc bnc" id="L975" title="All 2 branches missed.">            if(opc == JOptionPane.YES_OPTION){</span>
+<span class="nc" id="L976">                JOptionPane.showMessageDialog(rootPane, &quot;¡Hasta la proxima!&quot;, &quot;Saliendo&quot;, INFORMATION_MESSAGE);</span>
+<span class="nc" id="L977">                System.exit(0);</span>
+            }
+<span class="nc bnc" id="L979" title="All 2 branches missed.">            else if(opc == JOptionPane.NO_OPTION){</span>
+<span class="nc" id="L980">                JOptionPane.showMessageDialog(null, &quot;Ok&quot;);</span>
+            }
+        }
+<span class="nc" id="L983">    }//GEN-LAST:event_btnSalirActionPerformed</span>
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+<span class="nc bnc" id="L995" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L996" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L997">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L998">                    break;</span>
+                }
+            }
+<span class="nc" id="L1001">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L1002">            java.util.logging.Logger.getLogger(BebidasCalientesAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L1003">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L1004">            java.util.logging.Logger.getLogger(BebidasCalientesAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L1005">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L1006">            java.util.logging.Logger.getLogger(BebidasCalientesAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L1007">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L1008">            java.util.logging.Logger.getLogger(BebidasCalientesAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L1009">        }</span>
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+        //&lt;/editor-fold&gt;
+
+        /* Create and display the form */
+<span class="nc" id="L1016">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+<span class="nc" id="L1018">                new BebidasCalientesAdmin().setVisible(true);</span>
+<span class="nc" id="L1019">            }</span>
+        });
+<span class="nc" id="L1021">    }</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBloquear;
+    private javax.swing.JButton btnCafeAm;
+    private javax.swing.JButton btnCappuccino;
+    private javax.swing.JButton btnChocolate;
+    private javax.swing.JButton btnChocolateB;
+    private javax.swing.JButton btnExpresso;
+    private javax.swing.JButton btnLatte;
+    private javax.swing.JButton btnMoka;
+    private javax.swing.JButton btnMokaBlanco;
+    private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnTe;
+    private javax.swing.JLabel jLabel1;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

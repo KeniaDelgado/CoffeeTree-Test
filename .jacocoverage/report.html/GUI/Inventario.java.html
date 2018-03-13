@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Inventario.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;CoffeeTree&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">GUI</a> &gt; <span class="el_source">Inventario.java</span></div><h1>Inventario.java</h1><pre class="source lang-java linenums">
+package GUI;
+
+import controladores.Ingredientes;
+import datos.Ingrediente;
+import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+import static javax.swing.JOptionPane.WARNING_MESSAGE;
+import javax.swing.table.DefaultTableModel;
+import oraclegeneral.Conexion;
+
+
+public class Inventario extends javax.swing.JFrame {
+<span class="nc" id="L17">    int largo=0;</span>
+    DefaultTableModel cantidades_reg;
+<span class="nc" id="L19">    private List&lt;Ingrediente&gt; cant_disp = new ArrayList&lt;Ingrediente&gt;();</span>
+   
+<span class="nc" id="L21">    public Inventario() {</span>
+<span class="nc" id="L22">            setUndecorated(true);</span>
+<span class="nc" id="L23">            initComponents();</span>
+<span class="nc" id="L24">            this.setSize(488, 352);</span>
+<span class="nc" id="L25">            this.setLocationRelativeTo(null);</span>
+        //Cantidades disponibles de los ingredientes
+        
+<span class="nc" id="L28">        cantidades_reg = (DefaultTableModel)this.tableCant_Disp.getModel();</span>
+<span class="nc" id="L29">        List&lt;Ingredientes&gt; ing= new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L30">        cant_disp = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select * from Ingredientes&quot;, Ingrediente.class);</span>
+<span class="nc" id="L31">        largo = cant_disp.size();</span>
+<span class="nc" id="L32">        int l=0;</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        for(int i=0;i&lt;largo;i++){</span>
+<span class="nc" id="L34">        Ingrediente in = (Ingrediente) cant_disp.get(i);</span>
+<span class="nc" id="L35">            System.out.println(&quot;in.getCant_disp() = &quot; + in.getCant_disp());</span>
+<span class="nc" id="L36">        int fila = cantidades_reg.getRowCount();</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if(Float.parseFloat(in.getCant_disp().toString())&lt;1000){</span>
+<span class="nc" id="L38">        cantidades_reg.addRow(new Object[fila]);</span>
+<span class="nc" id="L39">        cantidades_reg.setValueAt(in.getIngrediente_id(),fila,0);</span>
+<span class="nc" id="L40">        cantidades_reg.setValueAt(in.getNombre(),fila,1);</span>
+<span class="nc" id="L41">        cantidades_reg.setValueAt(in.getCant_disp(),fila,2);</span>
+        }
+        
+        }
+<span class="nc" id="L45">    }</span>
+
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L51">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L52">        tableCant_Disp = new javax.swing.JTable();</span>
+<span class="nc" id="L53">        btnAtras = new javax.swing.JButton();</span>
+<span class="nc" id="L54">        txtCantRes = new javax.swing.JTextField();</span>
+<span class="nc" id="L55">        btnResurtir = new javax.swing.JButton();</span>
+<span class="nc" id="L56">        jLabel2 = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L58">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L59">        getContentPane().setLayout(null);</span>
+
+<span class="nc" id="L61">        tableCant_Disp.setFont(new java.awt.Font(&quot;Arial&quot;, 1, 12)); // NOI18N</span>
+<span class="nc" id="L62">        tableCant_Disp.setModel(new javax.swing.table.DefaultTableModel(</span>
+            new Object [][] {
+
+            },
+            new String [] {
+                &quot;ID&quot;, &quot;Nombre&quot;, &quot;Cant_disp&quot;
+            }
+<span class="nc" id="L69">        ) {</span>
+<span class="nc" id="L70">            Class[] types = new Class [] {</span>
+                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+<span class="nc" id="L75">                return types [columnIndex];</span>
+            }
+        });
+<span class="nc" id="L78">        tableCant_Disp.setRowHeight(25);</span>
+<span class="nc" id="L79">        tableCant_Disp.setSelectionBackground(new java.awt.Color(161, 212, 212));</span>
+<span class="nc" id="L80">        tableCant_Disp.setSelectionForeground(new java.awt.Color(102, 102, 102));</span>
+<span class="nc" id="L81">        tableCant_Disp.setShowVerticalLines(false);</span>
+<span class="nc" id="L82">        tableCant_Disp.getTableHeader().setResizingAllowed(false);</span>
+<span class="nc" id="L83">        tableCant_Disp.getTableHeader().setReorderingAllowed(false);</span>
+<span class="nc" id="L84">        tableCant_Disp.setUpdateSelectionOnSort(false);</span>
+<span class="nc" id="L85">        jScrollPane1.setViewportView(tableCant_Disp);</span>
+
+<span class="nc" id="L87">        getContentPane().add(jScrollPane1);</span>
+<span class="nc" id="L88">        jScrollPane1.setBounds(32, 191, 433, 140);</span>
+
+<span class="nc" id="L90">        btnAtras.setBorderPainted(false);</span>
+<span class="nc" id="L91">        btnAtras.setContentAreaFilled(false);</span>
+<span class="nc" id="L92">        btnAtras.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L94">                btnAtrasActionPerformed(evt);</span>
+<span class="nc" id="L95">            }</span>
+        });
+<span class="nc" id="L97">        getContentPane().add(btnAtras);</span>
+<span class="nc" id="L98">        btnAtras.setBounds(20, 30, 70, 40);</span>
+
+<span class="nc" id="L100">        txtCantRes.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L102">                txtCantResActionPerformed(evt);</span>
+<span class="nc" id="L103">            }</span>
+        });
+<span class="nc" id="L105">        txtCantRes.addKeyListener(new java.awt.event.KeyAdapter() {</span>
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+<span class="nc" id="L107">                txtCantResKeyTyped(evt);</span>
+<span class="nc" id="L108">            }</span>
+        });
+<span class="nc" id="L110">        getContentPane().add(txtCantRes);</span>
+<span class="nc" id="L111">        txtCantRes.setBounds(110, 130, 154, 33);</span>
+
+<span class="nc" id="L113">        btnResurtir.setBorderPainted(false);</span>
+<span class="nc" id="L114">        btnResurtir.setContentAreaFilled(false);</span>
+<span class="nc" id="L115">        btnResurtir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L116">        btnResurtir.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L118">                btnResurtirActionPerformed(evt);</span>
+<span class="nc" id="L119">            }</span>
+        });
+<span class="nc" id="L121">        getContentPane().add(btnResurtir);</span>
+<span class="nc" id="L122">        btnResurtir.setBounds(351, 93, 80, 80);</span>
+
+<span class="nc" id="L124">        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Imagenes/inventario.jpg&quot;))); // NOI18N</span>
+<span class="nc" id="L125">        getContentPane().add(jLabel2);</span>
+<span class="nc" id="L126">        jLabel2.setBounds(0, -10, 490, 380);</span>
+
+<span class="nc" id="L128">        pack();</span>
+<span class="nc" id="L129">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void txtCantResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantResActionPerformed
+        // TODO add your handling code here:
+<span class="nc" id="L133">    }//GEN-LAST:event_txtCantResActionPerformed</span>
+
+    private void txtCantResKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantResKeyTyped
+<span class="nc bnc" id="L136" title="All 4 branches missed.">        if(!Character.isDigit(evt.getKeyChar()) &amp;&amp; !Character.isISOControl(evt.getKeyChar()))</span>
+{
+<span class="nc" id="L138">     Toolkit.getDefaultToolkit().beep();</span>
+<span class="nc" id="L139">     evt.consume();</span>
+ }
+<span class="nc" id="L141">    }//GEN-LAST:event_txtCantResKeyTyped</span>
+
+    private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
+<span class="nc" id="L144">        this.setVisible(false);</span>
+        
+<span class="nc" id="L146">    }//GEN-LAST:event_btnAtrasActionPerformed</span>
+
+    private void btnResurtirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResurtirActionPerformed
+        
+<span class="nc" id="L150">        List&lt;Ingrediente&gt; ing_r = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L151">        int cont=0;</span>
+<span class="nc" id="L152">        float cant_r = 0;</span>
+<span class="nc" id="L153">        int slc_row = 0;</span>
+<span class="nc" id="L154">        String ide = &quot;&quot;;</span>
+        try{
+<span class="nc" id="L156">        cant_r = Float.parseFloat(txtCantRes.getText());</span>
+<span class="nc" id="L157">        }catch(Exception E){</span>
+<span class="nc" id="L158">            JOptionPane.showMessageDialog(rootPane, &quot;No hay cantidad ingresada&quot;, &quot;Advertencia&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L159">        }</span>
+<span class="nc" id="L160">        int opc = JOptionPane.showConfirmDialog(null,&quot;¿Seguro?&quot;,&quot;Alerta&quot;,JOptionPane.YES_NO_OPTION);</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">        if(opc == JOptionPane.YES_OPTION){</span>
+        try{
+<span class="nc" id="L163">        slc_row = tableCant_Disp.getSelectedRow();</span>
+<span class="nc" id="L164">        ide = tableCant_Disp.getValueAt(slc_row, 0).toString();</span>
+        try{
+<span class="nc" id="L166">            System.out.println(&quot;slc_row = &quot; + slc_row);</span>
+<span class="nc" id="L167">        ing_r = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select cant_disp from ingredientes where ingrediente_id = &quot; + ide, Ingrediente.class);</span>
+<span class="nc" id="L168">        Ingrediente i = (Ingrediente) ing_r.get(0);</span>
+<span class="nc" id="L169">        float sugerencia = 20000 - i.getCant_disp().floatValue();</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">        if(cant_r+(Float.parseFloat(i.getCant_disp().toString()))&gt;20000){</span>
+<span class="nc" id="L171">            JOptionPane.showMessageDialog(rootPane, &quot;Maximo se puede tener 20000 unidades por producto!\n&quot;</span>
+                                                    +&quot;Ingrese un cantidad menor o igual a : &quot; + sugerencia);
+        }else{
+<span class="nc" id="L174">          Ingredientes.executeQuery(Conexion.getDBConexion(), String.format(&quot;update ingredientes set cant_disp=cant_disp+%s,fecha_ped=(select to_date(sysdate,'dd/mm/yyyy')from dual) where ingrediente_id = &quot; + ide,cant_r));</span>
+          }
+         
+<span class="nc" id="L177">        cantidades_reg = (DefaultTableModel)this.tableCant_Disp.getModel();</span>
+<span class="nc" id="L178">        int fil = cantidades_reg.getRowCount();</span>
+<span class="nc bnc" id="L179" title="All 2 branches missed.">        for(int r = 0; r&lt;fil;r++){</span>
+<span class="nc" id="L180">            cantidades_reg.removeRow(0);</span>
+            }
+<span class="nc" id="L182">        List&lt;Ingredientes&gt; ing= new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L183">        cant_disp = (List&lt;Ingrediente&gt;) Ingredientes.select(Conexion.getDBConexion(), &quot;select * from Ingredientes&quot;, Ingrediente.class);;</span>
+<span class="nc" id="L184">        largo = cant_disp.size();</span>
+<span class="nc" id="L185">        int l=0;</span>
+<span class="nc" id="L186">        String[] array = new String[100]; </span>
+<span class="nc bnc" id="L187" title="All 2 branches missed.">        for(int z=0;z&lt;largo;z++){</span>
+<span class="nc" id="L188">        Ingrediente in = (Ingrediente) cant_disp.get(z);</span>
+<span class="nc" id="L189">        int fila = cantidades_reg.getRowCount();</span>
+<span class="nc bnc" id="L190" title="All 2 branches missed.">        if(Float.parseFloat(in.getCant_disp().toString())&lt;1000){</span>
+<span class="nc" id="L191">        cantidades_reg.addRow(new Object[fila]);</span>
+<span class="nc" id="L192">        cantidades_reg.setValueAt(in.getIngrediente_id(),fila,0);</span>
+<span class="nc" id="L193">        cantidades_reg.setValueAt(in.getNombre(),fila,1);</span>
+<span class="nc" id="L194">        cantidades_reg.setValueAt(in.getCant_disp(),fila,2);</span>
+<span class="nc" id="L195">        cont++;</span>
+        }
+        }
+<span class="nc bnc" id="L198" title="All 2 branches missed.">        if(cont==0){</span>
+<span class="nc" id="L199">            JOptionPane.showMessageDialog(rootPane, &quot;Todo resurtido&quot;, &quot;Woah&quot;, INFORMATION_MESSAGE);</span>
+        }
+<span class="nc" id="L201">        }catch(Exception E){</span>
+<span class="nc" id="L202">            JOptionPane.showMessageDialog(rootPane, &quot;Hubo error en la base de datos&quot;, &quot;Advertencia&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L203">        }</span>
+<span class="nc" id="L204">        }catch(Exception E){</span>
+<span class="nc" id="L205">            JOptionPane.showMessageDialog(rootPane, &quot;Nada seleccionado&quot;, &quot;Advertencia&quot;, WARNING_MESSAGE);</span>
+<span class="nc" id="L206">        }</span>
+        }else{
+<span class="nc" id="L208">          JOptionPane.showMessageDialog(rootPane, &quot;Ok&quot;, &quot;:D&quot;, INFORMATION_MESSAGE);</span>
+        }
+          
+        
+<span class="nc" id="L212">    }//GEN-LAST:event_btnResurtirActionPerformed</span>
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+<span class="nc bnc" id="L224" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L225" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L226">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L227">                    break;</span>
+                }
+            }
+<span class="nc" id="L230">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L231">            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L232">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L233">            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L234">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L235">            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L236">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L237">            java.util.logging.Logger.getLogger(Inventario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L238">        }</span>
+        //&lt;/editor-fold&gt;
+
+        /* Create and display the form */
+<span class="nc" id="L242">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+            public void run() {
+<span class="nc" id="L244">                new Inventario().setVisible(true);</span>
+<span class="nc" id="L245">            }</span>
+        });
+<span class="nc" id="L247">    }</span>
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnResurtir;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tableCant_Disp;
+    private javax.swing.JTextField txtCantRes;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
